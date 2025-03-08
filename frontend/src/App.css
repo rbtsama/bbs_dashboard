@@ -1,0 +1,46 @@
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.ranking-table {
+  margin-bottom: 24px;
+}
+
+.data-trend-card {
+  margin-bottom: 24px;
+}
+
+.dashboard-header {
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  margin-bottom: 8px;
+}
+
+.dashboard-header .ant-statistic {
+  margin-right: 32px;
+}
+
+.new-posts-table {
+  margin-top: 24px;
+}
+
+.followed-threads {
+  margin-top: 16px;
+} 
