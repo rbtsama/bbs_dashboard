@@ -1,9 +1,0 @@
-{
-  "short_name": "论坛数据看板",
-  "name": "论坛数据分析展示系统",
-  "icons": [],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-} 
