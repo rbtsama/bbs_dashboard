@@ -1,7 +1,18 @@
 import sqlite3
+import os
 
 def check_data():
-    conn = sqlite3.connect('database.db')
+    # 使用正确的数据库路径
+    db_path = os.path.join('db', 'forum_data.db')
+    
+    # 检查数据库文件是否存在
+    if not os.path.exists(db_path):
+        print(f"数据库文件不存在: {db_path}")
+        return
+    
+    print(f"数据库文件存在: {db_path}")
+    
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
     # 检查updatestatistics表中的不同时间点数量

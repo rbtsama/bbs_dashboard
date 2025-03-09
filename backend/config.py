@@ -1,7 +1,7 @@
 import os
 
 # 数据库配置
-DATABASE_PATH = 'data/bbs_data.db'
+DATABASE_PATH = os.path.join('db', 'forum_data.db')
 
 # API配置
 API_PREFIX = '/api'

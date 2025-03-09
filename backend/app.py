@@ -3,7 +3,7 @@ from flask_cors import CORS
 import sqlite3
 import pandas as pd
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import json
 from config import DATABASE_PATH, API_PREFIX, DEBUG, HOST, PORT, LIST_FILE, POST_FILE
 import jieba
@@ -11,12 +11,25 @@ from collections import Counter
 import math
 import random
 import colorsys
+import threading
+import time
+import schedule
 
 app = Flask(__name__)
 CORS(app)  # 启用CORS以允许前端访问
 
 # 缓存
-_word_cloud_cache = {'data': None, 'date': None}
+_word_cloud_cache = {'data': None, 'date': None, 'version': 1}
+
+# 词云缓存版本号 - 当算法或数据结构变化时递增此值
+WORDCLOUD_VERSION = 1
+
+# 词云缓存保留天数
+WORDCLOUD_CACHE_DAYS = 7
+
+# 定时任务线程
+scheduler_thread = None
+scheduler_running = False
 
 def get_db_connection():
     """获取数据库连接"""
@@ -1219,15 +1232,49 @@ def test_posts():
         conn.close()
         return jsonify({"error": str(e)}), 500
 
-# 获取标题词云数据
-@app.route('/api/title-wordcloud', methods=['GET'])
-def title_wordcloud():
-    """获取所有标题的词云数据"""
-    # 检查缓存是否存在且是今天的数据
-    today = datetime.date.today()
-    if _word_cloud_cache['data'] is not None and _word_cloud_cache['date'] == today:
-        return jsonify(_word_cloud_cache['data'])
-    
+# 初始化词云缓存表
+def init_wordcloud_cache():
+    """初始化词云缓存表"""
+    conn = get_db_connection()
+    try:
+        cursor = conn.cursor()
+        # 检查表是否存在
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='wordcloud_cache'")
+        table_exists = cursor.fetchone()
+        
+        if not table_exists:
+            # 创建词云缓存表
+            cursor.execute('''
+            CREATE TABLE wordcloud_cache (
+                id INTEGER PRIMARY KEY,
+                data TEXT,
+                created_date TEXT,
+                version INTEGER,
+                expire_date TEXT
+            )
+            ''')
+            conn.commit()
+        else:
+            # 检查是否需要更新表结构
+            cursor.execute("PRAGMA table_info(wordcloud_cache)")
+            columns = [column[1] for column in cursor.fetchall()]
+            
+            # 如果缺少version列，添加它
+            if 'version' not in columns:
+                cursor.execute("ALTER TABLE wordcloud_cache ADD COLUMN version INTEGER DEFAULT 1")
+            
+            # 如果缺少expire_date列，添加它
+            if 'expire_date' not in columns:
+                cursor.execute("ALTER TABLE wordcloud_cache ADD COLUMN expire_date TEXT")
+            
+            conn.commit()
+    finally:
+        conn.close()
+
+# 生成词云数据
+def generate_wordcloud():
+    """生成词云数据并缓存到数据库"""
+    print(f"[{datetime.now()}] 开始生成词云数据...")
     conn = get_db_connection()
     try:
         # 从list表获取所有标题
@@ -1255,7 +1302,8 @@ def title_wordcloud():
                          if len(word) > 1 and word not in stop_words}
         
         if not filtered_words:
-            return jsonify([])
+            print("没有找到有效的词语")
+            return None
         
         # 计算词云数据
         max_count = max(filtered_words.values())
@@ -1443,19 +1491,128 @@ def title_wordcloud():
                     
                     spiral_step += 1
         
-        # 更新缓存
+        # 保存到数据库
+        today = datetime.now().strftime('%Y-%m-%d')
+        expire_date = (datetime.now() + timedelta(days=WORDCLOUD_CACHE_DAYS)).strftime('%Y-%m-%d')
+        
+        cursor = conn.cursor()
+        # 删除当天的旧缓存
+        cursor.execute("DELETE FROM wordcloud_cache WHERE created_date = ?", (today,))
+        # 插入新缓存
+        cursor.execute(
+            "INSERT INTO wordcloud_cache (data, created_date, version, expire_date) VALUES (?, ?, ?, ?)", 
+            (json.dumps(word_cloud_data), today, WORDCLOUD_VERSION, expire_date)
+        )
+        # 清理过期缓存
+        cursor.execute("DELETE FROM wordcloud_cache WHERE expire_date < ?", (today,))
+        conn.commit()
+        
+        # 更新内存缓存
         _word_cloud_cache['data'] = word_cloud_data
         _word_cloud_cache['date'] = today
+        _word_cloud_cache['version'] = WORDCLOUD_VERSION
+        
+        print(f"[{datetime.now()}] 词云数据生成完成，共{len(word_cloud_data)}个词")
+        return word_cloud_data
+    except Exception as e:
+        print(f"[{datetime.now()}] 生成词云数据出错: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return None
+    finally:
+        conn.close()
+
+# 获取标题词云数据
+@app.route('/api/title-wordcloud', methods=['GET'])
+def title_wordcloud():
+    """获取所有标题的词云数据"""
+    # 检查是否请求强制刷新
+    force_refresh = request.args.get('refresh', '0') == '1'
+    
+    conn = get_db_connection()
+    try:
+        # 确保词云缓存表存在
+        init_wordcloud_cache()
+        
+        if not force_refresh:
+            # 检查是否有今天的缓存数据
+            today = datetime.now().strftime('%Y-%m-%d')
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT data FROM wordcloud_cache WHERE created_date = ? AND version = ?", 
+                (today, WORDCLOUD_VERSION)
+            )
+            cached_data = cursor.fetchone()
+            
+            if cached_data:
+                # 如果有缓存数据，直接返回
+                return jsonify(json.loads(cached_data[0]))
+        
+        # 如果没有缓存或强制刷新，生成新的词云数据
+        word_cloud_data = generate_wordcloud()
+        
+        if word_cloud_data is None:
+            # 如果生成失败，尝试返回最近的缓存
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT data FROM wordcloud_cache WHERE version = ? ORDER BY created_date DESC LIMIT 1", 
+                (WORDCLOUD_VERSION,)
+            )
+            latest_cache = cursor.fetchone()
+            
+            if latest_cache:
+                return jsonify(json.loads(latest_cache[0]))
+            else:
+                return jsonify([])
         
         return jsonify(word_cloud_data)
         
     except Exception as e:
-        print(f"生成词云数据出错: {str(e)}")
+        print(f"获取词云数据出错: {str(e)}")
         import traceback
         traceback.print_exc()
         return jsonify([])
     finally:
         conn.close()
+
+# 手动刷新词云缓存
+@app.route('/api/refresh-wordcloud', methods=['POST'])
+def refresh_wordcloud():
+    """手动刷新词云缓存"""
+    try:
+        word_cloud_data = generate_wordcloud()
+        if word_cloud_data is not None:
+            return jsonify({"success": True, "message": "词云数据已刷新", "count": len(word_cloud_data)})
+        else:
+            return jsonify({"success": False, "message": "刷新词云数据失败，请查看服务器日志"})
+    except Exception as e:
+        return jsonify({"success": False, "message": f"刷新词云数据出错: {str(e)}"})
+
+# 定时任务函数
+def run_scheduler():
+    """运行定时任务"""
+    global scheduler_running
+    
+    # 设置每天凌晨2点生成词云数据
+    schedule.every().day.at("02:00").do(generate_wordcloud)
+    
+    print(f"[{datetime.now()}] 定时任务已启动，将在每天02:00生成词云数据")
+    
+    while scheduler_running:
+        schedule.run_pending()
+        time.sleep(60)  # 每分钟检查一次
+
+# 启动定时任务
+def start_scheduler():
+    """启动定时任务线程"""
+    global scheduler_thread, scheduler_running
+    
+    if scheduler_thread is None or not scheduler_thread.is_alive():
+        scheduler_running = True
+        scheduler_thread = threading.Thread(target=run_scheduler)
+        scheduler_thread.daemon = True  # 设为守护线程，主线程结束时自动结束
+        scheduler_thread.start()
+        print(f"[{datetime.now()}] 词云数据定时生成任务已启动")
 
 if __name__ == '__main__':
     # 确保数据库目录存在
@@ -1463,5 +1620,11 @@ if __name__ == '__main__':
     
     # 初始化数据库
     init_db()
+    
+    # 初始化词云缓存表
+    init_wordcloud_cache()
+    
+    # 启动定时任务
+    start_scheduler()
     
     app.run(debug=DEBUG, host=HOST, port=PORT) 
