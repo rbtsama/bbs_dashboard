@@ -1,57 +1,49 @@
 import sqlite3
 from pathlib import Path
 
-# 设置路径
+# 设置数据库路径
 BASE_DIR = Path(__file__).parent.parent
 DB_PATH = BASE_DIR / 'backend' / 'db' / 'forum_data.db'
 
-def main():
-    """检查数据库中的表和记录数"""
-    print(f"连接到数据库: {DB_PATH}")
+def check_db_structure():
+    """检查数据库结构"""
+    print(f"连接数据库: {DB_PATH}")
     conn = sqlite3.connect(str(DB_PATH))
     cursor = conn.cursor()
     
-    # 获取所有表和视图
-    cursor.execute("SELECT name, type FROM sqlite_master WHERE type='table' OR type='view'")
-    objects = cursor.fetchall()
+    # 获取所有表名
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    tables = cursor.fetchall()
     
-    # 打印表和视图
-    print("\n数据库对象:")
-    for name, type in objects:
-        print(f"- {name} ({type})")
-    
-    # 打印每个表/视图的记录数
-    print("\n记录数:")
-    for name, type in objects:
-        try:
-            cursor.execute(f"SELECT COUNT(*) FROM {name}")
-            count = cursor.fetchone()[0]
-            print(f"- {name}: {count}行")
-        except sqlite3.OperationalError as e:
-            print(f"- {name}: 无法获取记录数 ({e})")
-    
-    # 检查日期时间格式
-    print("\n日期时间列示例:")
-    for name, type in objects:
-        if type == 'table':
-            # 获取表的列信息
-            cursor.execute(f"PRAGMA table_info({name})")
-            columns = cursor.fetchall()
+    print("数据库中的表:")
+    for table in tables:
+        print(f"- {table[0]}")
+        
+        # 获取表结构
+        cursor.execute(f"PRAGMA table_info({table[0]})")
+        columns = cursor.fetchall()
+        
+        print("  列名:")
+        for col in columns:
+            print(f"    - {col[1]} ({col[2]})")
             
-            # 查找日期时间列
-            datetime_columns = [col[1] for col in columns if 'time' in col[1].lower() or 'date' in col[1].lower()]
-            
-            if datetime_columns:
-                print(f"\n表 {name} 的日期时间列:")
-                for col in datetime_columns:
-                    try:
-                        cursor.execute(f"SELECT {col} FROM {name} LIMIT 1")
-                        value = cursor.fetchone()[0]
-                        print(f"- {col}: {value}")
-                    except:
-                        print(f"- {col}: 无法获取值")
+        # 获取表中的记录数
+        cursor.execute(f"SELECT COUNT(*) FROM {table[0]}")
+        count = cursor.fetchone()[0]
+        print(f"  记录数: {count}")
+        
+        # 获取前几行数据示例
+        cursor.execute(f"SELECT * FROM {table[0]} LIMIT 3")
+        rows = cursor.fetchall()
+        
+        if rows:
+            print("  数据示例:")
+            for row in rows:
+                print(f"    {row}")
+        
+        print()
     
     conn.close()
 
 if __name__ == "__main__":
-    main() 
+    check_db_structure() 

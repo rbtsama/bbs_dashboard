@@ -143,4 +143,42 @@ export const fetchUserActivity = async () => {
     console.error('获取用户活跃度排行失败:', error);
     throw error;
   }
+};
+
+// 获取关注列表
+export const fetchThreadFollows = async (type = 'my_follow') => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/thread-follows`, {
+      params: { type }
+    });
+    return response.data;
+  } catch (error) {
+    console.error('获取关注列表失败:', error);
+    throw error;
+  }
+};
+
+// 添加关注
+export const addThreadFollow = async (threadId, followType) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/thread-follows`, {
+      thread_id: threadId,
+      follow_type: followType
+    });
+    return response.data;
+  } catch (error) {
+    console.error('添加关注失败:', error);
+    throw error;
+  }
+};
+
+// 取消关注
+export const deleteThreadFollow = async (threadId) => {
+  try {
+    const response = await axios.delete(`${API_BASE_URL}/thread-follows/${threadId}`);
+    return response.data;
+  } catch (error) {
+    console.error('取消关注失败:', error);
+    throw error;
+  }
 }; 

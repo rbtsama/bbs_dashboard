@@ -40,9 +40,6 @@ def get_db_connection():
 # 初始化数据库
 def init_db():
     """初始化数据库"""
-    if os.path.exists(DATABASE_PATH):
-        return
-    
     conn = get_db_connection()
     
     # 创建帖子表
@@ -71,32 +68,43 @@ def init_db():
     )
     ''')
     
-    # 创建统计表
+    # 删除旧的关注表（如果存在）
+    conn.execute('DROP TABLE IF EXISTS thread_follows')
+    
+    # 创建新的关注表，使用 url 作为唯一标识
     conn.execute('''
-    CREATE TABLE IF NOT EXISTS poststatistics (
-        datetime TEXT,
-        count INTEGER,
-        type TEXT,
-        PRIMARY KEY (datetime, type)
+    CREATE TABLE IF NOT EXISTS thread_follows (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        url TEXT NOT NULL,
+        follow_type TEXT NOT NULL CHECK(follow_type IN ('my_follow', 'my_thread')),
+        title TEXT,
+        author TEXT,
+        author_link TEXT,
+        read_count INTEGER DEFAULT 0,
+        reply_count INTEGER DEFAULT 0,
+        repost_count INTEGER DEFAULT 0,
+        delete_count INTEGER DEFAULT 0,
+        days_old INTEGER DEFAULT 0,
+        last_active INTEGER DEFAULT 0,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE(url, follow_type)
     )
     ''')
     
+    # 创建关注帖子的异动记录表
     conn.execute('''
-    CREATE TABLE IF NOT EXISTS updatestatistics (
-        datetime TEXT,
-        count INTEGER,
-        type TEXT,
-        PRIMARY KEY (datetime, type)
-    )
-    ''')
-    
-    conn.execute('''
-    CREATE TABLE IF NOT EXISTS viewstatistics (
-        datetime TEXT,
-        count INTEGER,
-        view_gap INTEGER,
-        type TEXT,
-        PRIMARY KEY (datetime, type)
+    CREATE TABLE IF NOT EXISTS follow_history (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        url TEXT NOT NULL,
+        title TEXT,
+        author TEXT,
+        scraping_time TEXT,
+        read_count INTEGER,
+        reply_count INTEGER,
+        last_reply_time TEXT,
+        update_reason TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (url) REFERENCES thread_follows(url) ON DELETE CASCADE
     )
     ''')
     
@@ -471,7 +479,10 @@ def thread_ranking():
             FROM list
             WHERE read_count IS NOT NULL
         )
-        SELECT p.*, COALESCE(lr.read_count, 0) as read_count
+        SELECT 
+            p.*,
+            p.url as thread_id,  -- 使用 url 作为 thread_id
+            COALESCE(lr.read_count, 0) as read_count
         FROM postranking p
         LEFT JOIN latest_reads lr ON p.url = lr.url AND lr.rn = 1
         ORDER BY {db_sort_field} {sort_order}, p.repost_count DESC
@@ -483,6 +494,12 @@ def thread_ranking():
         # 获取总记录数
         count_query = 'SELECT COUNT(*) as total FROM postranking'
         total_count = conn.execute(count_query).fetchone()['total']
+        
+        # 打印一些调试信息
+        print(f"查询到 {len(result)} 条记录")
+        if result:
+            first_record = dict(result[0])
+            print(f"第一条记录示例: {first_record}")
         
         return jsonify({
             'data': [dict(row) for row in result],
@@ -569,20 +586,227 @@ def user_ranking():
     finally:
         conn.close()
 
-# 获取帖子历史
-@app.route('/api/thread-history/<thread_id>', methods=['GET'])
-def thread_history(thread_id):
+# 创建异动日志缓存表
+def init_thread_history_cache():
+    """初始化异动日志缓存表"""
     conn = get_db_connection()
+    try:
+        cursor = conn.cursor()
+        # 创建异动日志缓存表
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS thread_history_cache (
+            url TEXT PRIMARY KEY,
+            history_data TEXT,
+            last_update TEXT,
+            update_count INTEGER DEFAULT 0,
+            repost_count INTEGER DEFAULT 0,
+            reply_count INTEGER DEFAULT 0,
+            delete_count INTEGER DEFAULT 0
+        )
+        ''')
+        conn.commit()
+    finally:
+        conn.close()
+
+# 计算所有帖子的异动日志
+def calculate_all_thread_history():
+    """计算并缓存所有帖子的异动日志"""
+    print(f"[{datetime.now()}] 开始计算所有帖子的异动日志...")
+    conn = get_db_connection()
+    try:
+        # 获取所有不同的帖子URL
+        urls = conn.execute('''
+        SELECT DISTINCT url 
+        FROM thread_history
+        ''').fetchall()
+        
+        total_urls = len(urls)
+        print(f"找到 {total_urls} 个帖子需要处理")
+        
+        for index, row in enumerate(urls, 1):
+            url = row['url']
+            try:
+                # 获取该帖子的所有异动记录
+                history_records = conn.execute('''
+                SELECT 
+                    id,
+                    url,
+                    title,
+                    author,
+                    scraping_time,
+                    read_count,
+                    reply_count,
+                    last_reply_time,
+                    update_reason
+                FROM thread_history 
+                WHERE url = ?
+                ORDER BY scraping_time DESC
+                ''', (url,)).fetchall()
+                
+                if not history_records:
+                    continue
+                
+                # 计算各类型更新的次数
+                update_count = len(history_records)
+                repost_count = sum(1 for r in history_records if r['update_reason'] == '重发')
+                reply_count = sum(1 for r in history_records if r['update_reason'] == '回帖')
+                delete_count = sum(1 for r in history_records if r['update_reason'] == '删回帖')
+                
+                # 格式化历史记录
+                formatted_history = []
+                for record in history_records:
+                    history_item = dict(record)
+                    # 格式化时间
+                    if history_item['scraping_time']:
+                        try:
+                            dt = datetime.strptime(history_item['scraping_time'], '%Y-%m-%d %H:%M:%S')
+                            history_item['scraping_time'] = dt.strftime('%Y/%m/%d %H:%M:%S')
+                        except Exception:
+                            history_item['scraping_time'] = "未知"
+                    
+                    if history_item['last_reply_time']:
+                        try:
+                            dt = datetime.strptime(history_item['last_reply_time'], '%Y-%m-%d %H:%M:%S')
+                            history_item['last_reply_time'] = dt.strftime('%Y/%m/%d %H:%M:%S')
+                        except Exception:
+                            history_item['last_reply_time'] = "未知"
+                    
+                    formatted_history.append(history_item)
+                
+                # 更新缓存
+                conn.execute('''
+                INSERT OR REPLACE INTO thread_history_cache 
+                (url, history_data, last_update, update_count, repost_count, reply_count, delete_count)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                ''', (
+                    url,
+                    json.dumps(formatted_history),
+                    datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    update_count,
+                    repost_count,
+                    reply_count,
+                    delete_count
+                ))
+                
+                if index % 100 == 0:  # 每处理100个帖子提交一次事务
+                    conn.commit()
+                    print(f"已处理 {index}/{total_urls} 个帖子")
+            
+            except Exception as e:
+                print(f"处理帖子 {url} 时出错: {str(e)}")
+                continue
+        
+        conn.commit()
+        print(f"[{datetime.now()}] 异动日志计算完成，共处理 {total_urls} 个帖子")
     
-    history = conn.execute('''
-    SELECT * FROM thread_history
-    WHERE thread_id = ?
-    ORDER BY scraping_time DESC
-    ''', (thread_id,)).fetchall()
-    
-    conn.close()
-    
-    return jsonify([dict(record) for record in history])
+    except Exception as e:
+        print(f"[{datetime.now()}] 计算异动日志时出错: {str(e)}")
+        import traceback
+        traceback.print_exc()
+    finally:
+        conn.close()
+
+# 修改获取帖子历史的函数，优先使用缓存
+@app.route('/api/thread-history', methods=['GET'])
+@app.route('/api/thread-history/<path:thread_id>', methods=['GET'])
+def get_thread_history(thread_id=None):
+    """获取帖子的异动日志"""
+    conn = None
+    try:
+        # 从查询参数或路径参数获取thread_id
+        if not thread_id:
+            thread_id = request.args.get('thread_id')
+        if not thread_id:
+            return jsonify({"error": "缺少thread_id参数"}), 400
+            
+        conn = get_db_connection()
+        print(f"正在查询帖子异动日志，thread_id: {thread_id}")
+        
+        # 先从缓存中查询
+        cache_result = conn.execute('''
+        SELECT history_data, last_update 
+        FROM thread_history_cache 
+        WHERE url = ?
+        ''', (thread_id,)).fetchone()
+        
+        if cache_result and cache_result['history_data']:
+            history = json.loads(cache_result['history_data'])
+            print(f"从缓存中获取到 {len(history)} 条异动记录")
+            return jsonify(history)
+        
+        # 如果缓存中没有，则从原始表中查询
+        query = '''
+        SELECT 
+            id,
+            url,
+            title,
+            author,
+            scraping_time,
+            read_count,
+            reply_count,
+            last_reply_time,
+            update_reason
+        FROM thread_history 
+        WHERE url = ?
+        ORDER BY scraping_time DESC
+        '''
+        
+        result = conn.execute(query, (thread_id,)).fetchall()
+        print(f"从原始表中查询到 {len(result)} 条异动记录")
+        
+        # 转换结果为列表
+        history = []
+        for row in result:
+            history_item = dict(row)
+            # 格式化时间
+            if history_item['scraping_time']:
+                try:
+                    dt = datetime.strptime(history_item['scraping_time'], '%Y-%m-%d %H:%M:%S')
+                    history_item['scraping_time'] = dt.strftime('%Y/%m/%d %H:%M:%S')
+                except Exception as e:
+                    print(f"时间格式化错误 (scraping_time): {str(e)}")
+                    history_item['scraping_time'] = "未知"
+            
+            if history_item['last_reply_time']:
+                try:
+                    dt = datetime.strptime(history_item['last_reply_time'], '%Y-%m-%d %H:%M:%S')
+                    history_item['last_reply_time'] = dt.strftime('%Y/%m/%d %H:%M:%S')
+                except Exception as e:
+                    print(f"时间格式化错误 (last_reply_time): {str(e)}")
+                    history_item['last_reply_time'] = "未知"
+            
+            history.append(history_item)
+        
+        if not history:
+            print("未找到异动记录")
+            return jsonify([])
+        
+        # 将查询结果存入缓存
+        conn.execute('''
+        INSERT OR REPLACE INTO thread_history_cache 
+        (url, history_data, last_update, update_count, repost_count, reply_count, delete_count)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            thread_id,
+            json.dumps(history),
+            datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            len(history),
+            sum(1 for h in history if h['update_reason'] == '重发'),
+            sum(1 for h in history if h['update_reason'] == '回帖'),
+            sum(1 for h in history if h['update_reason'] == '删回帖')
+        ))
+        conn.commit()
+        
+        return jsonify(history)
+        
+    except Exception as e:
+        print(f"获取帖子异动日志出错: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": f"获取帖子异动日志失败: {str(e)}"}), 500
+    finally:
+        if conn:
+            conn.close()
 
 # 获取数据趋势
 @app.route('/api/data-trends', methods=['GET'])
@@ -1293,8 +1517,8 @@ def generate_wordcloud():
         # 过滤掉停用词和单字词
         stop_words = {'的', '了', '和', '是', '就', '都', '而', '及', '与', '着',
                      '或', '一个', '没有', '我们', '你们', '他们', '它们', '这个',
-                     '那个', '这些', '那些', '自己', '什么', '这样', '那样', '怎样',
-                     '如此', '只是', '但是', '不过', '然后', '可以', '这', '那', '了',
+                     '那个', '这些', '那些', '自己', '什么', '这样', '那样',
+                     '怎样', '如此', '只是', '但是', '不过', '然后', '可以', '这', '那', '了',
                      '啊', '哦', '呢', '吗', '嗯', '哈', '把', '让', '在', '中', '有',
                      '为', '以', '到', '从', '被', '对', '能', '会', '要'}
         
@@ -1588,15 +1812,102 @@ def refresh_wordcloud():
     except Exception as e:
         return jsonify({"success": False, "message": f"刷新词云数据出错: {str(e)}"})
 
-# 定时任务函数
+# 更新关注帖子的异动记录
+def update_follow_history():
+    """更新所有关注帖子的异动记录"""
+    print(f"[{datetime.now()}] 开始更新关注帖子的异动记录...")
+    conn = get_db_connection()
+    try:
+        # 获取所有关注的帖子
+        follows = conn.execute('SELECT DISTINCT url FROM thread_follows').fetchall()
+        
+        for follow in follows:
+            url = follow['url']
+            try:
+                # 获取最新的异动记录时间
+                latest_history = conn.execute('''
+                SELECT MAX(scraping_time) as last_time 
+                FROM follow_history 
+                WHERE url = ?
+                ''', (url,)).fetchone()
+                
+                last_time = latest_history['last_time'] if latest_history else None
+                
+                # 查询新的异动记录
+                query = '''
+                SELECT * FROM thread_history 
+                WHERE url = ?
+                '''
+                params = [url]
+                
+                if last_time:
+                    query += ' AND scraping_time > ?'
+                    params.append(last_time)
+                
+                query += ' ORDER BY scraping_time DESC'
+                
+                new_records = conn.execute(query, params).fetchall()
+                
+                # 添加新的异动记录
+                for record in new_records:
+                    conn.execute('''
+                    INSERT INTO follow_history 
+                    (url, title, author, scraping_time, read_count, reply_count, 
+                     last_reply_time, update_reason)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (
+                        url,
+                        record['title'],
+                        record['author'],
+                        record['scraping_time'],
+                        record['read_count'],
+                        record['reply_count'],
+                        record['last_reply_time'],
+                        record['update_reason']
+                    ))
+                
+                # 更新帖子信息
+                if new_records:
+                    latest = new_records[0]
+                    conn.execute('''
+                    UPDATE thread_follows 
+                    SET title = ?, author = ?, read_count = ?, reply_count = ?
+                    WHERE url = ?
+                    ''', (
+                        latest['title'],
+                        latest['author'],
+                        latest['read_count'],
+                        latest['reply_count'],
+                        url
+                    ))
+                
+                conn.commit()
+                print(f"[{datetime.now()}] 已更新帖子 {url} 的异动记录，新增 {len(new_records)} 条记录")
+                
+            except Exception as e:
+                print(f"[{datetime.now()}] 更新帖子 {url} 的异动记录失败: {str(e)}")
+                continue
+        
+    except Exception as e:
+        print(f"[{datetime.now()}] 更新关注帖子的异动记录出错: {str(e)}")
+        import traceback
+        traceback.print_exc()
+    finally:
+        conn.close()
+
+# 在定时任务函数中添加更新关注帖子的异动记录
 def run_scheduler():
     """运行定时任务"""
     global scheduler_running
     
     # 设置每天凌晨2点生成词云数据
     schedule.every().day.at("02:00").do(generate_wordcloud)
+    # 每小时更新一次关注帖子的异动记录
+    schedule.every(1).hours.do(update_follow_history)
     
-    print(f"[{datetime.now()}] 定时任务已启动，将在每天02:00生成词云数据")
+    print(f"[{datetime.now()}] 定时任务已启动")
+    print("- 每天02:00生成词云数据")
+    print("- 每小时更新关注帖子的异动记录")
     
     while scheduler_running:
         schedule.run_pending()
@@ -1614,6 +1925,285 @@ def start_scheduler():
         scheduler_thread.start()
         print(f"[{datetime.now()}] 词云数据定时生成任务已启动")
 
+# 获取关注列表
+@app.route('/api/thread-follows', methods=['GET'])
+def get_thread_follows():
+    """获取关注列表"""
+    conn = None
+    try:
+        follow_type = request.args.get('type', 'my_follow')
+        page = request.args.get('page', 1, type=int)
+        limit = request.args.get('limit', 10, type=int)
+        offset = (page - 1) * limit
+        
+        print(f"正在获取关注列表: type={follow_type}, page={page}, limit={limit}")
+        
+        if follow_type not in ['my_follow', 'my_thread']:
+            return jsonify({"error": "无效的关注类型"}), 400
+            
+        conn = get_db_connection()
+        
+        # 获取总数
+        total = conn.execute(
+            'SELECT COUNT(*) FROM thread_follows WHERE follow_type = ?',
+            (follow_type,)
+        ).fetchone()[0]
+        
+        print(f"找到 {total} 条关注记录")
+        
+        # 获取关注列表，包含所有信息
+        query = '''
+        SELECT 
+            tf.*,
+            tf.url as thread_id,
+            (
+                SELECT json_group_array(json_object(
+                    'id', fh.id,
+                    'url', fh.url,
+                    'title', fh.title,
+                    'author', fh.author,
+                    'scraping_time', fh.scraping_time,
+                    'read_count', fh.read_count,
+                    'reply_count', fh.reply_count,
+                    'last_reply_time', fh.last_reply_time,
+                    'update_reason', fh.update_reason
+                ))
+                FROM follow_history fh
+                WHERE fh.url = tf.url
+                ORDER BY fh.scraping_time DESC
+            ) as history
+        FROM thread_follows tf
+        WHERE tf.follow_type = ?
+        ORDER BY tf.created_at DESC
+        LIMIT ? OFFSET ?
+        '''
+        
+        result = conn.execute(query, (follow_type, limit, offset)).fetchall()
+        
+        # 转换结果为列表
+        follows = []
+        for row in result:
+            follow_dict = dict(row)
+            # 确保所有字段都有值，避免 None
+            follow_dict['title'] = follow_dict.get('title') or ''
+            follow_dict['author'] = follow_dict.get('author') or ''
+            follow_dict['author_link'] = follow_dict.get('author_link') or ''
+            follow_dict['read_count'] = follow_dict.get('read_count') or 0
+            follow_dict['reply_count'] = follow_dict.get('reply_count') or 0
+            follow_dict['repost_count'] = follow_dict.get('repost_count') or 0
+            follow_dict['delete_count'] = follow_dict.get('delete_count') or 0
+            follow_dict['days_old'] = follow_dict.get('days_old') or 0
+            follow_dict['last_active'] = follow_dict.get('last_active') or 0
+            
+            # 解析历史记录的JSON字符串
+            try:
+                import json
+                history_str = follow_dict.get('history')
+                follow_dict['history'] = json.loads(history_str) if history_str else []
+            except Exception as e:
+                print(f"解析历史记录失败: {str(e)}")
+                follow_dict['history'] = []
+            
+            follows.append(follow_dict)
+        
+        print(f"成功获取 {len(follows)} 条关注记录")
+        
+        return jsonify({
+            "data": follows,
+            "total": total,
+            "page": page,
+            "limit": limit
+        })
+    except Exception as e:
+        print(f"获取关注列表失败: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": "获取关注列表失败，请稍后重试", "details": str(e)}), 500
+    finally:
+        if conn:
+            conn.close()
+
+# 添加关注
+@app.route('/api/thread-follows', methods=['POST'])
+def add_thread_follow():
+    """添加关注"""
+    try:
+        data = request.get_json()
+        thread_id = data.get('thread_id')
+        follow_type = data.get('follow_type')
+        thread_info = data.get('thread_info', {})
+        
+        # 获取 url，如果不存在则使用 thread_id
+        url = thread_info.get('url') or thread_id
+        
+        if not url:
+            return jsonify({"error": "缺少必要参数 url"}), 400
+        if not follow_type:
+            return jsonify({"error": "缺少必要参数 follow_type"}), 400
+        if follow_type not in ['my_follow', 'my_thread']:
+            return jsonify({"error": "无效的关注类型"}), 400
+            
+        conn = get_db_connection()
+        
+        try:
+            # 开始事务
+            conn.execute('BEGIN')
+            
+            # 检查是否已经关注
+            existing = conn.execute(
+                'SELECT * FROM thread_follows WHERE url = ? AND follow_type = ?', 
+                (url, follow_type)
+            ).fetchone()
+            
+            if not existing:
+                print(f"添加新的关注记录: {url}")
+                # 如果还没有关注，添加新的关注记录
+                conn.execute('''
+                INSERT INTO thread_follows 
+                (url, follow_type, title, author, author_link, read_count, 
+                 reply_count, repost_count, delete_count, days_old, last_active)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''', (
+                    url,
+                    follow_type,
+                    thread_info.get('title', ''),
+                    thread_info.get('author', ''),
+                    thread_info.get('author_link', ''),
+                    thread_info.get('read_count', 0),
+                    thread_info.get('reply_count', 0),
+                    thread_info.get('repost_count', 0),
+                    thread_info.get('delete_count', 0),
+                    thread_info.get('days_old', 0),
+                    thread_info.get('last_active', 0)
+                ))
+                
+                # 从 thread_history 表获取所有历史异动记录
+                print(f"获取帖子历史记录: {url}")
+                history_records = conn.execute('''
+                SELECT * FROM thread_history 
+                WHERE url = ?
+                ORDER BY scraping_time DESC
+                ''', (url,)).fetchall()
+                
+                print(f"找到 {len(history_records)} 条历史记录")
+                
+                # 将历史记录添加到 follow_history 表
+                for record in history_records:
+                    conn.execute('''
+                    INSERT INTO follow_history 
+                    (url, title, author, scraping_time, read_count, reply_count, 
+                     last_reply_time, update_reason)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (
+                        url,
+                        record['title'],
+                        record['author'],
+                        record['scraping_time'],
+                        record['read_count'],
+                        record['reply_count'],
+                        record['last_reply_time'],
+                        record['update_reason']
+                    ))
+            
+            # 提交事务
+            conn.commit()
+            print(f"成功添加关注和历史记录")
+            return jsonify({"success": True})
+            
+        except Exception as e:
+            # 回滚事务
+            conn.rollback()
+            print(f"添加关注失败: {str(e)}")
+            raise e
+            
+    except Exception as e:
+        print(f"添加关注失败: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        if conn:
+            conn.close()
+
+# 获取异动日志
+@app.route('/api/action-logs', methods=['GET'])
+def get_action_logs():
+    """获取异动日志"""
+    try:
+        # 获取查询参数
+        thread_id = request.args.get('thread_id')
+        url = request.args.get('url')
+        page = request.args.get('page', 1, type=int)
+        limit = request.args.get('limit', 10, type=int)
+        offset = (page - 1) * limit
+        
+        # 构建查询条件
+        conditions = []
+        params = []
+        
+        if thread_id:
+            conditions.append("thread_id = ?")
+            params.append(thread_id)
+        if url:
+            conditions.append("url = ?")
+            params.append(url)
+            
+        # 如果没有提供任何条件，返回错误
+        if not conditions:
+            return jsonify({"error": "必须提供thread_id或url参数"}), 400
+            
+        conn = get_db_connection()
+        
+        # 构建查询语句
+        where_clause = " OR ".join(conditions)
+        
+        # 获取总数
+        count_query = f"SELECT COUNT(*) FROM action WHERE {where_clause}"
+        total = conn.execute(count_query, params).fetchone()[0]
+        
+        # 获取异动记录，使用正确的字段名
+        query = f"""
+        SELECT 
+            thread_id, 
+            url, 
+            title, 
+            author, 
+            action_time, 
+            action_type as action, 
+            reason as action_reason,
+            source
+        FROM action 
+        WHERE {where_clause}
+        ORDER BY action_time DESC
+        LIMIT ? OFFSET ?
+        """
+        
+        params.extend([limit, offset])
+        result = conn.execute(query, params).fetchall()
+        
+        # 转换结果为列表
+        logs = []
+        for row in result:
+            log = dict(row)
+            # 合并action_type和reason字段
+            log['action'] = f"{log['action']}({log['action_reason']})" if log['action_reason'] else log['action']
+            del log['action_reason']  # 删除多余的字段
+            logs.append(log)
+            
+        return jsonify({
+            "data": logs,
+            "total": total,
+            "page": page,
+            "limit": limit
+        })
+        
+    except Exception as e:
+        print(f"获取异动日志失败: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": "获取异动日志失败，请稍后重试"}), 500
+    finally:
+        if conn:
+            conn.close()
+
 if __name__ == '__main__':
     # 确保数据库目录存在
     os.makedirs(os.path.dirname(DATABASE_PATH), exist_ok=True)
@@ -1623,6 +2213,12 @@ if __name__ == '__main__':
     
     # 初始化词云缓存表
     init_wordcloud_cache()
+    
+    # 初始化异动日志缓存表
+    init_thread_history_cache()
+    
+    # 计算所有帖子的异动日志
+    calculate_all_thread_history()
     
     # 启动定时任务
     start_scheduler()

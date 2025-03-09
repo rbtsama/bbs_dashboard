@@ -29,67 +29,21 @@ def drop_all_tables(conn):
     # 删除每个表
     for table in tables:
         table_name = table[0]
-        if table_name != 'sqlite_sequence':  # 跳过sqlite内部表
-            print(f"删除表: {table_name}")
+        try:
             cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+            print(f"已删除表 {table_name}")
+        except sqlite3.OperationalError as e:
+            print(f"删除表 {table_name} 时出错: {e}")
     
     conn.commit()
-    print("所有表已删除")
 
 def import_excel_to_db(conn, file_path, table_name):
-    """将Excel文件导入到数据库表中"""
-    print(f"导入 {file_path} 到表 {table_name}")
+    """将Excel文件导入到数据库"""
+    print(f"\n导入 {file_path} 到表 {table_name}")
     
-    # 读取Excel文件
-    df = pd.read_excel(file_path)
-    
-    # 清理列名
-    df.columns = [clean_column_name(col) for col in df.columns]
-    
-    # 确保日期时间列使用正确的格式
-    for col in df.columns:
-        if 'time' in col.lower() or 'date' in col.lower():
-            try:
-                df[col] = pd.to_datetime(df[col])
-            except:
-                pass  # 如果无法转换，保持原样
-    
-    # 将DataFrame写入SQLite
-    df.to_sql(table_name, conn, if_exists='replace', index=False)
-    print(f"成功导入 {len(df)} 行到表 {table_name}")
-
-def import_csv_to_db(conn, file_path):
-    """将CSV文件导入到数据库，按数据类型分表"""
-    print(f"导入 {file_path} 到数据库")
-    
-    # 读取CSV文件
-    df = pd.read_csv(file_path, encoding='utf-8-sig')
-    
-    # 检查是否有data_category列
-    if 'data_category' in df.columns:
-        # 按data_category分组导入
-        for category, group_df in df.groupby('data_category'):
-            # 清理表名
-            table_name = clean_column_name(category)
-            
-            # 清理列名
-            group_df.columns = [clean_column_name(col) for col in group_df.columns]
-            
-            # 处理日期时间列
-            for col in group_df.columns:
-                if 'time' in col.lower() or 'date' in col.lower():
-                    try:
-                        # 尝试转换为日期时间格式
-                        group_df[col] = pd.to_datetime(group_df[col])
-                    except:
-                        pass  # 如果无法转换，保持原样
-            
-            # 将数据写入表
-            group_df.to_sql(table_name, conn, if_exists='replace', index=False)
-            print(f"成功导入 {len(group_df)} 行到表 {table_name}")
-    else:
-        # 没有分类，直接导入到一个表
-        table_name = 'import_data'
+    try:
+        # 读取Excel文件
+        df = pd.read_excel(file_path)
         
         # 清理列名
         df.columns = [clean_column_name(col) for col in df.columns]
@@ -102,9 +56,36 @@ def import_csv_to_db(conn, file_path):
                 except:
                     pass  # 如果无法转换，保持原样
         
-        # 将数据写入表
+        # 写入目标数据库
         df.to_sql(table_name, conn, if_exists='replace', index=False)
         print(f"成功导入 {len(df)} 行到表 {table_name}")
+    except Exception as e:
+        print(f"导入 {file_path} 时出错: {e}")
+
+def import_csv_to_db(conn, file_path, table_name):
+    """将CSV文件导入到数据库"""
+    print(f"\n导入 {file_path} 到表 {table_name}")
+    
+    try:
+        # 读取CSV文件
+        df = pd.read_csv(file_path, encoding='utf-8-sig')
+        
+        # 清理列名
+        df.columns = [clean_column_name(col) for col in df.columns]
+        
+        # 处理日期时间列
+        for col in df.columns:
+            if 'time' in col.lower() or 'date' in col.lower():
+                try:
+                    df[col] = pd.to_datetime(df[col])
+                except:
+                    pass  # 如果无法转换，保持原样
+        
+        # 写入目标数据库
+        df.to_sql(table_name, conn, if_exists='replace', index=False)
+        print(f"成功导入 {len(df)} 行到表 {table_name}")
+    except Exception as e:
+        print(f"导入 {file_path} 时出错: {e}")
 
 def import_db_to_db(conn, db_path):
     """从另一个SQLite数据库导入数据"""
@@ -159,11 +140,15 @@ def main():
     if (PROCESSED_DIR / 'list.xlsx').exists():
         import_excel_to_db(conn, PROCESSED_DIR / 'list.xlsx', 'list')
     
+    # 导入CSV文件
+    if (PROCESSED_DIR / 'action.csv').exists():
+        import_csv_to_db(conn, PROCESSED_DIR / 'action.csv', 'action')
+    
     # 导入CSV或DB文件（优先使用DB）
     if (PROCESSED_DIR / 'import.db').exists():
         import_db_to_db(conn, PROCESSED_DIR / 'import.db')
     elif (PROCESSED_DIR / 'import.csv').exists():
-        import_csv_to_db(conn, PROCESSED_DIR / 'import.csv')
+        import_csv_to_db(conn, PROCESSED_DIR / 'import.csv', 'import_data')
     
     # 创建必要的视图
     print("创建数据视图...")
