@@ -1,0 +1,852 @@
+[
+  {
+    "question": "03月01日发布了多少list？",
+    "answer": "要查询03月01日发布的list数量，应该查询list表中update_reason字段包含'03月01日'的记录数量。"
+  },
+  {
+    "question": "posts表有哪些列？",
+    "answer": "posts表包含以下列：url, title, author, post_time, scraping_time。"
+  },
+  {
+    "question": "2025年02月22日数量是多少list？",
+    "answer": "要查询2025年02月22日的list数量，应该查询list表中list_time字段包含'2025年02月22日'或'02月22日'的记录数量。"
+  },
+  {
+    "question": "updatestatistics表有哪些列？",
+    "answer": "updatestatistics表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+  },
+  {
+    "question": "2025年02月19日有几个updatestatistics？",
+    "answer": "要查询2025年02月19日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "2025年02月25日有几个poststatistics？",
+    "answer": "要查询2025年02月25日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月25日'或'02月25日'的记录数量。"
+  },
+  {
+    "question": "2025年02月26日有几个wordcloud_cache？",
+    "answer": "要查询2025年02月26日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年02月26日'或'02月26日'的记录数量。"
+  },
+  {
+    "question": "thread_follows表有哪些列？",
+    "answer": "thread_follows表包含以下列：id, url, follow_type, title, author, author_link, read_count, reply_count, repost_count, delete_count, days_old, last_active, created_at。"
+  },
+  {
+    "question": "2025年02月12日有多少poststatistics？",
+    "answer": "要查询2025年02月12日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月12日'或'02月12日'的记录数量。"
+  },
+  {
+    "question": "2025年02月21日有几个updatestatistics？",
+    "answer": "要查询2025年02月21日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年02月21日'或'02月21日'的记录数量。"
+  },
+  {
+    "question": "posts表结构是怎样的？",
+    "answer": "posts表包含以下列：url, title, author, post_time, scraping_time。"
+  },
+  {
+    "question": "follow_history表的字段有哪些？",
+    "answer": "follow_history表包含以下列：id, url, title, author, scraping_time, read_count, reply_count, last_reply_time, update_reason, created_at。"
+  },
+  {
+    "question": "2025年02月19日数量是多少post？",
+    "answer": "要查询2025年02月19日的post数量，应该查询post表中scraping_time字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "2025年03月04日数量是多少post？",
+    "answer": "要查询2025年03月04日的post数量，应该查询post表中list_time字段包含'2025年03月04日'或'03月04日'的记录数量。"
+  },
+  {
+    "question": "2025年02月09日有几个list？",
+    "answer": "要查询2025年02月09日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月09日'或'02月09日'的记录数量。"
+  },
+  {
+    "question": "2025年02月27日数量是多少list？",
+    "answer": "要查询2025年02月27日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月27日'或'02月27日'的记录数量。"
+  },
+  {
+    "question": "2025年03月06日数量是多少viewstatistics？",
+    "answer": "要查询2025年03月06日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年03月06日'或'03月06日'的记录数量。"
+  },
+  {
+    "question": "02月11日发布了多少poststatistics？",
+    "answer": "要查询02月11日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'02月11日'的记录数量。"
+  },
+  {
+    "question": "2025年02月14日数量是多少viewstatistics？",
+    "answer": "要查询2025年02月14日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月14日'或'02月14日'的记录数量。"
+  },
+  {
+    "question": "2025年03月05日有几个updatestatistics？",
+    "answer": "要查询2025年03月05日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年03月05日'或'03月05日'的记录数量。"
+  },
+  {
+    "question": "02月12日发布了多少list？",
+    "answer": "要查询02月12日发布的list数量，应该查询list表中update_reason字段包含'02月12日'的记录数量。"
+  },
+  {
+    "question": "2025年02月19日有几个post？",
+    "answer": "要查询2025年02月19日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "wordcloud_cache表的字段有哪些？",
+    "answer": "wordcloud_cache表包含以下列：id, data, created_date, version, expire_date。"
+  },
+  {
+    "question": "poststatistics表结构是怎样的？",
+    "answer": "poststatistics表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+  },
+  {
+    "question": "2025年02月18日有几个list？",
+    "answer": "要查询2025年02月18日的list数量，应该查询list表中scraping_time字段包含'2025年02月18日'或'02月18日'的记录数量。"
+  },
+  {
+    "question": "02月21日发布了多少updatestatistics？",
+    "answer": "要查询02月21日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'02月21日'的记录数量。"
+  },
+  {
+    "question": "2025年02月25日有多少action？",
+    "answer": "要查询2025年02月25日的action数量，应该查询action表中action_time字段包含'2025年02月25日'或'02月25日'的记录数量。"
+  },
+  {
+    "question": "2025年02月17日数量是多少viewstatistics？",
+    "answer": "要查询2025年02月17日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月17日'或'02月17日'的记录数量。"
+  },
+  {
+    "question": "03月01日发布了多少wordcloud_cache？",
+    "answer": "要查询03月01日发布的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'03月01日'的记录数量。"
+  },
+  {
+    "question": "02月26日发布了多少wordcloud_cache？",
+    "answer": "要查询02月26日发布的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'02月26日'的记录数量。"
+  },
+  {
+    "question": "2025年02月25日有多少wordcloud_cache？",
+    "answer": "要查询2025年02月25日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月25日'或'02月25日'的记录数量。"
+  },
+  {
+    "question": "2025年03月02日有多少wordcloud_cache？",
+    "answer": "要查询2025年03月02日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年03月02日'或'03月02日'的记录数量。"
+  },
+  {
+    "question": "02月24日发布了多少post？",
+    "answer": "要查询02月24日发布的post数量，应该查询post表中list_time字段包含'02月24日'的记录数量。"
+  },
+  {
+    "question": "2025年03月09日有几个list？",
+    "answer": "要查询2025年03月09日的list数量，应该查询list表中list_time_r字段包含'2025年03月09日'或'03月09日'的记录数量。"
+  },
+  {
+    "question": "02月13日发布了多少updatestatistics？",
+    "answer": "要查询02月13日发布的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'02月13日'的记录数量。"
+  },
+  {
+    "question": "posts表的字段有哪些？",
+    "answer": "posts表包含以下列：url, title, author, post_time, scraping_time。"
+  },
+  {
+    "question": "2025年02月17日有几个list？",
+    "answer": "要查询2025年02月17日的list数量，应该查询list表中scraping_time字段包含'2025年02月17日'或'02月17日'的记录数量。"
+  },
+  {
+    "question": "follow_history表的主键是什么？",
+    "answer": "follow_history表的主键是id列。"
+  },
+  {
+    "question": "2025年02月23日有几个post？",
+    "answer": "要查询2025年02月23日的post数量，应该查询post表中post_time字段包含'2025年02月23日'或'02月23日'的记录数量。"
+  },
+  {
+    "question": "2025年02月23日数量是多少post？",
+    "answer": "要查询2025年02月23日的post数量，应该查询post表中post_time字段包含'2025年02月23日'或'02月23日'的记录数量。"
+  },
+  {
+    "question": "2025年02月28日数量是多少wordcloud_cache？",
+    "answer": "要查询2025年02月28日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年02月28日'或'02月28日'的记录数量。"
+  },
+  {
+    "question": "2025年03月01日数量是多少wordcloud_cache？",
+    "answer": "要查询2025年03月01日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年03月01日'或'03月01日'的记录数量。"
+  },
+  {
+    "question": "list表有哪些列？",
+    "answer": "list表包含以下列：url, title, scraping_time_r, list_time_r, update_reason, page, num, author, author_link, read_count, reply_count, scraping_time, list_time, source_file, sheet_name。"
+  },
+  {
+    "question": "2025年02月09日有多少post？",
+    "answer": "要查询2025年02月09日的post数量，应该查询post表中list_time字段包含'2025年02月09日'或'02月09日'的记录数量。"
+  },
+  {
+    "question": "02月19日发布了多少post？",
+    "answer": "要查询02月19日发布的post数量，应该查询post表中scraping_time字段包含'02月19日'的记录数量。"
+  },
+  {
+    "question": "2025年02月28日有多少list？",
+    "answer": "要查询2025年02月28日的list数量，应该查询list表中scraping_time字段包含'2025年02月28日'或'02月28日'的记录数量。"
+  },
+  {
+    "question": "2月28号数量是多少发帖？",
+    "answer": "根据数据库记录，2月28日有18个发帖。"
+  },
+  {
+    "question": "2025年02月23日数量是多少post？",
+    "answer": "要查询2025年02月23日的post数量，应该查询post表中list_time_1字段包含'2025年02月23日'或'02月23日'的记录数量。"
+  },
+  {
+    "question": "02月20日发布了多少post？",
+    "answer": "要查询02月20日发布的post数量，应该查询post表中list_time字段包含'02月20日'的记录数量。"
+  },
+  {
+    "question": "2025年02月27日有多少list？",
+    "answer": "要查询2025年02月27日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月27日'或'02月27日'的记录数量。"
+  },
+  {
+    "question": "2025年02月18日数量是多少list？",
+    "answer": "要查询2025年02月18日的list数量，应该查询list表中list_time字段包含'2025年02月18日'或'02月18日'的记录数量。"
+  },
+  {
+    "question": "2025年02月11日有几个updatestatistics？",
+    "answer": "要查询2025年02月11日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年02月11日'或'02月11日'的记录数量。"
+  },
+  {
+    "question": "2025年02月17日有多少viewstatistics？",
+    "answer": "要查询2025年02月17日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月17日'或'02月17日'的记录数量。"
+  },
+  {
+    "question": "post表的字段有哪些？",
+    "answer": "post表包含以下列：url, title, scraping_time_r, post_time, list_time, page, num, author, author_link, read_count, reply_count, scraping_time, list_time_1, source_file, sheet_name。"
+  },
+  {
+    "question": "2025年02月21日数量是多少post？",
+    "answer": "要查询2025年02月21日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月21日'或'02月21日'的记录数量。"
+  },
+  {
+    "question": "follow_history表的url列与哪个表关联？",
+    "answer": "follow_history表的url列与thread_follows表的url列关联。"
+  },
+  {
+    "question": "2025年02月17日有多少list？",
+    "answer": "要查询2025年02月17日的list数量，应该查询list表中scraping_time字段包含'2025年02月17日'或'02月17日'的记录数量。"
+  },
+  {
+    "question": "2025年03月07日数量是多少viewstatistics？",
+    "answer": "要查询2025年03月07日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年03月07日'或'03月07日'的记录数量。"
+  },
+  {
+    "question": "2025年03月06日数量是多少post？",
+    "answer": "要查询2025年03月06日的post数量，应该查询post表中list_time_1字段包含'2025年03月06日'或'03月06日'的记录数量。"
+  },
+  {
+    "question": "03月06日发布了多少viewstatistics？",
+    "answer": "要查询03月06日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'03月06日'的记录数量。"
+  },
+  {
+    "question": "2025年02月13日数量是多少action？",
+    "answer": "要查询2025年02月13日的action数量，应该查询action表中action_time字段包含'2025年02月13日'或'02月13日'的记录数量。"
+  },
+  {
+    "question": "2025年02月09日有几个poststatistics？",
+    "answer": "要查询2025年02月09日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月09日'或'02月09日'的记录数量。"
+  },
+  {
+    "question": "2025年03月01日有多少wordcloud_cache？",
+    "answer": "要查询2025年03月01日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年03月01日'或'03月01日'的记录数量。"
+  },
+  {
+    "question": "2025年03月07日数量是多少updatestatistics？",
+    "answer": "要查询2025年03月07日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年03月07日'或'03月07日'的记录数量。"
+  },
+  {
+    "question": "2025年03月08日有几个post？",
+    "answer": "要查询2025年03月08日的post数量，应该查询post表中scraping_time字段包含'2025年03月08日'或'03月08日'的记录数量。"
+  },
+  {
+    "question": "2025年02月28日数量是多少list？",
+    "answer": "要查询2025年02月28日的list数量，应该查询list表中update_reason字段包含'2025年02月28日'或'02月28日'的记录数量。"
+  },
+  {
+    "question": "2025年02月13日有多少action？",
+    "answer": "要查询2025年02月13日的action数量，应该查询action表中action_time字段包含'2025年02月13日'或'02月13日'的记录数量。"
+  },
+  {
+    "question": "2025年03月02日有几个wordcloud_cache？",
+    "answer": "要查询2025年03月02日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年03月02日'或'03月02日'的记录数量。"
+  },
+  {
+    "question": "2025年02月23日有多少post？",
+    "answer": "要查询2025年02月23日的post数量，应该查询post表中list_time_1字段包含'2025年02月23日'或'02月23日'的记录数量。"
+  },
+  {
+    "question": "2025年02月10日有几个viewstatistics？",
+    "answer": "要查询2025年02月10日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月10日'或'02月10日'的记录数量。"
+  },
+  {
+    "question": "2025年02月17日数量是多少post？",
+    "answer": "要查询2025年02月17日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月17日'或'02月17日'的记录数量。"
+  },
+  {
+    "question": "2025年02月28日有几个wordcloud_cache？",
+    "answer": "要查询2025年02月28日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年02月28日'或'02月28日'的记录数量。"
+  },
+  {
+    "question": "2025年02月23日有几个post？",
+    "answer": "要查询2025年02月23日的post数量，应该查询post表中list_time_1字段包含'2025年02月23日'或'02月23日'的记录数量。"
+  },
+  {
+    "question": "02月25日发布了多少updatestatistics？",
+    "answer": "要查询02月25日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'02月25日'的记录数量。"
+  },
+  {
+    "question": "thread_history表的作用是什么？",
+    "answer": "thread_history表存储了帖子的更新历史记录，包括阅读量、回复数量、最后回复时间等信息，用于跟踪帖子的活跃度变化。"
+  },
+  {
+    "question": "2025年02月12日数量是多少list？",
+    "answer": "要查询2025年02月12日的list数量，应该查询list表中update_reason字段包含'2025年02月12日'或'02月12日'的记录数量。"
+  },
+  {
+    "question": "2025年03月09日有几个wordcloud_cache？",
+    "answer": "要查询2025年03月09日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年03月09日'或'03月09日'的记录数量。"
+  },
+  {
+    "question": "2025年02月22日数量是多少action？",
+    "answer": "要查询2025年02月22日的action数量，应该查询action表中action_time字段包含'2025年02月22日'或'02月22日'的记录数量。"
+  },
+  {
+    "question": "02月11日发布了多少post？",
+    "answer": "要查询02月11日发布的post数量，应该查询post表中list_time_1字段包含'02月11日'的记录数量。"
+  },
+  {
+    "question": "2025年02月23日数量是多少post？",
+    "answer": "要查询2025年02月23日的post数量，应该查询post表中list_time字段包含'2025年02月23日'或'02月23日'的记录数量。"
+  },
+  {
+    "question": "2025年02月22日数量是多少post？",
+    "answer": "要查询2025年02月22日的post数量，应该查询post表中list_time_1字段包含'2025年02月22日'或'02月22日'的记录数量。"
+  },
+  {
+    "question": "2025年02月11日数量是多少post？",
+    "answer": "要查询2025年02月11日的post数量，应该查询post表中list_time_1字段包含'2025年02月11日'或'02月11日'的记录数量。"
+  },
+  {
+    "question": "2025年02月20日有多少post？",
+    "answer": "要查询2025年02月20日的post数量，应该查询post表中list_time字段包含'2025年02月20日'或'02月20日'的记录数量。"
+  },
+  {
+    "question": "2025年02月11日有几个poststatistics？",
+    "answer": "要查询2025年02月11日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月11日'或'02月11日'的记录数量。"
+  },
+  {
+    "question": "2025年02月27日有几个post？",
+    "answer": "要查询2025年02月27日的post数量，应该查询post表中scraping_time字段包含'2025年02月27日'或'02月27日'的记录数量。"
+  },
+  {
+    "question": "2025年03月01日有几个wordcloud_cache？",
+    "answer": "要查询2025年03月01日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年03月01日'或'03月01日'的记录数量。"
+  },
+  {
+    "question": "2025年02月13日有多少updatestatistics？",
+    "answer": "要查询2025年02月13日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年02月13日'或'02月13日'的记录数量。"
+  },
+  {
+    "question": "2025年02月27日有多少list？",
+    "answer": "要查询2025年02月27日的list数量，应该查询list表中list_time_r字段包含'2025年02月27日'或'02月27日'的记录数量。"
+  },
+  {
+    "question": "2025年02月22日有多少post？",
+    "answer": "要查询2025年02月22日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月22日'或'02月22日'的记录数量。"
+  },
+  {
+    "question": "02月14日发布了多少viewstatistics？",
+    "answer": "要查询02月14日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'02月14日'的记录数量。"
+  },
+  {
+    "question": "02月20日发布了多少post？",
+    "answer": "要查询02月20日发布的post数量，应该查询post表中scraping_time_r字段包含'02月20日'的记录数量。"
+  },
+  {
+    "question": "2025年02月11日有几个wordcloud_cache？",
+    "answer": "要查询2025年02月11日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月11日'或'02月11日'的记录数量。"
+  },
+  {
+    "question": "02月25日发布了多少poststatistics？",
+    "answer": "要查询02月25日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'02月25日'的记录数量。"
+  },
+  {
+    "question": "03月08日发布了多少updatestatistics？",
+    "answer": "要查询03月08日发布的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'03月08日'的记录数量。"
+  },
+  {
+    "question": "poststatistics表的字段有哪些？",
+    "answer": "poststatistics表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+  },
+  {
+    "question": "2025年03月05日数量是多少post？",
+    "answer": "要查询2025年03月05日的post数量，应该查询post表中post_time字段包含'2025年03月05日'或'03月05日'的记录数量。"
+  },
+  {
+    "question": "2025年02月19日数量是多少updatestatistics？",
+    "answer": "要查询2025年02月19日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "2025年02月19日有多少list？",
+    "answer": "要查询2025年02月19日的list数量，应该查询list表中list_time字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "thread_history表有哪些列？",
+    "answer": "thread_history表包含以下列：id, url, title, author, scraping_time, read_count, reply_count, last_reply_time, update_reason。"
+  },
+  {
+    "question": "2025年02月14日有多少viewstatistics？",
+    "answer": "要查询2025年02月14日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月14日'或'02月14日'的记录数量。"
+  },
+  {
+    "question": "2月28日有几个发帖？",
+    "answer": "根据数据库记录，2月28日有18个发帖。"
+  },
+  {
+    "question": "2025年02月27日数量是多少list？",
+    "answer": "要查询2025年02月27日的list数量，应该查询list表中list_time_r字段包含'2025年02月27日'或'02月27日'的记录数量。"
+  },
+  {
+    "question": "2025年03月09日有多少wordcloud_cache？",
+    "answer": "要查询2025年03月09日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年03月09日'或'03月09日'的记录数量。"
+  },
+  {
+    "question": "2025年02月28日有几个list？",
+    "answer": "要查询2025年02月28日的list数量，应该查询list表中update_reason字段包含'2025年02月28日'或'02月28日'的记录数量。"
+  },
+  {
+    "question": "03月06日发布了多少poststatistics？",
+    "answer": "要查询03月06日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'03月06日'的记录数量。"
+  },
+  {
+    "question": "wordcloud_cache表结构是怎样的？",
+    "answer": "wordcloud_cache表包含以下列：id, data, created_date, version, expire_date。"
+  },
+  {
+    "question": "2025年03月06日有几个viewstatistics？",
+    "answer": "要查询2025年03月06日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年03月06日'或'03月06日'的记录数量。"
+  },
+  {
+    "question": "poststatistics表有哪些列？",
+    "answer": "poststatistics表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+  },
+  {
+    "question": "2025年02月26日有几个list？",
+    "answer": "要查询2025年02月26日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月26日'或'02月26日'的记录数量。"
+  },
+  {
+    "question": "02月21日发布了多少post？",
+    "answer": "要查询02月21日发布的post数量，应该查询post表中scraping_time_r字段包含'02月21日'的记录数量。"
+  },
+  {
+    "question": "2025年03月08日数量是多少updatestatistics？",
+    "answer": "要查询2025年03月08日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年03月08日'或'03月08日'的记录数量。"
+  },
+  {
+    "question": "2025年02月28日有多少list？",
+    "answer": "要查询2025年02月28日的list数量，应该查询list表中update_reason字段包含'2025年02月28日'或'02月28日'的记录数量。"
+  },
+  {
+    "question": "2025年02月27日有多少post？",
+    "answer": "要查询2025年02月27日的post数量，应该查询post表中scraping_time字段包含'2025年02月27日'或'02月27日'的记录数量。"
+  },
+  {
+    "question": "02月24日发布了多少list？",
+    "answer": "要查询02月24日发布的list数量，应该查询list表中update_reason字段包含'02月24日'的记录数量。"
+  },
+  {
+    "question": "02月12日发布了多少poststatistics？",
+    "answer": "要查询02月12日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'02月12日'的记录数量。"
+  },
+  {
+    "question": "2025年02月21日有多少post？",
+    "answer": "要查询2025年02月21日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月21日'或'02月21日'的记录数量。"
+  },
+  {
+    "question": "2025年02月22日有几个post？",
+    "answer": "要查询2025年02月22日的post数量，应该查询post表中scraping_time字段包含'2025年02月22日'或'02月22日'的记录数量。"
+  },
+  {
+    "question": "02月19日发布了多少post？",
+    "answer": "要查询02月19日发布的post数量，应该查询post表中scraping_time_r字段包含'02月19日'的记录数量。"
+  },
+  {
+    "question": "thread_follows表的字段有哪些？",
+    "answer": "thread_follows表包含以下列：id, url, follow_type, title, author, author_link, read_count, reply_count, repost_count, delete_count, days_old, last_active, created_at。"
+  },
+  {
+    "question": "03月07日发布了多少viewstatistics？",
+    "answer": "要查询03月07日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'03月07日'的记录数量。"
+  },
+  {
+    "question": "02月17日发布了多少list？",
+    "answer": "要查询02月17日发布的list数量，应该查询list表中scraping_time字段包含'02月17日'的记录数量。"
+  },
+  {
+    "question": "thread_history_cache表的字段有哪些？",
+    "answer": "thread_history_cache表包含以下列：url, history_data, last_update, update_count, repost_count, reply_count, delete_count。"
+  },
+  {
+    "question": "02月22日发布了多少action？",
+    "answer": "要查询02月22日发布的action数量，应该查询action表中action_time字段包含'02月22日'的记录数量。"
+  },
+  {
+    "question": "2025年02月22日数量是多少post？",
+    "answer": "要查询2025年02月22日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月22日'或'02月22日'的记录数量。"
+  },
+  {
+    "question": "02月25日发布了多少wordcloud_cache？",
+    "answer": "要查询02月25日发布的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'02月25日'的记录数量。"
+  },
+  {
+    "question": "2025年03月02日数量是多少list？",
+    "answer": "要查询2025年03月02日的list数量，应该查询list表中scraping_time字段包含'2025年03月02日'或'03月02日'的记录数量。"
+  },
+  {
+    "question": "02月10日发布了多少viewstatistics？",
+    "answer": "要查询02月10日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'02月10日'的记录数量。"
+  },
+  {
+    "question": "2025年02月15日有几个post？",
+    "answer": "要查询2025年02月15日的post数量，应该查询post表中post_time字段包含'2025年02月15日'或'02月15日'的记录数量。"
+  },
+  {
+    "question": "2025年02月25日有多少updatestatistics？",
+    "answer": "要查询2025年02月25日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年02月25日'或'02月25日'的记录数量。"
+  },
+  {
+    "question": "2025年02月09日数量是多少poststatistics？",
+    "answer": "要查询2025年02月09日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月09日'或'02月09日'的记录数量。"
+  },
+  {
+    "question": "02月11日发布了多少wordcloud_cache？",
+    "answer": "要查询02月11日发布的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'02月11日'的记录数量。"
+  },
+  {
+    "question": "2025年03月01日有几个wordcloud_cache？",
+    "answer": "要查询2025年03月01日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年03月01日'或'03月01日'的记录数量。"
+  },
+  {
+    "question": "2025年02月12日数量是多少poststatistics？",
+    "answer": "要查询2025年02月12日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月12日'或'02月12日'的记录数量。"
+  },
+  {
+    "question": "2025年02月25日有多少list？",
+    "answer": "要查询2025年02月25日的list数量，应该查询list表中list_time_r字段包含'2025年02月25日'或'02月25日'的记录数量。"
+  },
+  {
+    "question": "02月23日发布了多少post？",
+    "answer": "要查询02月23日发布的post数量，应该查询post表中list_time_1字段包含'02月23日'的记录数量。"
+  },
+  {
+    "question": "2025年03月08日数量是多少post？",
+    "answer": "要查询2025年03月08日的post数量，应该查询post表中scraping_time字段包含'2025年03月08日'或'03月08日'的记录数量。"
+  },
+  {
+    "question": "2025年02月11日数量是多少wordcloud_cache？",
+    "answer": "要查询2025年02月11日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月11日'或'02月11日'的记录数量。"
+  },
+  {
+    "question": "03月05日发布了多少updatestatistics？",
+    "answer": "要查询03月05日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'03月05日'的记录数量。"
+  },
+  {
+    "question": "03月05日发布了多少post？",
+    "answer": "要查询03月05日发布的post数量，应该查询post表中post_time字段包含'03月05日'的记录数量。"
+  },
+  {
+    "question": "2025年02月09日有多少list？",
+    "answer": "要查询2025年02月09日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月09日'或'02月09日'的记录数量。"
+  },
+  {
+    "question": "thread_history表的字段有哪些？",
+    "answer": "thread_history表包含以下列：id, url, title, author, scraping_time, read_count, reply_count, last_reply_time, update_reason。"
+  },
+  {
+    "question": "wordcloud_cache表的主键是什么？",
+    "answer": "wordcloud_cache表的主键是id列。"
+  },
+  {
+    "question": "thread_history_cache表有哪些列？",
+    "answer": "thread_history_cache表包含以下列：url, history_data, last_update, update_count, repost_count, reply_count, delete_count。"
+  },
+  {
+    "question": "2025年02月25日数量是多少wordcloud_cache？",
+    "answer": "要查询2025年02月25日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月25日'或'02月25日'的记录数量。"
+  },
+  {
+    "question": "2025年02月20日有多少post？",
+    "answer": "要查询2025年02月20日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月20日'或'02月20日'的记录数量。"
+  },
+  {
+    "question": "02月18日发布了多少post？",
+    "answer": "要查询02月18日发布的post数量，应该查询post表中post_time字段包含'02月18日'的记录数量。"
+  },
+  {
+    "question": "2025年02月23日有多少post？",
+    "answer": "要查询2025年02月23日的post数量，应该查询post表中list_time字段包含'2025年02月23日'或'02月23日'的记录数量。"
+  },
+  {
+    "question": "2025年02月23日数量是多少action？",
+    "answer": "要查询2025年02月23日的action数量，应该查询action表中action_time字段包含'2025年02月23日'或'02月23日'的记录数量。"
+  },
+  {
+    "question": "2025年03月05日有多少updatestatistics？",
+    "answer": "要查询2025年03月05日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年03月05日'或'03月05日'的记录数量。"
+  },
+  {
+    "question": "2025年02月21日有多少post？",
+    "answer": "要查询2025年02月21日的post数量，应该查询post表中list_time_1字段包含'2025年02月21日'或'02月21日'的记录数量。"
+  },
+  {
+    "question": "02月18日发布了多少list？",
+    "answer": "要查询02月18日发布的list数量，应该查询list表中list_time字段包含'02月18日'的记录数量。"
+  },
+  {
+    "question": "2025年02月22日有多少wordcloud_cache？",
+    "answer": "要查询2025年02月22日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月22日'或'02月22日'的记录数量。"
+  },
+  {
+    "question": "03月09日发布了多少list？",
+    "answer": "要查询03月09日发布的list数量，应该查询list表中list_time_r字段包含'03月09日'的记录数量。"
+  },
+  {
+    "question": "2025年02月25日数量是多少poststatistics？",
+    "answer": "要查询2025年02月25日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月25日'或'02月25日'的记录数量。"
+  },
+  {
+    "question": "2025年02月21日数量是多少list？",
+    "answer": "要查询2025年02月21日的list数量，应该查询list表中scraping_time字段包含'2025年02月21日'或'02月21日'的记录数量。"
+  },
+  {
+    "question": "2025年03月07日数量是多少list？",
+    "answer": "要查询2025年03月07日的list数量，应该查询list表中scraping_time_r字段包含'2025年03月07日'或'03月07日'的记录数量。"
+  },
+  {
+    "question": "02月13日发布了多少list？",
+    "answer": "要查询02月13日发布的list数量，应该查询list表中list_time_r字段包含'02月13日'的记录数量。"
+  },
+  {
+    "question": "2025年03月02日有多少action？",
+    "answer": "要查询2025年03月02日的action数量，应该查询action表中action_time字段包含'2025年03月02日'或'03月02日'的记录数量。"
+  },
+  {
+    "question": "2025年02月13日有几个list？",
+    "answer": "要查询2025年02月13日的list数量，应该查询list表中list_time_r字段包含'2025年02月13日'或'02月13日'的记录数量。"
+  },
+  {
+    "question": "02月22日发布了多少list？",
+    "answer": "要查询02月22日发布的list数量，应该查询list表中list_time字段包含'02月22日'的记录数量。"
+  },
+  {
+    "question": "2025年02月10日有多少viewstatistics？",
+    "answer": "要查询2025年02月10日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月10日'或'02月10日'的记录数量。"
+  },
+  {
+    "question": "2025年02月13日有几个action？",
+    "answer": "要查询2025年02月13日的action数量，应该查询action表中action_time字段包含'2025年02月13日'或'02月13日'的记录数量。"
+  },
+  {
+    "question": "viewstatistics表的字段有哪些？",
+    "answer": "viewstatistics表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+  },
+  {
+    "question": "2025年03月05日数量是多少updatestatistics？",
+    "answer": "要查询2025年03月05日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年03月05日'或'03月05日'的记录数量。"
+  },
+  {
+    "question": "thread_history_cache表结构是怎样的？",
+    "answer": "thread_history_cache表包含以下列：url, history_data, last_update, update_count, repost_count, reply_count, delete_count。"
+  },
+  {
+    "question": "02月17日发布了多少post？",
+    "answer": "要查询02月17日发布的post数量，应该查询post表中scraping_time字段包含'02月17日'的记录数量。"
+  },
+  {
+    "question": "03月06日发布了多少post？",
+    "answer": "要查询03月06日发布的post数量，应该查询post表中list_time_1字段包含'03月06日'的记录数量。"
+  },
+  {
+    "question": "2025年02月19日有几个post？",
+    "answer": "要查询2025年02月19日的post数量，应该查询post表中scraping_time字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "follow_history表有哪些列？",
+    "answer": "follow_history表包含以下列：id, url, title, author, scraping_time, read_count, reply_count, last_reply_time, update_reason, created_at。"
+  },
+  {
+    "question": "2025年02月09日数量是多少list？",
+    "answer": "要查询2025年02月09日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月09日'或'02月09日'的记录数量。"
+  },
+  {
+    "question": "post表有哪些列？",
+    "answer": "post表包含以下列：url, title, scraping_time_r, post_time, list_time, page, num, author, author_link, read_count, reply_count, scraping_time, list_time_1, source_file, sheet_name。"
+  },
+  {
+    "question": "2025年02月19日数量是多少post？",
+    "answer": "要查询2025年02月19日的post数量，应该查询post表中post_time字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "02月18日发布了多少list？",
+    "answer": "要查询02月18日发布的list数量，应该查询list表中scraping_time字段包含'02月18日'的记录数量。"
+  },
+  {
+    "question": "2025年02月09日数量是多少post？",
+    "answer": "要查询2025年02月09日的post数量，应该查询post表中list_time字段包含'2025年02月09日'或'02月09日'的记录数量。"
+  },
+  {
+    "question": "thread_follows表的主键是什么？",
+    "answer": "thread_follows表的主键是id列。"
+  },
+  {
+    "question": "2025年02月19日有几个post？",
+    "answer": "要查询2025年02月19日的post数量，应该查询post表中post_time字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "2025年02月24日有几个post？",
+    "answer": "要查询2025年02月24日的post数量，应该查询post表中list_time字段包含'2025年02月24日'或'02月24日'的记录数量。"
+  },
+  {
+    "question": "02月11日发布了多少updatestatistics？",
+    "answer": "要查询02月11日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'02月11日'的记录数量。"
+  },
+  {
+    "question": "2025年02月19日有几个list？",
+    "answer": "要查询2025年02月19日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月19日'或'02月19日'的记录数量。"
+  },
+  {
+    "question": "list表的字段有哪些？",
+    "answer": "list表包含以下列：url, title, scraping_time_r, list_time_r, update_reason, page, num, author, author_link, read_count, reply_count, scraping_time, list_time, source_file, sheet_name。"
+  },
+  {
+    "question": "2025年02月11日有多少wordcloud_cache？",
+    "answer": "要查询2025年02月11日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月11日'或'02月11日'的记录数量。"
+  },
+  {
+    "question": "03月02日发布了多少action？",
+    "answer": "要查询03月02日发布的action数量，应该查询action表中action_time字段包含'03月02日'的记录数量。"
+  },
+  {
+    "question": "postranking表有哪些列？",
+    "answer": "postranking表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+  },
+  {
+    "question": "02月15日发布了多少post？",
+    "answer": "要查询02月15日发布的post数量，应该查询post表中post_time字段包含'02月15日'的记录数量。"
+  },
+  {
+    "question": "02月22日发布了多少post？",
+    "answer": "要查询02月22日发布的post数量，应该查询post表中list_time_1字段包含'02月22日'的记录数量。"
+  },
+  {
+    "question": "2025年03月02日有几个list？",
+    "answer": "要查询2025年03月02日的list数量，应该查询list表中scraping_time字段包含'2025年03月02日'或'03月02日'的记录数量。"
+  },
+  {
+    "question": "2025年02月27日有几个list？",
+    "answer": "要查询2025年02月27日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月27日'或'02月27日'的记录数量。"
+  },
+  {
+    "question": "2025年03月07日有几个updatestatistics？",
+    "answer": "要查询2025年03月07日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年03月07日'或'03月07日'的记录数量。"
+  },
+  {
+    "question": "02月19日发布了多少post？",
+    "answer": "要查询02月19日发布的post数量，应该查询post表中post_time字段包含'02月19日'的记录数量。"
+  },
+  {
+    "question": "2025年02月24日数量是多少post？",
+    "answer": "要查询2025年02月24日的post数量，应该查询post表中list_time字段包含'2025年02月24日'或'02月24日'的记录数量。"
+  },
+  {
+    "question": "2025年03月09日有几个list？",
+    "answer": "要查询2025年03月09日的list数量，应该查询list表中update_reason字段包含'2025年03月09日'或'03月09日'的记录数量。"
+  },
+  {
+    "question": "2025年02月21日有几个list？",
+    "answer": "要查询2025年02月21日的list数量，应该查询list表中scraping_time字段包含'2025年02月21日'或'02月21日'的记录数量。"
+  },
+  {
+    "question": "02月27日发布了多少post？",
+    "answer": "要查询02月27日发布的post数量，应该查询post表中scraping_time字段包含'02月27日'的记录数量。"
+  },
+  {
+    "question": "02月23日发布了多少post？",
+    "answer": "要查询02月23日发布的post数量，应该查询post表中post_time字段包含'02月23日'的记录数量。"
+  },
+  {
+    "question": "02月28日发布了多少list？",
+    "answer": "要查询02月28日发布的list数量，应该查询list表中update_reason字段包含'02月28日'的记录数量。"
+  },
+  {
+    "question": "postranking表结构是怎样的？",
+    "answer": "postranking表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+  },
+  {
+    "question": "2025年02月22日有几个list？",
+    "answer": "要查询2025年02月22日的list数量，应该查询list表中list_time字段包含'2025年02月22日'或'02月22日'的记录数量。"
+  },
+  {
+    "question": "2月28号有多少发帖？",
+    "answer": "根据数据库记录，2月28日有18个发帖。"
+  },
+  {
+    "question": "post表结构是怎样的？",
+    "answer": "post表包含以下列：url, title, scraping_time_r, post_time, list_time, page, num, author, author_link, read_count, reply_count, scraping_time, list_time_1, source_file, sheet_name。"
+  },
+  {
+    "question": "2025年03月07日有多少viewstatistics？",
+    "answer": "要查询2025年03月07日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年03月07日'或'03月07日'的记录数量。"
+  },
+  {
+    "question": "谁的重发次数最多？",
+    "answer": "根据数据库记录，重发次数最多的帖子是{title}，共有{repost_count}次重发。而重发次数最多的作者是{author}，总共有{total_reposts}次重发。",
+    "sql": "-- 查询重发次数最多的帖子\nSELECT title, MAX(repost_count) as repost_count FROM thread_follows GROUP BY url ORDER BY repost_count DESC LIMIT 1;\n\n-- 查询重发次数最多的作者\nSELECT author, SUM(repost_count) as total_reposts FROM thread_follows GROUP BY author ORDER BY total_reposts DESC LIMIT 1;"
+  },
+  {
+    "question": "什么时段发帖最多？",
+    "answer": "根据数据统计，发帖量最多的时段是{hour}时，平均每天在这个时段有{avg_posts}个帖子发布。这个统计不包括没有发帖的日期。",
+    "sql": "-- 提取小时并计算每个小时的平均帖子数\nSELECT SUBSTR(post_time, 12, 2) as hour,\nCOUNT(*) / COUNT(DISTINCT DATE(post_time)) as avg_posts\nFROM posts\nWHERE post_time IS NOT NULL\nGROUP BY hour\nORDER BY avg_posts DESC\nLIMIT 1;"
+  },
+  {
+    "question": "昨天有多少新帖？",
+    "answer": "根据数据库中最新记录的日期（{latest_date}），当天有{new_posts}个新发布的帖子。",
+    "sql": "-- 找出数据库中最新的日期\nWITH latest_date AS (\n  SELECT DATE(MAX(post_time)) as date FROM posts\n)\n-- 查询该日期发布的帖子数量\nSELECT latest_date.date as latest_date, COUNT(*) as new_posts\nFROM posts, latest_date\nWHERE DATE(post_time) = latest_date.date\nGROUP BY latest_date.date;"
+  },
+  {
+    "question": "2012顶配马自达三排座椅,真实里程11万迈最近有什么异动？",
+    "answer": "关于\"2012顶配马自达三排座椅,真实里程11万迈\"的帖子，最近有以下异动记录：\n1. {action_time}: {action} - {action_reason}\n2. {action_time}: {action} - {action_reason}",
+    "sql": "-- 查询特定帖子的异动记录\nSELECT action_time, action, action_reason\nFROM action_logs\nWHERE title LIKE '%2012顶配马自达三排座椅,真实里程11万迈%'\nORDER BY action_time DESC\nLIMIT 10;"
+  },
+  {
+    "question": "超过5000阅读量的有哪几个帖子？",
+    "answer": "数据库中阅读量超过5000的帖子有以下几个：\n1. {title} - 阅读量: {read_count} - 链接: {url}\n2. {title} - 阅读量: {read_count} - 链接: {url}\n...\n共有{total_count}个帖子阅读量超过5000。",
+    "sql": "-- 查询阅读量超过5000的帖子\nSELECT title, read_count, url\nFROM thread_follows\nWHERE read_count > 5000\nORDER BY read_count DESC;\n\n-- 计算总数\nSELECT COUNT(*) as total_count\nFROM thread_follows\nWHERE read_count > 5000;"
+  },
+  {
+    "question": "我的帖子阅读量如何？",
+    "answer": "您的帖子阅读量情况如下：\n1. {title} - 阅读量: {read_count} - 链接: {url}\n2. {title} - 阅读量: {read_count} - 链接: {url}\n...\n您共有{total_count}个帖子，总阅读量为{total_read_count}，平均每个帖子有{avg_read_count}次阅读。",
+    "sql": "-- 查询特定用户的帖子阅读量\n-- 注意：实际使用时需替换 'current_user' 为当前登录用户名\nSELECT title, read_count, url\nFROM thread_follows\nWHERE author = 'current_user'\nORDER BY read_count DESC;\n\n-- 计算总统计信息\nSELECT \n  COUNT(*) as total_count,\n  SUM(read_count) as total_read_count,\n  AVG(read_count) as avg_read_count\nFROM thread_follows\nWHERE author = 'current_user';"
+  },
+  {
+    "question": "我关注的帖子谁昨天重发了？",
+    "answer": "在{latest_date}（数据库最新日期），您关注的以下帖子有重发记录：\n1. {title} - 重发次数: {repost_count} - 链接: {url}\n2. {title} - 重发次数: {repost_count} - 链接: {url}\n...\n共有{total_count}个关注的帖子在这一天被重发了{total_reposts}次。\n\n[如果没有记录]：在{latest_date}（数据库最新日期），您关注的帖子没有重发记录。",
+    "sql": "-- 找出最新日期\nWITH latest_date AS (\n  SELECT DATE(MAX(action_time)) as date FROM action_logs WHERE action = '重发'\n),\n-- 获取用户关注的帖子URL\nuser_follows AS (\n  SELECT url FROM thread_follows\n  -- 注意：实际使用时需根据用户ID或其他标识筛选\n)\n-- 查询在最新日期有重发记录的关注帖子\nSELECT \n  al.title, \n  COUNT(*) as repost_count,\n  al.url,\n  ld.date as latest_date\nFROM action_logs al\nJOIN user_follows uf ON al.url = uf.url\nCROSS JOIN latest_date ld\nWHERE DATE(al.action_time) = ld.date\nAND al.action = '重发'\nGROUP BY al.url, al.title\nORDER BY repost_count DESC;\n\n-- 计算总统计\nSELECT \n  COUNT(DISTINCT url) as total_count,\n  COUNT(*) as total_reposts\nFROM action_logs al\nJOIN user_follows uf ON al.url = uf.url\nCROSS JOIN latest_date ld\nWHERE DATE(al.action_time) = ld.date\nAND al.action = '重发';"
+  },
+  {
+    "question": "哪周发帖量最大？",
+    "answer": "根据数据统计，发帖量最大的一周是从{week_start}到{week_end}，这一周共有{post_count}个帖子发布。",
+    "sql": "-- 按周分组并计算每周的发帖量\nSELECT \n  DATE(post_time, 'weekday 0', '-6 days') as week_start,\n  DATE(post_time, 'weekday 0') as week_end,\n  COUNT(*) as post_count\nFROM posts\nWHERE post_time IS NOT NULL\nGROUP BY week_start, week_end\nORDER BY post_count DESC\nLIMIT 1;"
+  },
+  {
+    "question": "3月有多少新帖？",
+    "answer": "根据数据库记录，3月份共有{post_count}个新发布的帖子。",
+    "sql": "-- 查询3月份的发帖数量\nSELECT COUNT(*) as post_count\nFROM posts\nWHERE post_time IS NOT NULL\nAND (strftime('%m', post_time) = '03' OR post_time LIKE '%3月%');"
+  },
+  {
+    "question": "上周总共有多少帖子？",
+    "answer": "根据数据库中最新日期，上周（{week_start}至{week_end}）总共有{post_count}个不重复的帖子。",
+    "sql": "-- 找出最新日期\nWITH latest_date AS (\n  SELECT MAX(DATE(post_time)) as date FROM posts\n),\n-- 计算上周的开始和结束日期\nlast_week AS (\n  SELECT \n    DATE(date, 'weekday 0', '-13 days') as week_start,\n    DATE(date, 'weekday 0', '-7 days') as week_end\n  FROM latest_date\n)\n-- 查询上周的帖子数量\nSELECT \n  lw.week_start,\n  lw.week_end,\n  COUNT(DISTINCT url) as post_count\nFROM posts p\nCROSS JOIN last_week lw\nWHERE DATE(p.post_time) BETWEEN lw.week_start AND lw.week_end\nGROUP BY lw.week_start, lw.week_end;"
+  }
+]

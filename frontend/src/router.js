@@ -3,6 +3,7 @@ import App from './App';
 import Dashboard from './pages/Dashboard';
 import Rankings from './pages/Rankings';
 import FollowsPage from './pages/Follows';
+import CarListPage from './pages/CarList';
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: '/follows',
         element: <FollowsPage />,
+      },
+      {
+        path: '/cars',
+        element: <CarListPage />,
       },
     ],
   },

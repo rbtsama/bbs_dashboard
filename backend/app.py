@@ -68,45 +68,69 @@ def init_db():
     )
     ''')
     
-    # 删除旧的关注表（如果存在）
-    conn.execute('DROP TABLE IF EXISTS thread_follows')
-    
-    # 创建新的关注表，使用 url 作为唯一标识
+    # 创建车辆信息表
     conn.execute('''
-    CREATE TABLE IF NOT EXISTS thread_follows (
+    CREATE TABLE IF NOT EXISTS car_info (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        url TEXT NOT NULL,
-        follow_type TEXT NOT NULL CHECK(follow_type IN ('my_follow', 'my_thread')),
-        title TEXT,
+        url TEXT UNIQUE,
+        year INTEGER,
+        make TEXT,
+        model TEXT,
+        miles TEXT,
+        price TEXT,
+        trade_type TEXT,
+        location TEXT,
+        thread_id TEXT,
         author TEXT,
-        author_link TEXT,
-        read_count INTEGER DEFAULT 0,
-        reply_count INTEGER DEFAULT 0,
-        repost_count INTEGER DEFAULT 0,
-        delete_count INTEGER DEFAULT 0,
-        days_old INTEGER DEFAULT 0,
-        last_active INTEGER DEFAULT 0,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        UNIQUE(url, follow_type)
+        post_time TEXT,
+        daysold INTEGER,
+        last_active TEXT,
+        FOREIGN KEY (url) REFERENCES posts(url)
     )
     ''')
     
-    # 创建关注帖子的异动记录表
-    conn.execute('''
-    CREATE TABLE IF NOT EXISTS follow_history (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        url TEXT NOT NULL,
-        title TEXT,
-        author TEXT,
-        scraping_time TEXT,
-        read_count INTEGER,
-        reply_count INTEGER,
-        last_reply_time TEXT,
-        update_reason TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (url) REFERENCES thread_follows(url) ON DELETE CASCADE
-    )
-    ''')
+    # 检查thread_follows表是否存在，如果不存在则创建
+    table_exists = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='thread_follows'").fetchone()
+    if not table_exists:
+        # 创建新的关注表，使用 url 作为唯一标识
+        conn.execute('''
+        CREATE TABLE IF NOT EXISTS thread_follows (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            url TEXT NOT NULL,
+            follow_type TEXT NOT NULL CHECK(follow_type IN ('my_follow', 'my_thread')),
+            title TEXT,
+            author TEXT,
+            author_link TEXT,
+            read_count INTEGER DEFAULT 0,
+            reply_count INTEGER DEFAULT 0,
+            repost_count INTEGER DEFAULT 0,
+            delete_count INTEGER DEFAULT 0,
+            days_old INTEGER DEFAULT 0,
+            last_active INTEGER DEFAULT 0,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(url, follow_type)
+        )
+        ''')
+    
+    # 检查follow_history表是否存在，如果不存在则创建
+    table_exists = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='follow_history'").fetchone()
+    if not table_exists:
+        # 创建关注帖子的异动记录表
+        conn.execute('''
+        CREATE TABLE IF NOT EXISTS follow_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            url TEXT NOT NULL,
+            title TEXT,
+            author TEXT,
+            scraping_time TEXT,
+            read_count INTEGER,
+            reply_count INTEGER,
+            last_reply_time TEXT,
+            update_reason TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (url) REFERENCES thread_follows(url) ON DELETE CASCADE
+        )
+        ''')
     
     conn.commit()
     conn.close()
@@ -2203,6 +2227,173 @@ def get_action_logs():
     finally:
         if conn:
             conn.close()
+
+# 导入车辆信息
+@app.route('/api/import-car-info', methods=['POST'])
+def import_car_info():
+    try:
+        conn = get_db_connection()
+        
+        # 读取CSV文件
+        csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'processed', 'car_info.csv')
+        df = pd.read_csv(csv_path)
+        
+        # 获取帖子信息，用于关联
+        posts_df = pd.read_sql("SELECT url, author, post_time FROM posts", conn)
+        posts_dict = dict(zip(posts_df['url'], zip(posts_df['author'], posts_df['post_time'])))
+        
+        # 计算导入时间
+        now = datetime.now()
+        
+        # 准备批量插入
+        records = []
+        for _, row in df.iterrows():
+            # 跳过trade_type为"不知道"的记录
+            if row['trade_type'] == '不知道':
+                continue
+                
+            url = row['url']
+            thread_id = url.split('/')[-1].split('.')[0].replace('t_', '')
+            
+            # 从posts表获取作者和发帖时间
+            author = None
+            post_time = None
+            last_active = None
+            daysold = None
+            
+            if url in posts_dict:
+                author, post_time = posts_dict[url]
+                
+                # 计算daysold
+                if post_time:
+                    try:
+                        post_datetime = datetime.strptime(post_time, '%Y-%m-%d %H:%M:%S')
+                        daysold = (now - post_datetime).days
+                        # 假设最后活跃时间为当前时间，实际应从thread_history表获取
+                        last_active = now.strftime('%Y-%m-%d %H:%M:%S')
+                    except:
+                        pass
+            
+            # 准备记录
+            record = (
+                url,
+                int(row['year']) if not pd.isna(row['year']) else None,
+                row['make'] if not pd.isna(row['make']) else None,
+                row['model'] if not pd.isna(row['model']) else None,
+                row['miles'] if not pd.isna(row['miles']) else None,
+                row['price'] if not pd.isna(row['price']) else None,
+                row['trade_type'] if not pd.isna(row['trade_type']) else None,
+                row['location'] if not pd.isna(row['location']) else None,
+                thread_id,
+                author,
+                post_time,
+                daysold,
+                last_active
+            )
+            records.append(record)
+        
+        # 先清空表
+        conn.execute("DELETE FROM car_info")
+        
+        # 批量插入
+        conn.executemany("""
+            INSERT INTO car_info (url, year, make, model, miles, price, trade_type, location, thread_id, author, post_time, daysold, last_active)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, records)
+        
+        conn.commit()
+        conn.close()
+        
+        return jsonify({
+            'success': True,
+            'message': f'成功导入{len(records)}条车辆信息记录',
+            'count': len(records)
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'导入失败: {str(e)}'
+        }), 500
+
+# 获取车辆信息列表
+@app.route('/api/car-info', methods=['GET'])
+def get_car_info():
+    try:
+        # 获取查询参数
+        page = int(request.args.get('page', 1))
+        page_size = int(request.args.get('pageSize', 20))
+        search = request.args.get('search', '')
+        
+        # 计算偏移量
+        offset = (page - 1) * page_size
+        
+        conn = get_db_connection()
+        
+        # 构建查询语句
+        query = "SELECT * FROM car_info WHERE 1=1"
+        params = []
+        
+        # 添加搜索条件
+        if search:
+            query += " AND (year LIKE ? OR make LIKE ? OR model LIKE ?)"
+            search_param = f"%{search}%"
+            params.extend([search_param, search_param, search_param])
+        
+        # 添加排序 - daysold正序、last_active正序（数值越小表示越活跃）
+        query += " ORDER BY daysold ASC, last_active ASC"
+        
+        # 添加分页
+        query += " LIMIT ? OFFSET ?"
+        params.extend([page_size, offset])
+        
+        # 执行查询
+        result = conn.execute(query, params).fetchall()
+        
+        # 获取总记录数
+        count_query = "SELECT COUNT(*) as count FROM car_info WHERE 1=1"
+        count_params = []
+        
+        if search:
+            count_query += " AND (year LIKE ? OR make LIKE ? OR model LIKE ?)"
+            search_param = f"%{search}%"
+            count_params.extend([search_param, search_param, search_param])
+        
+        total = conn.execute(count_query, count_params).fetchone()['count']
+        
+        # 转换结果为字典列表
+        car_list = []
+        for row in result:
+            car_list.append({
+                'id': row['id'],
+                'url': row['url'],
+                'year': row['year'],
+                'make': row['make'],
+                'model': row['model'],
+                'miles': row['miles'],
+                'price': row['price'],
+                'trade_type': row['trade_type'],
+                'location': row['location'],
+                'thread_id': row['thread_id'],
+                'author': row['author'],
+                'post_time': row['post_time'],
+                'daysold': row['daysold'],
+                'last_active': row['last_active']
+            })
+        
+        conn.close()
+        
+        return jsonify({
+            'success': True,
+            'data': car_list,
+            'total': total,
+            'page': page,
+            'pageSize': page_size
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'获取车辆信息失败: {str(e)}'
+        }), 500
 
 if __name__ == '__main__':
     # 确保数据库目录存在

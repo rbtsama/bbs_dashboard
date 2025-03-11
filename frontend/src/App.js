@@ -41,6 +41,10 @@ const App = () => {
                   key: '/follows',
                   label: <Link to="/follows">关注列表</Link>,
                 },
+                {
+                  key: '/cars',
+                  label: <Link to="/cars">全美收车</Link>,
+                },
               ]}
             />
           </Header>

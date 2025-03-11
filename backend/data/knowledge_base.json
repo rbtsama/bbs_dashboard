@@ -1,0 +1,2888 @@
+{
+  "schema": {
+    "post": {
+      "columns": [
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "scraping_time_r",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "post_time",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "list_time",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "page",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "num",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author_link",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "read_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "scraping_time",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "list_time_1",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "source_file",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "sheet_name",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": null,
+      "foreign_keys": []
+    },
+    "list": {
+      "columns": [
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "scraping_time_r",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "list_time_r",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_reason",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "page",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "num",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author_link",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "read_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "scraping_time",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "list_time",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "source_file",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "sheet_name",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": null,
+      "foreign_keys": []
+    },
+    "action": {
+      "columns": [
+        {
+          "name": "thread_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "action_time",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "action_type",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reason",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "source",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": null,
+      "foreign_keys": []
+    },
+    "poststatistics": {
+      "columns": [
+        {
+          "name": "type",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "datetime",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "id",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_reason",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "view_gap",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "duplicate_posts",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "Days_Old",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author_link",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "repost_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "delete_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_active",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": null,
+      "foreign_keys": []
+    },
+    "updatestatistics": {
+      "columns": [
+        {
+          "name": "type",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "datetime",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "id",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_reason",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "view_gap",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "duplicate_posts",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "Days_Old",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author_link",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "repost_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "delete_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_active",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": null,
+      "foreign_keys": []
+    },
+    "viewstatistics": {
+      "columns": [
+        {
+          "name": "type",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "datetime",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "id",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_reason",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "view_gap",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "duplicate_posts",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "Days_Old",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author_link",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "repost_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "delete_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_active",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": null,
+      "foreign_keys": []
+    },
+    "postranking": {
+      "columns": [
+        {
+          "name": "type",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "datetime",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "id",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_reason",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "view_gap",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "duplicate_posts",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "Days_Old",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author_link",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "repost_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "delete_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_active",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": null,
+      "foreign_keys": []
+    },
+    "authorranking": {
+      "columns": [
+        {
+          "name": "type",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "datetime",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "id",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_reason",
+          "type": "TIMESTAMP",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "view_gap",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "duplicate_posts",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "Days_Old",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author_link",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "repost_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "delete_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_active",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": null,
+      "foreign_keys": []
+    },
+    "posts": {
+      "columns": [
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": true
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "post_time",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "scraping_time",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": "url",
+      "foreign_keys": []
+    },
+    "thread_history": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": true
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "scraping_time",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "read_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_reply_time",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_reason",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": "id",
+      "foreign_keys": []
+    },
+    "follow_history": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": true
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "scraping_time",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "read_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_reply_time",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_reason",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "nullable": true,
+          "default": "CURRENT_TIMESTAMP",
+          "primary_key": false
+        }
+      ],
+      "primary_key": "id",
+      "foreign_keys": [
+        {
+          "from": "url",
+          "to": "url",
+          "table": "thread_follows"
+        }
+      ]
+    },
+    "wordcloud_cache": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": true
+        },
+        {
+          "name": "data",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "created_date",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "version",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "expire_date",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        }
+      ],
+      "primary_key": "id",
+      "foreign_keys": []
+    },
+    "thread_history_cache": {
+      "columns": [
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": true
+        },
+        {
+          "name": "history_data",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_update",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "update_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "repost_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "delete_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        }
+      ],
+      "primary_key": "url",
+      "foreign_keys": []
+    },
+    "thread_follows": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": null,
+          "primary_key": true
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "follow_type",
+          "type": "TEXT",
+          "nullable": false,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "author_link",
+          "type": "TEXT",
+          "nullable": true,
+          "default": null,
+          "primary_key": false
+        },
+        {
+          "name": "read_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "reply_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "repost_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "delete_count",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "days_old",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "last_active",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "0",
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "nullable": true,
+          "default": "CURRENT_TIMESTAMP",
+          "primary_key": false
+        }
+      ],
+      "primary_key": "id",
+      "foreign_keys": []
+    }
+  },
+  "sample_data": {
+    "post": [
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2849565.html",
+        "title": "7000多尼桑轩逸",
+        "scraping_time_r": "2025-02-08 00:15:00",
+        "post_time": "2025-02-05 00:00:00",
+        "list_time": "2025-02-05 00:00:00",
+        "page": 3,
+        "num": 45,
+        "author": "9783辋川雨",
+        "author_link": "https://www.chineseinla.com/user/id_2595129.html",
+        "read_count": 650,
+        "reply_count": 0,
+        "scraping_time": "2025-02-08 00:01:00",
+        "list_time_1": "2025-02-05 00:00:00",
+        "source_file": "bbs_post_list_20250208.xlsx",
+        "sheet_name": 1
+      },
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2849628.html",
+        "title": "一手车主搬家卖车",
+        "scraping_time_r": "2025-02-08 00:15:00",
+        "post_time": "2025-02-05 00:00:00",
+        "list_time": "2025-02-05 00:00:00",
+        "page": 3,
+        "num": 44,
+        "author": "lingfpbli",
+        "author_link": "https://www.chineseinla.com/user/id_2592003.html",
+        "read_count": 715,
+        "reply_count": 0,
+        "scraping_time": "2025-02-08 00:01:00",
+        "list_time_1": "2025-02-05 00:00:00",
+        "source_file": "bbs_post_list_20250208.xlsx",
+        "sheet_name": 1
+      },
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2849646.html",
+        "title": "2006年丰田塞纳,11万迈",
+        "scraping_time_r": "2025-02-08 00:15:00",
+        "post_time": "2025-02-05 00:00:00",
+        "list_time": "2025-02-05 00:00:00",
+        "page": 3,
+        "num": 43,
+        "author": "po939911",
+        "author_link": "https://www.chineseinla.com/user/id_2461562.html",
+        "read_count": 757,
+        "reply_count": 0,
+        "scraping_time": "2025-02-08 00:01:00",
+        "list_time_1": "2025-02-05 00:00:00",
+        "source_file": "bbs_post_list_20250208.xlsx",
+        "sheet_name": 1
+      },
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2849669.html",
+        "title": "2014插电混动普锐斯",
+        "scraping_time_r": "2025-02-08 00:15:00",
+        "post_time": "2025-02-05 00:00:00",
+        "list_time": "2025-02-05 00:00:00",
+        "page": 3,
+        "num": 42,
+        "author": "yldecn",
+        "author_link": "https://www.chineseinla.com/user/id_82923.html",
+        "read_count": 711,
+        "reply_count": 0,
+        "scraping_time": "2025-02-08 00:01:00",
+        "list_time_1": "2025-02-05 00:00:00",
+        "source_file": "bbs_post_list_20250208.xlsx",
+        "sheet_name": 1
+      },
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2849705.html",
+        "title": "#14年凯美瑞 仅售5500*",
+        "scraping_time_r": "2025-02-08 00:15:00",
+        "post_time": "2025-02-05 00:00:00",
+        "list_time": "2025-02-05 00:00:00",
+        "page": 3,
+        "num": 41,
+        "author": "F喊口号",
+        "author_link": "https://www.chineseinla.com/user/id_2599405.html",
+        "read_count": 856,
+        "reply_count": 0,
+        "scraping_time": "2025-02-08 00:01:00",
+        "list_time_1": "2025-02-05 00:00:00",
+        "source_file": "bbs_post_list_20250208.xlsx",
+        "sheet_name": 1
+      }
+    ],
+    "list": [
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_1938620.html",
+        "title": "2018个人本田奥德赛无事故$9800",
+        "scraping_time_r": "2025-03-02 00:30:00",
+        "list_time_r": "2025-03-02 00:09:00",
+        "update_reason": null,
+        "page": 1,
+        "num": 1,
+        "author": "1796Ray | 黄石的孩子",
+        "author_link": "https://www.chineseinla.com/user/id_581048.html",
+        "read_count": 701,
+        "reply_count": 0,
+        "scraping_time": "2025-03-02 00:20:00",
+        "list_time": "2025-03-02 00:09:00",
+        "source_file": "bbs_update_list_20250302.xlsx",
+        "sheet_name": 21
+      },
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_1938620.html",
+        "title": "2018个人本田奥德赛无事故$9800",
+        "scraping_time_r": "2025-03-02 00:45:00",
+        "list_time_r": "2025-03-02 00:09:00",
+        "update_reason": null,
+        "page": 1,
+        "num": 2,
+        "author": "1796Ray | 黄石的孩子",
+        "author_link": "https://www.chineseinla.com/user/id_581048.html",
+        "read_count": 707,
+        "reply_count": 0,
+        "scraping_time": "2025-03-02 00:35:00",
+        "list_time": "2025-03-02 00:09:00",
+        "source_file": "bbs_update_list_20250302.xlsx",
+        "sheet_name": 36
+      },
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_1938620.html",
+        "title": "2018个人本田奥德赛无事故$9800",
+        "scraping_time_r": "2025-03-02 01:00:00",
+        "list_time_r": "2025-03-02 00:09:00",
+        "update_reason": null,
+        "page": 1,
+        "num": 3,
+        "author": "1796Ray | 黄石的孩子",
+        "author_link": "https://www.chineseinla.com/user/id_581048.html",
+        "read_count": 710,
+        "reply_count": 0,
+        "scraping_time": "2025-03-02 00:50:00",
+        "list_time": "2025-03-02 00:09:00",
+        "source_file": "bbs_update_list_20250302.xlsx",
+        "sheet_name": 51
+      },
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_1938620.html",
+        "title": "2018个人本田奥德赛无事故$9800",
+        "scraping_time_r": "2025-03-02 01:15:00",
+        "list_time_r": "2025-03-02 00:09:00",
+        "update_reason": null,
+        "page": 1,
+        "num": 5,
+        "author": "1796Ray | 黄石的孩子",
+        "author_link": "https://www.chineseinla.com/user/id_581048.html",
+        "read_count": 710,
+        "reply_count": 0,
+        "scraping_time": "2025-03-02 01:05:00",
+        "list_time": "2025-03-02 00:09:00",
+        "source_file": "bbs_update_list_20250302.xlsx",
+        "sheet_name": 106
+      },
+      {
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_1938620.html",
+        "title": "2018个人本田奥德赛无事故$9800",
+        "scraping_time_r": "2025-03-02 01:30:00",
+        "list_time_r": "2025-03-02 00:09:00",
+        "update_reason": null,
+        "page": 1,
+        "num": 5,
+        "author": "1796Ray | 黄石的孩子",
+        "author_link": "https://www.chineseinla.com/user/id_581048.html",
+        "read_count": 712,
+        "reply_count": 0,
+        "scraping_time": "2025-03-02 01:20:00",
+        "list_time": "2025-03-02 00:09:00",
+        "source_file": "bbs_update_list_20250302.xlsx",
+        "sheet_name": 121
+      }
+    ],
+    "action": [
+      {
+        "thread_id": 2150578,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2150578.html",
+        "title": "出售2015 Winnebago 奔驰 RV",
+        "author": "Aaron",
+        "action_time": "2025-02-24 16:50:00",
+        "action_type": "重发",
+        "reason": "重发",
+        "source": "list.xlsx"
+      },
+      {
+        "thread_id": 2362120,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2362120.html",
+        "title": "退役警车",
+        "author": "阳光青年1988",
+        "action_time": "2025-02-24 08:35:00",
+        "action_type": "重发",
+        "reason": "重发",
+        "source": "list.xlsx"
+      },
+      {
+        "thread_id": 2362120,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2362120.html",
+        "title": "退役警车",
+        "author": "阳光青年1988",
+        "action_time": "2025-02-25 08:35:00",
+        "action_type": "重发",
+        "reason": "重发",
+        "source": "list.xlsx"
+      },
+      {
+        "thread_id": 2362120,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2362120.html",
+        "title": "退役警车",
+        "author": "阳光青年1988",
+        "action_time": "2025-02-26 14:35:00",
+        "action_type": "重发",
+        "reason": "重发",
+        "source": "list.xlsx"
+      },
+      {
+        "thread_id": 2362120,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2362120.html",
+        "title": "退役警车",
+        "author": "阳光青年1988",
+        "action_time": "2025-02-27 16:20:00",
+        "action_type": "重发",
+        "reason": "重发",
+        "source": "list.xlsx"
+      }
+    ],
+    "poststatistics": [
+      {
+        "type": "post",
+        "datetime": "2025-02-05 00:00:00",
+        "count": 7,
+        "id": "post_stat_0",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "post",
+        "datetime": "2025-02-05 01:00:00",
+        "count": 0,
+        "id": "post_stat_1",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "post",
+        "datetime": "2025-02-05 02:00:00",
+        "count": 0,
+        "id": "post_stat_2",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "post",
+        "datetime": "2025-02-05 03:00:00",
+        "count": 0,
+        "id": "post_stat_3",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "post",
+        "datetime": "2025-02-05 04:00:00",
+        "count": 0,
+        "id": "post_stat_4",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      }
+    ],
+    "updatestatistics": [
+      {
+        "type": "list_重发",
+        "datetime": "2025-02-05 00:00:00",
+        "count": 0,
+        "id": "list_stat_0",
+        "update_reason": "重发",
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "list_重发",
+        "datetime": "2025-02-05 01:00:00",
+        "count": 0,
+        "id": "list_stat_1",
+        "update_reason": "重发",
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "list_重发",
+        "datetime": "2025-02-05 02:00:00",
+        "count": 0,
+        "id": "list_stat_2",
+        "update_reason": "重发",
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "list_重发",
+        "datetime": "2025-02-05 03:00:00",
+        "count": 0,
+        "id": "list_stat_3",
+        "update_reason": "重发",
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "list_重发",
+        "datetime": "2025-02-05 04:00:00",
+        "count": 0,
+        "id": "list_stat_4",
+        "update_reason": "重发",
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      }
+    ],
+    "viewstatistics": [
+      {
+        "type": "view",
+        "datetime": "2025-02-05 00:00:00",
+        "count": 0,
+        "id": "view_stat_0",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "view",
+        "datetime": "2025-02-05 01:00:00",
+        "count": 0,
+        "id": "view_stat_1",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "view",
+        "datetime": "2025-02-05 02:00:00",
+        "count": 0,
+        "id": "view_stat_2",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "view",
+        "datetime": "2025-02-05 03:00:00",
+        "count": 0,
+        "id": "view_stat_3",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      },
+      {
+        "type": "view",
+        "datetime": "2025-02-05 04:00:00",
+        "count": 0,
+        "id": "view_stat_4",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": null,
+        "author_link": null,
+        "repost_count": 0,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 0
+      }
+    ],
+    "postranking": [
+      {
+        "type": "post_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "post_rank_0",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2832136.html",
+        "title": "出售2012丰田RAV4越野车 无事故 一口价6500美金",
+        "Days_Old": 0,
+        "author": "liongge",
+        "author_link": "https://www.chineseinla.com/user/id_2594818.html",
+        "repost_count": 71,
+        "reply_count": 2,
+        "delete_count": 0,
+        "last_active": 1
+      },
+      {
+        "type": "post_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "post_rank_1",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2667540.html",
+        "title": "出售2016年Lexus雷克萨斯CT200H 混动车 省油省心",
+        "Days_Old": 0,
+        "author": "李刘",
+        "author_link": "https://www.chineseinla.com/user/id_2550366.html",
+        "repost_count": 48,
+        "reply_count": 1,
+        "delete_count": 0,
+        "last_active": 1
+      },
+      {
+        "type": "post_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "post_rank_2",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2855514.html",
+        "title": "新特斯拉优惠价",
+        "Days_Old": 21,
+        "author": "ez2rentinla",
+        "author_link": "https://www.chineseinla.com/user/id_103305.html",
+        "repost_count": 48,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 1
+      },
+      {
+        "type": "post_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "post_rank_3",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2850277.html",
+        "title": "2014年奔驰Gl450汽油版7座$9999",
+        "Days_Old": 31,
+        "author": "741天涯人",
+        "author_link": "https://www.chineseinla.com/user/id_2532855.html",
+        "repost_count": 47,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 1
+      },
+      {
+        "type": "post_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "post_rank_4",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": "https://www.chineseinla.com/f/page_viewtopic/t_2799594.html",
+        "title": "2014大改款1.5T涡轮增压发动机宝马迷你Cooper",
+        "Days_Old": 0,
+        "author": "QiQi6000",
+        "author_link": "https://www.chineseinla.com/user/id_2585544.html",
+        "repost_count": 46,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 1
+      }
+    ],
+    "authorranking": [
+      {
+        "type": "author_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "author_rank_0",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": "liongge",
+        "author_link": "https://www.chineseinla.com/user/id_2594818.html",
+        "repost_count": 71,
+        "reply_count": 2,
+        "delete_count": 0,
+        "last_active": 1
+      },
+      {
+        "type": "author_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "author_rank_1",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": "ez2rentinla",
+        "author_link": "https://www.chineseinla.com/user/id_103305.html",
+        "repost_count": 62,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 1
+      },
+      {
+        "type": "author_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "author_rank_2",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": "5684天路",
+        "author_link": "https://www.chineseinla.com/user/id_2410477.html",
+        "repost_count": 50,
+        "reply_count": 0,
+        "delete_count": 0,
+        "last_active": 1
+      },
+      {
+        "type": "author_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "author_rank_3",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": "jhgnu",
+        "author_link": "https://www.chineseinla.com/user/id_2578203.html",
+        "repost_count": 48,
+        "reply_count": 1,
+        "delete_count": 0,
+        "last_active": 1
+      },
+      {
+        "type": "author_rank",
+        "datetime": null,
+        "count": 0,
+        "id": "author_rank_4",
+        "update_reason": null,
+        "view_gap": 0,
+        "duplicate_posts": 0,
+        "url": null,
+        "title": null,
+        "Days_Old": 0,
+        "author": "李刘",
+        "author_link": "https://www.chineseinla.com/user/id_2550366.html",
+        "repost_count": 48,
+        "reply_count": 1,
+        "delete_count": 0,
+        "last_active": 1
+      }
+    ],
+    "wordcloud_cache": [
+      {
+        "id": 1,
+        "data": "[{\"text\": \"\\u4e30\\u7530\", \"size\": 130.0, \"count\": 51478, \"x\": 16.240759124521183, \"y\": 14.307143340744876, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u51fa\\u552e\", \"size\": 122.82864191774968, \"count\": 42249, \"x\": -151.8254548417452, \"y\": 18.92171403697848, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u4e07\\u8fc8\", \"size\": 109.23111292421858, \"count\": 24750, \"x\": 164.78473846816192, \"y\": 8.42555446124947, \"rotate\": 0, \"color\": \"#b7d07a\"}, {\"text\": \"\\u666e\\u9510\\u65af\", \"size\": 107.36231715134915, \"count\": 22345, \"x\": 328.2790310792853, \"y\": 33.65824941445452, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"\\u585e\\u7eb3\", \"size\": 105.25963051459875, \"count\": 19639, \"x\": -317.1553229838026, \"y\": 23.162493454718184, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"2010\", \"size\": 44.11445888455038, \"count\": 8473, \"x\": -1.0781718479607545, \"y\": -98.93412998180304, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u8f66\\u51b5\", \"size\": 43.72545020106067, \"count\": 7672, \"x\": 84.26203297575344, \"y\": -98.99449378017466, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"2013\", \"size\": 43.72010800940226, \"count\": 7661, \"x\": 4.828727071870608, \"y\": 132.41198357726307, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"\\u4f4e\\u4ef7\", \"size\": 43.63511859665482, \"count\": 7486, \"x\": -94.75834701792455, \"y\": -96.15537255104671, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"2018\", \"size\": 43.60840763836276, \"count\": 7431, \"x\": -106.28632676668542, \"y\": 133.83495541698235, \"rotate\": 0, \"color\": \"#4b2e2b\"}, {\"text\": \"\\u6df7\\u52a8\", \"size\": 43.603065446704356, \"count\": 7420, \"x\": 129.70695412877345, \"y\": 121.1707722622756, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"11\", \"size\": 43.56664141266974, \"count\": 7345, \"x\": 135.7661596034989, \"y\": -121.95818917365604, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"\\u767d\\u8272\", \"size\": 43.51321949608563, \"count\": 7235, \"x\": -166.83152082699868, \"y\": -133.89206830234863, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"10\", \"size\": 43.38694951143229, \"count\": 6975, \"x\": 194.20199796261562, \"y\": -132.3275632184325, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u4e00\\u624b\", \"size\": 43.37189424403132, \"count\": 6944, \"x\": -222.3535986493367, \"y\": -119.64584057830717, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"\\u5b9d\\u9a6c\", \"size\": 43.18346057462556, \"count\": 6556, \"x\": 205.96055771613752, \"y\": 134.08992365522465, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"13\", \"size\": 43.14266565650679, \"count\": 6472, \"x\": -222.67151774682128, \"y\": 134.11440060609593, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"14\", \"size\": 43.14218000271966, \"count\": 6471, \"x\": -274.116566231506, \"y\": -78.00710299356322, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"\\u91cc\\u7a0b\", \"size\": 43.02562309380889, \"count\": 6231, \"x\": 257.05331205217635, \"y\": -128.76274602153543, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u6cb9\\u7535\", \"size\": 43.02513744002176, \"count\": 6230, \"x\": 265.3331955867824, \"y\": 128.93135894617058, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"SUV\", \"size\": 42.9707442158634, \"count\": 6118, \"x\": -288.69387778453444, \"y\": 134.21755347048196, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u7701\\u6cb9\", \"size\": 42.94354760378421, \"count\": 6062, \"x\": -309.3945774955946, \"y\": -134.23387143772948, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"2019\", \"size\": 42.91683664549216, \"count\": 6007, \"x\": -363.01713437938287, \"y\": -71.54411329369516, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"RAV4\", \"size\": 42.866814305417954, \"count\": 5904, \"x\": 354.33066563315856, \"y\": 134.27991141674923, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u5c3c\\u6851\", \"size\": 42.839617693338774, \"count\": 5848, \"x\": 321.5841800823977, \"y\": -110.37941438842657, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u7f8e\\u5143\", \"size\": 42.76628397148241, \"count\": 5697, \"x\": -356.34254298865125, \"y\": 134.34022961711057, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u9876\\u914d\", \"size\": 42.72791732229928, \"count\": 5618, \"x\": 384.916677103844, \"y\": -76.7815191783484, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"5500\", \"size\": 42.69197894205179, \"count\": 5544, \"x\": -399.9304909778149, \"y\": -134.38481263476893, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"\\u601d\\u57df\", \"size\": 42.59970472249743, \"count\": 5354, \"x\": 389.2158764570717, \"y\": -134.44017716650154, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"\\u4fbf\\u5b9c\", \"size\": 42.590962954329115, \"count\": 5336, \"x\": -422.71530473786794, \"y\": 102.64877563990439, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"2020\", \"size\": 42.56619461118558, \"count\": 5285, \"x\": -484.8418517270387, \"y\": 50.839244820278545, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"\\u9ad8\\u914d\", \"size\": 42.54919672863609, \"count\": 5250, \"x\": -452.1528332939523, \"y\": -50.82140635845646, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"\\u4e8c\\u624b\\u8f66\", \"size\": 42.26946014725023, \"count\": 4674, \"x\": 445.97978377963227, \"y\": 131.632186261083, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"2009\", \"size\": 42.268488839675975, \"count\": 4672, \"x\": 496.26067745356727, \"y\": 35.09401677389572, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"XLE\", \"size\": 42.25926141772054, \"count\": 4653, \"x\": 458.9632353182701, \"y\": -131.75355261315067, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"16\", \"size\": 42.1742720049731, \"count\": 4478, \"x\": -492.26157244970364, \"y\": -123.42930887493927, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"\\u5965\\u5fb7\\u8d5b\", \"size\": 42.145618431532526, \"count\": 4419, \"x\": -493.4582581356036, \"y\": 134.71262894108048, \"rotate\": 0, \"color\": \"#b7d07a\"}, {\"text\": \"2000\", \"size\": 42.14270450880976, \"count\": 4413, \"x\": 524.376298710274, \"y\": -77.00322948366204, \"rotate\": 0, \"color\": \"#4b2e2b\"}, {\"text\": \"CRV\", \"size\": 42.11356528158207, \"count\": 4353, \"x\": -539.7687021227448, \"y\": -15.80342395582607, \"rotate\": 0, \"color\": \"#4b2e2b\"}, {\"text\": \"\\u7f8e\\u91d1\", \"size\": 41.99506575752278, \"count\": 4109, \"x\": 538.5567903672159, \"y\": 111.60906571315203, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u7279\\u65af\\u62c9\", \"size\": 41.98438137420595, \"count\": 4087, \"x\": 582.4576413841124, \"y\": -7.024670330817183, \"rotate\": 0, \"color\": \"#12aa9c\"}, {\"text\": \"\\u672c\\u7530\\u96c5\\u9601\", \"size\": 41.95669910833965, \"count\": 4030, \"x\": -584.6448891646446, \"y\": -96.1592615074614, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u798f\\u7279\", \"size\": 41.9129902674981, \"count\": 3940, \"x\": 526.0028112871098, \"y\": -134.85220583950115, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"2021\", \"size\": 41.90570546069118, \"count\": 3925, \"x\": -624.1094526904542, \"y\": 33.35252707699494, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"2008\", \"size\": 41.87316665695359, \"count\": 3858, \"x\": 630.3044570349665, \"y\": 77.07977323433231, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u73b0\\u4ee3\", \"size\": 41.869767080443694, \"count\": 3851, \"x\": -562.5049100411435, \"y\": 106.51045103465202, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"\\u81ea\\u5bb6\", \"size\": 41.85568312061697, \"count\": 3822, \"x\": 599.0194327821985, \"y\": -134.8865901276298, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"\\u4e00\\u53f0\", \"size\": 41.853254851681335, \"count\": 3817, \"x\": -633.7154866061871, \"y\": 134.8880470889912, \"rotate\": 0, \"color\": \"#4b2e2b\"}, {\"text\": \"2007\", \"size\": 41.849855275171436, \"count\": 3810, \"x\": 664.5079371318003, \"y\": -63.13043235111983, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u81ea\\u7528\", \"size\": 41.75563844046856, \"count\": 3616, \"x\": -675.3138405924924, \"y\": -54.3825956002255, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"SE\", \"size\": 41.74689667230025, \"count\": 3598, \"x\": 665.1937241619625, \"y\": 134.95186199661984, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u56de\\u5bb6\", \"size\": 41.71970006022107, \"count\": 3542, \"x\": 666.3931554059881, \"y\": -134.96817996386736, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"\\u7ecf\\u5178\", \"size\": 41.70561610039435, \"count\": 3513, \"x\": -703.4393564302208, \"y\": 96.296790315342, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"\\u9996\\u4ed8\", \"size\": 41.683276026186455, \"count\": 3467, \"x\": 719.4517688087375, \"y\": 28.091855723304153, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u65e0\\u4e8b\\u6545\", \"size\": 41.58323134603803, \"count\": 3261, \"x\": -712.5750917885657, \"y\": -135.05006119237717, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"\\u5356\\u8f66\", \"size\": 41.55797734910737, \"count\": 3209, \"x\": 725.0652135905356, \"y\": -132.7782467643467, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"\\u795e\\u8f66\", \"size\": 41.55749169532024, \"count\": 3208, \"x\": -725.0655049828079, \"y\": 1.756203074044067, \"rotate\": 0, \"color\": \"#b7d07a\"}, {\"text\": \"\\u6df7\\u5408\", \"size\": 41.539522505196494, \"count\": 3171, \"x\": 725.0762864968821, \"y\": 132.80316283197348, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"\\u5ea7\\u6905\", \"size\": 18.709365347630982, \"count\": 3044, \"x\": -10.878347541950573, \"y\": -139.5767228256794, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"HONDA\", \"size\": 18.692348038930007, \"count\": 2971, \"x\": 41.966166600478, \"y\": -150.24926243033917, \"rotate\": 0, \"color\": \"#fbda41\"}, {\"text\": \"2005\", \"size\": 18.684422169124076, \"count\": 2937, \"x\": -48.13342252735106, \"y\": -158.86841610528978, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"7500\", \"size\": 18.675097616411215, \"count\": 2897, \"x\": -93.82887705032486, \"y\": -167.51161700453798, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"Toyota\", \"size\": 18.65784719389242, \"count\": 2823, \"x\": 118.49694165795935, \"y\": 168.80529168366456, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"12\", \"size\": 18.65108689317559, \"count\": 2794, \"x\": 71.45182681215542, \"y\": 140.92067430013861, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"2006\", \"size\": 18.65062066553995, \"count\": 2792, \"x\": 123.3637691854909, \"y\": -168.80962760067604, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"\\u4ee3\\u6b65\\u8f66\", \"size\": 18.63896497464887, \"count\": 2742, \"x\": -177.88287891946936, \"y\": -95.71667246264573, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"CX\", \"size\": 18.63849874701323, \"count\": 2740, \"x\": 65.85110456501452, \"y\": 168.81690075179205, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"\\u53d1\\u52a8\\u673a\", \"size\": 18.627542397575617, \"count\": 2693, \"x\": -178.13721419745704, \"y\": 132.48068884924066, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"\\u76ae\\u5361\", \"size\": 18.59653825980535, \"count\": 2560, \"x\": -6.672882846063521, \"y\": -168.8420770441168, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"\\u82f1\\u91cc\", \"size\": 18.591176641995453, \"count\": 2537, \"x\": 84.54663391155259, \"y\": -168.84529401480273, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"\\u5766\\u9014\", \"size\": 18.59047730054199, \"count\": 2534, \"x\": 257.26734406591817, \"y\": -88.30353151074127, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"06\", \"size\": 18.588379276181595, \"count\": 2525, \"x\": -207.07783361533882, \"y\": -168.84697243429105, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"2022\", \"size\": 18.585115682732095, \"count\": 2511, \"x\": 307.9333416830752, \"y\": -61.425215342678726, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u4e00\\u53e3\\u4ef7\", \"size\": 18.58488256891427, \"count\": 2510, \"x\": -266.84207335540833, \"y\": -161.67655330129622, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"4000\", \"size\": 18.58185208928259, \"count\": 2497, \"x\": 234.07632934762842, \"y\": -168.85088874643046, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"17\", \"size\": 18.58138586164695, \"count\": 2495, \"x\": -186.75028975204424, \"y\": 168.85116848301183, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"6500\", \"size\": 18.576024243837054, \"count\": 2472, \"x\": 295.80264319974054, \"y\": -168.85438545369777, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"\\u65e5\\u4ea7\", \"size\": 18.564368552945975, \"count\": 2422, \"x\": -431.8149616981959, \"y\": -12.642739164660856, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"\\u65e5\\u672c\", \"size\": 18.559240048953903, \"count\": 2400, \"x\": 465.9661131072899, \"y\": -5.6197362646537465, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u5b89\\u88c5\", \"size\": 18.555277114050934, \"count\": 2383, \"x\": 291.67950839640645, \"y\": 168.86683373156944, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u56db\\u9a71\", \"size\": 18.554577772597472, \"count\": 2380, \"x\": -445.1236447096452, \"y\": 168.8672533364415, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u4e09\\u6392\", \"size\": 18.547584358062824, \"count\": 2350, \"x\": 351.5362055305808, \"y\": -168.8714493851623, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"Clean\", \"size\": 18.545020106066787, \"count\": 2339, \"x\": 467.58155050072804, \"y\": -168.87298793635992, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u4ec5\\u552e\", \"size\": 18.540590943528176, \"count\": 2320, \"x\": -415.0946453669412, \"y\": 168.8756454338831, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"4999\", \"size\": 18.540357829710356, \"count\": 2319, \"x\": 466.7454162615119, \"y\": 168.8757853021738, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"\\u552e\\u4ef7\", \"size\": 18.535928667171746, \"count\": 2300, \"x\": 260.91057672360193, \"y\": 168.87844279969696, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"\\u975e\\u5e38\", \"size\": 18.52590477300542, \"count\": 2257, \"x\": -507.0851487768898, \"y\": -168.88445713619674, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"\\u8d85\\u4f4e\\u4ef7\", \"size\": 18.523573634827205, \"count\": 2247, \"x\": 547.7313717017852, \"y\": 168.88585581910368, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"18\", \"size\": 18.521708724284633, \"count\": 2239, \"x\": -557.4860551680957, \"y\": 168.88697476542922, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"\\u6c49\\u5170\\u8fbe\", \"size\": 18.518678244652953, \"count\": 2226, \"x\": -588.5081697205283, \"y\": -168.88879305320822, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"\\u8fc7\\u6237\", \"size\": 18.517512675563843, \"count\": 2221, \"x\": 160.08996491008043, \"y\": -168.8894923946617, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"\\u6025\\u552e\", \"size\": 18.509120578122268, \"count\": 2185, \"x\": 417.6092817626331, \"y\": 168.89452765312663, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"2024\", \"size\": 18.505390757037123, \"count\": 2169, \"x\": 721.2885941832432, \"y\": 168.89676554577773, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"\\u8f66\\u578b\", \"size\": 18.502127163587623, \"count\": 2155, \"x\": 629.2375838262977, \"y\": 168.89872370184742, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u623f\\u8f66\", \"size\": 18.49443440759951, \"count\": 2122, \"x\": -460.73506402057586, \"y\": -168.9033393554403, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"5980\", \"size\": 18.488606562153972, \"count\": 2097, \"x\": -715.770405347262, \"y\": 168.9068360627076, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u8865\\u8d34\", \"size\": 18.487440993064865, \"count\": 2092, \"x\": -672.2718710471162, \"y\": 168.90753540416108, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u4e8b\\u6545\", \"size\": 18.48254560289061, \"count\": 2071, \"x\": 505.150561414142, \"y\": 168.91047263826565, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"sonata\", \"size\": 18.478116440352, \"count\": 2052, \"x\": -787.5478895847074, \"y\": 26.689353882654462, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"6800\", \"size\": 18.47345416399557, \"count\": 2032, \"x\": 788.0782149896588, \"y\": 112.02110095295897, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"\\u5916\\u5356\", \"size\": 18.472987936359928, \"count\": 2030, \"x\": -719.1434499197854, \"y\": -35.10980543194467, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"7999\", \"size\": 18.460632904015384, \"count\": 1977, \"x\": 734.1789540163865, \"y\": -168.92362025759076, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u5965\\u8fea\", \"size\": 18.459234221108456, \"count\": 1971, \"x\": -550.6999487625599, \"y\": -168.92445946733494, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u4e03\\u5ea7\", \"size\": 18.456203741476777, \"count\": 1958, \"x\": 597.2220542907631, \"y\": 168.92627775511394, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"19\", \"size\": 18.45340637566292, \"count\": 1946, \"x\": 564.1130385429734, \"y\": -168.92795617460226, \"rotate\": 0, \"color\": \"#4b2e2b\"}, {\"text\": \"Title2007\", \"size\": 18.448277871670843, \"count\": 1924, \"x\": -788.638137440114, \"y\": 168.93103327699748, \"rotate\": 0, \"color\": \"#4b2e2b\"}, {\"text\": \"\\u6c42\\u8d2d\", \"size\": 18.43755463605105, \"count\": 1878, \"x\": -764.1223998951581, \"y\": -168.93746721836936, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"\\u4ee3\\u534a\", \"size\": 18.434757270237192, \"count\": 1866, \"x\": -644.5507772943986, \"y\": -168.93914563785768, \"rotate\": 0, \"color\": \"#12aa9c\"}, {\"text\": \"\\u8d5b\\u7eb3\", \"size\": 18.43242613205898, \"count\": 1856, \"x\": 819.6765149126924, \"y\": -61.76091725826948, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u5168\\u65b0\", \"size\": 18.42986188006294, \"count\": 1845, \"x\": -825.8642926162984, \"y\": -82.75367170936414, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"\\u81ea\\u552e\", \"size\": 18.42659828661344, \"count\": 1831, \"x\": 806.5250330287088, \"y\": 168.94404102803193, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"\\u8d27\\u8f66\", \"size\": 18.426365172795617, \"count\": 1830, \"x\": 812.1992612775033, \"y\": -168.94418089632262, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u8fd0\\u52a8\\u7248\", \"size\": 18.42519960370651, \"count\": 1825, \"x\": -850.1941212592325, \"y\": 99.52867012193808, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"GL450\", \"size\": 18.416574392447114, \"count\": 1788, \"x\": 862.5200106149478, \"y\": 50.549295631002856, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"\\u6392\\u91cf\", \"size\": 18.41354391281543, \"count\": 1775, \"x\": -848.312998967558, \"y\": -168.95187365231075, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"\\u826f\\u597d\", \"size\": 18.411445888455038, \"count\": 1766, \"x\": 878.9330091837799, \"y\": -139.91699456158102, \"rotate\": 0, \"color\": \"#fbda41\"}, {\"text\": \"\\u51fa\\u624b\", \"size\": 18.408881636459, \"count\": 1755, \"x\": -897.8670171334882, \"y\": -15.453787361433703, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"\\u4ee3\\u6b65\", \"size\": 18.408182295005535, \"count\": 1752, \"x\": 889.3025501168564, \"y\": 168.9550906229967, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u6b3e\\u5b9e\", \"size\": 18.407016725916428, \"count\": 1747, \"x\": 852.58982746771, \"y\": -168.95578996445013, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"Lexus\", \"size\": 18.403053791013463, \"count\": 1730, \"x\": -905.7290750366099, \"y\": 168.95816772539192, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u8d8a\\u91ce\", \"size\": 18.397459059385746, \"count\": 1706, \"x\": 931.7289147151565, \"y\": -22.477310419989585, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"22\", \"size\": 18.39675971793228, \"count\": 1703, \"x\": -929.3101916542531, \"y\": -141.3597102697062, \"rotate\": 0, \"color\": \"#fbda41\"}, {\"text\": \"\\u4fdd\\u65f6\\u6377\", \"size\": 18.394661693571887, \"count\": 1694, \"x\": 782.3926565993848, \"y\": -168.96320298385686, \"rotate\": 0, \"color\": \"#12aa9c\"}, {\"text\": \"3800\", \"size\": 18.392563669211494, \"count\": 1685, \"x\": 930.4222876732728, \"y\": -168.9644617984731, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"TOYOTA\", \"size\": 18.388833848126346, \"count\": 1669, \"x\": -963.9317597306537, \"y\": 63.178814349158856, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"Civic\", \"size\": 18.38300600268081, \"count\": 1644, \"x\": 968.1531887462141, \"y\": 106.56173384727491, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"\\u5145\\u7535\", \"size\": 18.382539775045167, \"count\": 1642, \"x\": -942.4703362516519, \"y\": -168.9704761349729, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"\\u5c0f\\u8f66\", \"size\": 18.38160731977388, \"count\": 1638, \"x\": 883.0531686540841, \"y\": -168.97103560813568, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"\\u8f66\\u4ef7\", \"size\": 18.380674864502595, \"count\": 1634, \"x\": -952.8571569248826, \"y\": 168.97159508129843, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"XSE\", \"size\": 18.37974240923131, \"count\": 1630, \"x\": -803.5499775979101, \"y\": -168.9721545544612, \"rotate\": 0, \"color\": \"#22a2c3\"}]",
+        "created_date": "2025-03-09",
+        "version": 1,
+        "expire_date": "2025-03-16"
+      },
+      {
+        "id": 2,
+        "data": "[{\"text\": \"\\u4e30\\u7530\", \"size\": 130.0, \"count\": 51478, \"x\": -22.36342972607634, \"y\": 33.607821465696325, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"\\u51fa\\u552e\", \"size\": 122.82864191774968, \"count\": 42249, \"x\": 134.7413986635831, \"y\": -41.54221330383542, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"\\u4e07\\u8fc8\", \"size\": 109.23111292421858, \"count\": 24750, \"x\": -172.4925873353929, \"y\": -39.6901412738964, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"\\u666e\\u9510\\u65af\", \"size\": 107.36231715134915, \"count\": 22345, \"x\": 328.2790310792853, \"y\": 33.65824941445452, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"\\u585e\\u7eb3\", \"size\": 105.25963051459875, \"count\": 19639, \"x\": -317.1553229838026, \"y\": 23.162493454718184, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"2010\", \"size\": 44.11445888455038, \"count\": 8473, \"x\": 8.551822396855354, \"y\": -79.31616892674604, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u8f66\\u51b5\", \"size\": 43.72545020106067, \"count\": 7672, \"x\": 101.90588193068582, \"y\": 72.38916512800186, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"2013\", \"size\": 43.72010800940226, \"count\": 7661, \"x\": -64.32330763802094, \"y\": -133.76793519435864, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"\\u4f4e\\u4ef7\", \"size\": 43.63511859665482, \"count\": 7486, \"x\": 19.690666012164204, \"y\": -133.8189288420071, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"2018\", \"size\": 43.60840763836276, \"count\": 7431, \"x\": -163.42320036829875, \"y\": 101.73056365410977, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u6df7\\u52a8\", \"size\": 43.603065446704356, \"count\": 7420, \"x\": 89.31478351519426, \"y\": 133.83816073197738, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"11\", \"size\": 43.56664141266974, \"count\": 7345, \"x\": 180.65839633305256, \"y\": 107.06327023946957, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"\\u767d\\u8272\", \"size\": 43.51321949608563, \"count\": 7235, \"x\": -166.83152082699868, \"y\": -133.89206830234863, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"10\", \"size\": 43.38694951143229, \"count\": 6975, \"x\": 247.1997546384055, \"y\": -62.58818823637674, \"rotate\": 0, \"color\": \"#12aa9c\"}, {\"text\": \"\\u4e00\\u624b\", \"size\": 43.37189424403132, \"count\": 6944, \"x\": -274.116566231506, \"y\": -78.00710299356322, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u5b9d\\u9a6c\", \"size\": 43.18346057462556, \"count\": 6556, \"x\": 257.05331205217635, \"y\": -128.76274602153543, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"13\", \"size\": 43.14266565650679, \"count\": 6472, \"x\": 265.3331955867824, \"y\": 128.93135894617058, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"14\", \"size\": 43.14218000271966, \"count\": 6471, \"x\": -246.91524193254662, \"y\": -134.11469199836822, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"\\u91cc\\u7a0b\", \"size\": 43.02562309380889, \"count\": 6231, \"x\": -288.69387778453444, \"y\": 134.18462614371467, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"\\u6cb9\\u7535\", \"size\": 43.02513744002176, \"count\": 6230, \"x\": -309.3945774955946, \"y\": -134.18491753598695, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"SUV\", \"size\": 42.9707442158634, \"count\": 6118, \"x\": 321.5841800823977, \"y\": -110.37941438842657, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"\\u7701\\u6cb9\", \"size\": 42.94354760378421, \"count\": 6062, \"x\": -363.01713437938287, \"y\": -71.54411329369516, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"2019\", \"size\": 42.91683664549216, \"count\": 6007, \"x\": 354.33066563315856, \"y\": 134.2498980127047, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"RAV4\", \"size\": 42.866814305417954, \"count\": 5904, \"x\": -399.9304909778149, \"y\": -134.27991141674923, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"\\u5c3c\\u6851\", \"size\": 42.839617693338774, \"count\": 5848, \"x\": -356.34254298865125, \"y\": 134.29622938399675, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"\\u7f8e\\u5143\", \"size\": 42.76628397148241, \"count\": 5697, \"x\": 384.916677103844, \"y\": -76.7815191783484, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"\\u9876\\u914d\", \"size\": 42.72791732229928, \"count\": 5618, \"x\": 389.2158764570717, \"y\": -134.36324960662043, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"5500\", \"size\": 42.69197894205179, \"count\": 5544, \"x\": -452.1528332939523, \"y\": -50.82140635845646, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"\\u601d\\u57df\", \"size\": 42.59970472249743, \"count\": 5354, \"x\": -422.71530473786794, \"y\": 102.64877563990439, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"\\u4fbf\\u5b9c\", \"size\": 42.590962954329115, \"count\": 5336, \"x\": 445.97978377963227, \"y\": 131.632186261083, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"2020\", \"size\": 42.56619461118558, \"count\": 5285, \"x\": -484.8418517270387, \"y\": 50.839244820278545, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"\\u9ad8\\u914d\", \"size\": 42.54919672863609, \"count\": 5250, \"x\": 458.9632353182701, \"y\": -131.75355261315067, \"rotate\": 0, \"color\": \"#12aa9c\"}, {\"text\": \"\\u4e8c\\u624b\\u8f66\", \"size\": 42.26946014725023, \"count\": 4674, \"x\": 496.26067745356727, \"y\": 35.09401677389572, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"2009\", \"size\": 42.268488839675975, \"count\": 4672, \"x\": 524.376298710274, \"y\": -77.00322948366204, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"XLE\", \"size\": 42.25926141772054, \"count\": 4653, \"x\": -492.26157244970364, \"y\": -123.42930887493927, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"16\", \"size\": 42.1742720049731, \"count\": 4478, \"x\": -493.4582581356036, \"y\": 134.69543679701616, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u5965\\u5fb7\\u8d5b\", \"size\": 42.145618431532526, \"count\": 4419, \"x\": -539.7687021227448, \"y\": -15.80342395582607, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"2000\", \"size\": 42.14270450880976, \"count\": 4413, \"x\": 538.5567903672159, \"y\": 111.60906571315203, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"CRV\", \"size\": 42.11356528158207, \"count\": 4353, \"x\": 526.0028112871098, \"y\": -134.73186083105077, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"\\u7f8e\\u91d1\", \"size\": 41.99506575752278, \"count\": 4109, \"x\": -562.5049100411435, \"y\": 106.51045103465202, \"rotate\": 0, \"color\": \"#b7d07a\"}, {\"text\": \"\\u7279\\u65af\\u62c9\", \"size\": 41.98438137420595, \"count\": 4087, \"x\": 582.4576413841124, \"y\": -7.024670330817183, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"\\u672c\\u7530\\u96c5\\u9601\", \"size\": 41.95669910833965, \"count\": 4030, \"x\": -584.6448891646446, \"y\": -96.1592615074614, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"\\u798f\\u7279\", \"size\": 41.9129902674981, \"count\": 3940, \"x\": 599.0194327821985, \"y\": -134.85220583950115, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"2021\", \"size\": 41.90570546069118, \"count\": 3925, \"x\": -624.1094526904542, \"y\": 33.35252707699494, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"2008\", \"size\": 41.87316665695359, \"count\": 3858, \"x\": 664.5079371318003, \"y\": -63.13043235111983, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"\\u73b0\\u4ee3\", \"size\": 41.869767080443694, \"count\": 3851, \"x\": 630.3044570349665, \"y\": 77.07977323433231, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"\\u81ea\\u5bb6\", \"size\": 41.85568312061697, \"count\": 3822, \"x\": -633.7154866061871, \"y\": 134.8865901276298, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"\\u4e00\\u53f0\", \"size\": 41.853254851681335, \"count\": 3817, \"x\": -675.3138405924924, \"y\": -54.3825956002255, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"2007\", \"size\": 41.849855275171436, \"count\": 3810, \"x\": 665.1937241619625, \"y\": 134.89008683489715, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"\\u81ea\\u7528\", \"size\": 41.75563844046856, \"count\": 3616, \"x\": 666.3931554059881, \"y\": -134.94661693571885, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"SE\", \"size\": 41.74689667230025, \"count\": 3598, \"x\": -703.4393564302208, \"y\": 96.296790315342, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"\\u56de\\u5bb6\", \"size\": 41.71970006022107, \"count\": 3542, \"x\": 719.4517688087375, \"y\": 28.091855723304153, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"\\u7ecf\\u5178\", \"size\": 41.70561610039435, \"count\": 3513, \"x\": -713.3324418459016, \"y\": -134.9766303397634, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"\\u9996\\u4ed8\", \"size\": 41.683276026186455, \"count\": 3467, \"x\": 724.9900343842882, \"y\": -132.7782467643467, \"rotate\": 0, \"color\": \"#4b2e2b\"}, {\"text\": \"\\u65e0\\u4e8b\\u6545\", \"size\": 41.58323134603803, \"count\": 3261, \"x\": -712.5750917885657, \"y\": 1.756203074044067, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"\\u5ea7\\u6905\", \"size\": 18.709365347630982, \"count\": 3044, \"x\": -75.80667761433963, \"y\": -76.92429804083737, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"HONDA\", \"size\": 18.692348038930007, \"count\": 2971, \"x\": 33.02244125573232, \"y\": 127.80265401591514, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"2005\", \"size\": 18.684422169124076, \"count\": 2937, \"x\": -14.376815446066887, \"y\": 147.30005830830393, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"7500\", \"size\": 18.675097616411215, \"count\": 2897, \"x\": -70.95666025174027, \"y\": 147.8551736190489, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"Toyota\", \"size\": 18.65784719389242, \"count\": 2823, \"x\": 100.29035018807724, \"y\": -139.73491209841882, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"12\", \"size\": 18.65108689317559, \"count\": 2794, \"x\": -120.6557983201123, \"y\": 42.73380783099472, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"2006\", \"size\": 18.65062066553995, \"count\": 2792, \"x\": 20.676251960212593, \"y\": 168.80962760067604, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"\\u4ee3\\u6b65\\u8f66\", \"size\": 18.63896497464887, \"count\": 2742, \"x\": 184.23832948607145, \"y\": 60.763788132256664, \"rotate\": 0, \"color\": \"#12aa9c\"}, {\"text\": \"CX\", \"size\": 18.63849874701323, \"count\": 2740, \"x\": 78.21846658875978, \"y\": -168.81690075179205, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"\\u53d1\\u52a8\\u673a\", \"size\": 18.627542397575617, \"count\": 2693, \"x\": -113.09779044028848, \"y\": 168.82347456145462, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u76ae\\u5361\", \"size\": 18.59653825980535, \"count\": 2560, \"x\": 146.84870121205424, \"y\": -155.6645719241627, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u82f1\\u91cc\", \"size\": 18.591176641995453, \"count\": 2537, \"x\": -228.10914141397248, \"y\": 67.89859794856088, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u5766\\u9014\", \"size\": 18.59047730054199, \"count\": 2534, \"x\": 123.3637691854909, \"y\": -168.8457136196748, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"06\", \"size\": 18.588379276181595, \"count\": 2525, \"x\": -162.5808948542868, \"y\": 168.84697243429105, \"rotate\": 0, \"color\": \"#fbda41\"}, {\"text\": \"2022\", \"size\": 18.585115682732095, \"count\": 2511, \"x\": 175.12264564564046, \"y\": 168.84893059036074, \"rotate\": 0, \"color\": \"#b7d07a\"}, {\"text\": \"\\u4e00\\u53e3\\u4ef7\", \"size\": 18.58488256891427, \"count\": 2510, \"x\": 198.93192713323793, \"y\": -161.12755309709172, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"4000\", \"size\": 18.58185208928259, \"count\": 2497, \"x\": -217.61850326273748, \"y\": 168.85088874643046, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"17\", \"size\": 18.58138586164695, \"count\": 2495, \"x\": -230.95510222762752, \"y\": 127.88956468385574, \"rotate\": 0, \"color\": \"#fbda41\"}, {\"text\": \"6500\", \"size\": 18.576024243837054, \"count\": 2472, \"x\": 307.9333416830752, \"y\": -61.425215342678726, \"rotate\": 0, \"color\": \"#fbda41\"}, {\"text\": \"\\u65e5\\u4ea7\", \"size\": 18.564368552945975, \"count\": 2422, \"x\": -207.07783361533882, \"y\": -168.8613788682324, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"\\u65e5\\u672c\", \"size\": 18.559240048953903, \"count\": 2400, \"x\": 240.61728276715186, \"y\": 168.86445597062766, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"\\u5b89\\u88c5\", \"size\": 18.555277114050934, \"count\": 2383, \"x\": 234.07632934762842, \"y\": -168.86683373156944, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"\\u56db\\u9a71\", \"size\": 18.554577772597472, \"count\": 2380, \"x\": 295.80264319974054, \"y\": -168.8672533364415, \"rotate\": 0, \"color\": \"#fbda41\"}, {\"text\": \"\\u4e09\\u6392\", \"size\": 18.547584358062824, \"count\": 2350, \"x\": 135.66381773348706, \"y\": 168.8714493851623, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"Clean\", \"size\": 18.545020106066787, \"count\": 2339, \"x\": -431.8149616981959, \"y\": -12.642739164660856, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"\\u4ec5\\u552e\", \"size\": 18.540590943528176, \"count\": 2320, \"x\": 259.8585093690296, \"y\": -168.8756454338831, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"4999\", \"size\": 18.540357829710356, \"count\": 2319, \"x\": 465.9661131072899, \"y\": -5.6197362646537465, \"rotate\": 0, \"color\": \"#12aa9c\"}, {\"text\": \"\\u552e\\u4ef7\", \"size\": 18.535928667171746, \"count\": 2300, \"x\": 328.4606047834563, \"y\": -168.87844279969696, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u975e\\u5e38\", \"size\": 18.52590477300542, \"count\": 2257, \"x\": 291.67950839640645, \"y\": 168.88445713619674, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"\\u8d85\\u4f4e\\u4ef7\", \"size\": 18.523573634827205, \"count\": 2247, \"x\": -445.1236447096452, \"y\": 168.88585581910368, \"rotate\": 0, \"color\": \"#525288\"}, {\"text\": \"18\", \"size\": 18.521708724284633, \"count\": 2239, \"x\": 351.5362055305808, \"y\": -168.88697476542922, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"\\u6c49\\u5170\\u8fbe\", \"size\": 18.518678244652953, \"count\": 2226, \"x\": 467.58155050072804, \"y\": -168.88879305320822, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"\\u8fc7\\u6237\", \"size\": 18.517512675563843, \"count\": 2221, \"x\": -415.0946453669412, \"y\": 168.8894923946617, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"\\u6025\\u552e\", \"size\": 18.509120578122268, \"count\": 2185, \"x\": 466.7454162615119, \"y\": 168.89452765312663, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"2024\", \"size\": 18.505390757037123, \"count\": 2169, \"x\": -507.0851487768898, \"y\": -168.89676554577773, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"\\u8f66\\u578b\", \"size\": 18.502127163587623, \"count\": 2155, \"x\": 429.3306812166401, \"y\": -168.89872370184742, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"\\u623f\\u8f66\", \"size\": 18.49443440759951, \"count\": 2122, \"x\": 215.83070117811604, \"y\": 168.9033393554403, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"5980\", \"size\": 18.488606562153972, \"count\": 2097, \"x\": 547.7313717017852, \"y\": 168.9068360627076, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"\\u8865\\u8d34\", \"size\": 18.487440993064865, \"count\": 2092, \"x\": -557.4860551680957, \"y\": 168.90753540416108, \"rotate\": 0, \"color\": \"#b7d07a\"}, {\"text\": \"\\u4e8b\\u6545\", \"size\": 18.48254560289061, \"count\": 2071, \"x\": -588.5081697205283, \"y\": -168.91047263826565, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"sonata\", \"size\": 18.478116440352, \"count\": 2052, \"x\": -715.770405347262, \"y\": 168.9131301357888, \"rotate\": 0, \"color\": \"#4e7ca1\"}, {\"text\": \"6800\", \"size\": 18.47345416399557, \"count\": 2032, \"x\": -669.740100248919, \"y\": -168.91592750160265, \"rotate\": 0, \"color\": \"#fbda41\"}, {\"text\": \"\\u5916\\u5356\", \"size\": 18.472987936359928, \"count\": 2030, \"x\": 417.6092817626331, \"y\": 168.91620723818403, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"7999\", \"size\": 18.460632904015384, \"count\": 1977, \"x\": 597.2220542907631, \"y\": 168.92362025759076, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u5965\\u8fea\", \"size\": 18.459234221108456, \"count\": 1971, \"x\": -460.73506402057586, \"y\": -168.92445946733494, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"\\u4e03\\u5ea7\", \"size\": 18.456203741476777, \"count\": 1958, \"x\": 683.2166306637791, \"y\": 61.73358554655001, \"rotate\": 0, \"color\": \"#22a2c3\"}, {\"text\": \"19\", \"size\": 18.45340637566292, \"count\": 1946, \"x\": 505.150561414142, \"y\": 168.92795617460226, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"Title2007\", \"size\": 18.448277871670843, \"count\": 1924, \"x\": 788.0782149896588, \"y\": 112.02110095295897, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u6c42\\u8d2d\", \"size\": 18.43755463605105, \"count\": 1878, \"x\": -719.1434499197854, \"y\": -35.10980543194467, \"rotate\": 0, \"color\": \"#645822\"}, {\"text\": \"\\u4ee3\\u534a\", \"size\": 18.434757270237192, \"count\": 1866, \"x\": -550.6999487625599, \"y\": -168.93914563785768, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u8d5b\\u7eb3\", \"size\": 18.43242613205898, \"count\": 1856, \"x\": -749.3415816919772, \"y\": -138.3155593104614, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u5168\\u65b0\", \"size\": 18.42986188006294, \"count\": 1845, \"x\": 763.0342313754505, \"y\": -161.79852208619064, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u81ea\\u552e\", \"size\": 18.42659828661344, \"count\": 1831, \"x\": -787.5478895847074, \"y\": 26.689353882654462, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u8d27\\u8f66\", \"size\": 18.426365172795617, \"count\": 1830, \"x\": -764.1223998951581, \"y\": -168.94418089632262, \"rotate\": 0, \"color\": \"#12aa9c\"}, {\"text\": \"\\u8fd0\\u52a8\\u7248\", \"size\": 18.42519960370651, \"count\": 1825, \"x\": 734.1789540163865, \"y\": -168.9448802377761, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"GL450\", \"size\": 18.416574392447114, \"count\": 1788, \"x\": -788.638137440114, \"y\": 168.95005536453172, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u6392\\u91cf\", \"size\": 18.41354391281543, \"count\": 1775, \"x\": 819.6765149126924, \"y\": -61.76091725826948, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"\\u826f\\u597d\", \"size\": 18.411445888455038, \"count\": 1766, \"x\": -825.8642926162984, \"y\": -82.75367170936414, \"rotate\": 0, \"color\": \"#c04851\"}, {\"text\": \"\\u51fa\\u624b\", \"size\": 18.408881636459, \"count\": 1755, \"x\": 806.5250330287088, \"y\": 168.9546710181246, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"\\u4ee3\\u6b65\", \"size\": 18.408182295005535, \"count\": 1752, \"x\": 812.1992612775033, \"y\": -168.9550906229967, \"rotate\": 0, \"color\": \"#7a7374\"}, {\"text\": \"\\u6b3e\\u5b9e\", \"size\": 18.407016725916428, \"count\": 1747, \"x\": -850.1941212592325, \"y\": 99.52867012193808, \"rotate\": 0, \"color\": \"#22202e\"}, {\"text\": \"Lexus\", \"size\": 18.403053791013463, \"count\": 1730, \"x\": 862.5200106149478, \"y\": 50.549295631002856, \"rotate\": 0, \"color\": \"#8a988e\"}, {\"text\": \"\\u8d8a\\u91ce\", \"size\": 18.397459059385746, \"count\": 1706, \"x\": -848.312998967558, \"y\": -168.96152456436855, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"22\", \"size\": 18.39675971793228, \"count\": 1703, \"x\": -671.6922233757253, \"y\": 168.96194416924064, \"rotate\": 0, \"color\": \"#2b312c\"}, {\"text\": \"\\u4fdd\\u65f6\\u6377\", \"size\": 18.394661693571887, \"count\": 1694, \"x\": -833.5654871375968, \"y\": 168.96320298385686, \"rotate\": 0, \"color\": \"#e16723\"}, {\"text\": \"3800\", \"size\": 18.392563669211494, \"count\": 1685, \"x\": 878.9330091837799, \"y\": -139.91699456158102, \"rotate\": 0, \"color\": \"#b7d07a\"}, {\"text\": \"TOYOTA\", \"size\": 18.388833848126346, \"count\": 1669, \"x\": -897.8670171334882, \"y\": -15.453787361433703, \"rotate\": 0, \"color\": \"#a61b29\"}, {\"text\": \"Civic\", \"size\": 18.38300600268081, \"count\": 1644, \"x\": 889.3025501168564, \"y\": 168.97019639839152, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"\\u5145\\u7535\", \"size\": 18.382539775045167, \"count\": 1642, \"x\": 852.58982746771, \"y\": -168.9704761349729, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"\\u5c0f\\u8f66\", \"size\": 18.38160731977388, \"count\": 1638, \"x\": -905.7290750366099, \"y\": 168.97103560813568, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"\\u8f66\\u4ef7\", \"size\": 18.380674864502595, \"count\": 1634, \"x\": 931.7289147151565, \"y\": -22.477310419989585, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"XSE\", \"size\": 18.37974240923131, \"count\": 1630, \"x\": -929.3101916542531, \"y\": -141.3597102697062, \"rotate\": 0, \"color\": \"#8b2671\"}, {\"text\": \"\\u62a5\\u5e9f\\u8f66\", \"size\": 18.379043067777843, \"count\": 1627, \"x\": -869.1308626670959, \"y\": 168.9725741593333, \"rotate\": 0, \"color\": \"#2376b7\"}, {\"text\": \"\\u5168\\u5305\", \"size\": 18.377644384870912, \"count\": 1621, \"x\": 930.4222876732728, \"y\": -168.97341336907746, \"rotate\": 0, \"color\": \"#474b4c\"}, {\"text\": \"8500\", \"size\": 18.3753132466927, \"count\": 1611, \"x\": 751.890018315127, \"y\": 168.97481205198437, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"17000\", \"size\": 18.374613905239233, \"count\": 1608, \"x\": -963.9317597306537, \"y\": 63.178814349158856, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"6999\", \"size\": 18.37274899469666, \"count\": 1600, \"x\": 968.1531887462141, \"y\": 106.56173384727491, \"rotate\": 0, \"color\": \"#1a6840\"}, {\"text\": \"3900\", \"size\": 18.37274899469666, \"count\": 1600, \"x\": -942.4703362516519, \"y\": -168.976350603182, \"rotate\": 0, \"color\": \"#fb8b05\"}, {\"text\": \"1.5\", \"size\": 18.371816539425375, \"count\": 1596, \"x\": 883.0531686540841, \"y\": -168.97691007634478, \"rotate\": 0, \"color\": \"#bec936\"}, {\"text\": \"05\", \"size\": 18.371816539425375, \"count\": 1596, \"x\": -533.0233912235059, \"y\": 168.97691007634478, \"rotate\": 0, \"color\": \"#2d0c13\"}, {\"text\": \"\\u8dd1\\u8f66\", \"size\": 18.371583425607554, \"count\": 1595, \"x\": -952.8571569248826, \"y\": 168.97704994463547, \"rotate\": 0, \"color\": \"#363433\"}, {\"text\": \"\\u655e\\u7bf7\", \"size\": 18.370417856518444, \"count\": 1590, \"x\": -803.5499775979101, \"y\": -168.97774928608894, \"rotate\": 0, \"color\": \"#248067\"}, {\"text\": \"\\u770b\\u8f66\", \"size\": 18.32262952386503, \"count\": 1385, \"x\": -38.14178643203955, \"y\": 169.00642228568097, \"rotate\": 0, \"color\": \"#22202e\"}]",
+        "created_date": "2025-03-10",
+        "version": 1,
+        "expire_date": "2025-03-17"
+      }
+    ]
+  },
+  "date_patterns": {
+    "post": {
+      "scraping_time_r": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      },
+      "post_time": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      },
+      "list_time": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      },
+      "scraping_time": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      },
+      "list_time_1": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      }
+    },
+    "list": {
+      "scraping_time_r": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      },
+      "list_time_r": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      },
+      "update_reason": {
+        "%Y-%m-%d": 3,
+        "%Y/%m/%d": 3,
+        "%Y年%m月%d日": 3,
+        "%m月%d日": 3,
+        "%Y-%m-%d %H:%M:%S": 3
+      },
+      "scraping_time": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      },
+      "list_time": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      }
+    },
+    "action": {
+      "action_time": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      }
+    },
+    "poststatistics": {
+      "datetime": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      }
+    },
+    "updatestatistics": {
+      "datetime": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      },
+      "update_reason": {
+        "%Y-%m-%d": 3,
+        "%Y/%m/%d": 3,
+        "%Y年%m月%d日": 3,
+        "%m月%d日": 3,
+        "%Y-%m-%d %H:%M:%S": 3
+      }
+    },
+    "viewstatistics": {
+      "datetime": {
+        "%Y-%m-%d": 20,
+        "%Y/%m/%d": 20,
+        "%Y年%m月%d日": 20,
+        "%m月%d日": 20,
+        "%Y-%m-%d %H:%M:%S": 20
+      }
+    },
+    "wordcloud_cache": {
+      "created_date": {
+        "%Y-%m-%d": 2,
+        "%Y/%m/%d": 2,
+        "%Y年%m月%d日": 2,
+        "%m月%d日": 2,
+        "%Y-%m-%d %H:%M:%S": 2
+      },
+      "expire_date": {
+        "%Y-%m-%d": 2,
+        "%Y/%m/%d": 2,
+        "%Y年%m月%d日": 2,
+        "%m月%d日": 2,
+        "%Y-%m-%d %H:%M:%S": 2
+      }
+    }
+  },
+  "qa_pairs": [
+    {
+      "question": "post表有哪些列？",
+      "answer": "post表包含以下列：url, title, scraping_time_r, post_time, list_time, page, num, author, author_link, read_count, reply_count, scraping_time, list_time_1, source_file, sheet_name。"
+    },
+    {
+      "question": "list表有哪些列？",
+      "answer": "list表包含以下列：url, title, scraping_time_r, list_time_r, update_reason, page, num, author, author_link, read_count, reply_count, scraping_time, list_time, source_file, sheet_name。"
+    },
+    {
+      "question": "action表有哪些列？",
+      "answer": "action表包含以下列：thread_id, url, title, author, action_time, action_type, reason, source。"
+    },
+    {
+      "question": "poststatistics表有哪些列？",
+      "answer": "poststatistics表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+    },
+    {
+      "question": "updatestatistics表有哪些列？",
+      "answer": "updatestatistics表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+    },
+    {
+      "question": "viewstatistics表有哪些列？",
+      "answer": "viewstatistics表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+    },
+    {
+      "question": "postranking表有哪些列？",
+      "answer": "postranking表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+    },
+    {
+      "question": "authorranking表有哪些列？",
+      "answer": "authorranking表包含以下列：type, datetime, count, id, update_reason, view_gap, duplicate_posts, url, title, Days_Old, author, author_link, repost_count, reply_count, delete_count, last_active。"
+    },
+    {
+      "question": "posts表有哪些列？",
+      "answer": "posts表包含以下列：url, title, author, post_time, scraping_time。"
+    },
+    {
+      "question": "posts表的主键是什么？",
+      "answer": "posts表的主键是url列。"
+    },
+    {
+      "question": "thread_history表有哪些列？",
+      "answer": "thread_history表包含以下列：id, url, title, author, scraping_time, read_count, reply_count, last_reply_time, update_reason。"
+    },
+    {
+      "question": "thread_history表的主键是什么？",
+      "answer": "thread_history表的主键是id列。"
+    },
+    {
+      "question": "follow_history表有哪些列？",
+      "answer": "follow_history表包含以下列：id, url, title, author, scraping_time, read_count, reply_count, last_reply_time, update_reason, created_at。"
+    },
+    {
+      "question": "follow_history表的主键是什么？",
+      "answer": "follow_history表的主键是id列。"
+    },
+    {
+      "question": "follow_history表的url列与哪个表关联？",
+      "answer": "follow_history表的url列与thread_follows表的url列关联。"
+    },
+    {
+      "question": "wordcloud_cache表有哪些列？",
+      "answer": "wordcloud_cache表包含以下列：id, data, created_date, version, expire_date。"
+    },
+    {
+      "question": "wordcloud_cache表的主键是什么？",
+      "answer": "wordcloud_cache表的主键是id列。"
+    },
+    {
+      "question": "thread_history_cache表有哪些列？",
+      "answer": "thread_history_cache表包含以下列：url, history_data, last_update, update_count, repost_count, reply_count, delete_count。"
+    },
+    {
+      "question": "thread_history_cache表的主键是什么？",
+      "answer": "thread_history_cache表的主键是url列。"
+    },
+    {
+      "question": "thread_follows表有哪些列？",
+      "answer": "thread_follows表包含以下列：id, url, follow_type, title, author, author_link, read_count, reply_count, repost_count, delete_count, days_old, last_active, created_at。"
+    },
+    {
+      "question": "thread_follows表的主键是什么？",
+      "answer": "thread_follows表的主键是id列。"
+    },
+    {
+      "question": "2025年02月20日有多少post？",
+      "answer": "要查询2025年02月20日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月20日'或'02月20日'的记录数量。"
+    },
+    {
+      "question": "02月20日发布了多少post？",
+      "answer": "要查询02月20日发布的post数量，应该查询post表中scraping_time_r字段包含'02月20日'的记录数量。"
+    },
+    {
+      "question": "2025年02月22日有多少post？",
+      "answer": "要查询2025年02月22日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月22日'或'02月22日'的记录数量。"
+    },
+    {
+      "question": "02月22日发布了多少post？",
+      "answer": "要查询02月22日发布的post数量，应该查询post表中scraping_time_r字段包含'02月22日'的记录数量。"
+    },
+    {
+      "question": "2025年02月19日有多少post？",
+      "answer": "要查询2025年02月19日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月19日'或'02月19日'的记录数量。"
+    },
+    {
+      "question": "02月19日发布了多少post？",
+      "answer": "要查询02月19日发布的post数量，应该查询post表中scraping_time_r字段包含'02月19日'的记录数量。"
+    },
+    {
+      "question": "2025年02月21日有多少post？",
+      "answer": "要查询2025年02月21日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月21日'或'02月21日'的记录数量。"
+    },
+    {
+      "question": "02月21日发布了多少post？",
+      "answer": "要查询02月21日发布的post数量，应该查询post表中scraping_time_r字段包含'02月21日'的记录数量。"
+    },
+    {
+      "question": "2025年02月17日有多少post？",
+      "answer": "要查询2025年02月17日的post数量，应该查询post表中scraping_time_r字段包含'2025年02月17日'或'02月17日'的记录数量。"
+    },
+    {
+      "question": "02月17日发布了多少post？",
+      "answer": "要查询02月17日发布的post数量，应该查询post表中scraping_time_r字段包含'02月17日'的记录数量。"
+    },
+    {
+      "question": "2025年02月23日有多少post？",
+      "answer": "要查询2025年02月23日的post数量，应该查询post表中post_time字段包含'2025年02月23日'或'02月23日'的记录数量。"
+    },
+    {
+      "question": "02月23日发布了多少post？",
+      "answer": "要查询02月23日发布的post数量，应该查询post表中post_time字段包含'02月23日'的记录数量。"
+    },
+    {
+      "question": "2025年02月19日有多少post？",
+      "answer": "要查询2025年02月19日的post数量，应该查询post表中post_time字段包含'2025年02月19日'或'02月19日'的记录数量。"
+    },
+    {
+      "question": "02月19日发布了多少post？",
+      "answer": "要查询02月19日发布的post数量，应该查询post表中post_time字段包含'02月19日'的记录数量。"
+    },
+    {
+      "question": "2025年02月15日有多少post？",
+      "answer": "要查询2025年02月15日的post数量，应该查询post表中post_time字段包含'2025年02月15日'或'02月15日'的记录数量。"
+    },
+    {
+      "question": "02月15日发布了多少post？",
+      "answer": "要查询02月15日发布的post数量，应该查询post表中post_time字段包含'02月15日'的记录数量。"
+    },
+    {
+      "question": "2025年02月18日有多少post？",
+      "answer": "要查询2025年02月18日的post数量，应该查询post表中post_time字段包含'2025年02月18日'或'02月18日'的记录数量。"
+    },
+    {
+      "question": "02月18日发布了多少post？",
+      "answer": "要查询02月18日发布的post数量，应该查询post表中post_time字段包含'02月18日'的记录数量。"
+    },
+    {
+      "question": "2025年03月05日有多少post？",
+      "answer": "要查询2025年03月05日的post数量，应该查询post表中post_time字段包含'2025年03月05日'或'03月05日'的记录数量。"
+    },
+    {
+      "question": "03月05日发布了多少post？",
+      "answer": "要查询03月05日发布的post数量，应该查询post表中post_time字段包含'03月05日'的记录数量。"
+    },
+    {
+      "question": "2025年02月20日有多少post？",
+      "answer": "要查询2025年02月20日的post数量，应该查询post表中list_time字段包含'2025年02月20日'或'02月20日'的记录数量。"
+    },
+    {
+      "question": "02月20日发布了多少post？",
+      "answer": "要查询02月20日发布的post数量，应该查询post表中list_time字段包含'02月20日'的记录数量。"
+    },
+    {
+      "question": "2025年02月24日有多少post？",
+      "answer": "要查询2025年02月24日的post数量，应该查询post表中list_time字段包含'2025年02月24日'或'02月24日'的记录数量。"
+    },
+    {
+      "question": "02月24日发布了多少post？",
+      "answer": "要查询02月24日发布的post数量，应该查询post表中list_time字段包含'02月24日'的记录数量。"
+    },
+    {
+      "question": "2025年02月23日有多少post？",
+      "answer": "要查询2025年02月23日的post数量，应该查询post表中list_time字段包含'2025年02月23日'或'02月23日'的记录数量。"
+    },
+    {
+      "question": "02月23日发布了多少post？",
+      "answer": "要查询02月23日发布的post数量，应该查询post表中list_time字段包含'02月23日'的记录数量。"
+    },
+    {
+      "question": "2025年03月04日有多少post？",
+      "answer": "要查询2025年03月04日的post数量，应该查询post表中list_time字段包含'2025年03月04日'或'03月04日'的记录数量。"
+    },
+    {
+      "question": "03月04日发布了多少post？",
+      "answer": "要查询03月04日发布的post数量，应该查询post表中list_time字段包含'03月04日'的记录数量。"
+    },
+    {
+      "question": "2025年02月09日有多少post？",
+      "answer": "要查询2025年02月09日的post数量，应该查询post表中list_time字段包含'2025年02月09日'或'02月09日'的记录数量。"
+    },
+    {
+      "question": "02月09日发布了多少post？",
+      "answer": "要查询02月09日发布的post数量，应该查询post表中list_time字段包含'02月09日'的记录数量。"
+    },
+    {
+      "question": "2025年02月27日有多少post？",
+      "answer": "要查询2025年02月27日的post数量，应该查询post表中scraping_time字段包含'2025年02月27日'或'02月27日'的记录数量。"
+    },
+    {
+      "question": "02月27日发布了多少post？",
+      "answer": "要查询02月27日发布的post数量，应该查询post表中scraping_time字段包含'02月27日'的记录数量。"
+    },
+    {
+      "question": "2025年03月08日有多少post？",
+      "answer": "要查询2025年03月08日的post数量，应该查询post表中scraping_time字段包含'2025年03月08日'或'03月08日'的记录数量。"
+    },
+    {
+      "question": "03月08日发布了多少post？",
+      "answer": "要查询03月08日发布的post数量，应该查询post表中scraping_time字段包含'03月08日'的记录数量。"
+    },
+    {
+      "question": "2025年02月17日有多少post？",
+      "answer": "要查询2025年02月17日的post数量，应该查询post表中scraping_time字段包含'2025年02月17日'或'02月17日'的记录数量。"
+    },
+    {
+      "question": "02月17日发布了多少post？",
+      "answer": "要查询02月17日发布的post数量，应该查询post表中scraping_time字段包含'02月17日'的记录数量。"
+    },
+    {
+      "question": "2025年02月22日有多少post？",
+      "answer": "要查询2025年02月22日的post数量，应该查询post表中scraping_time字段包含'2025年02月22日'或'02月22日'的记录数量。"
+    },
+    {
+      "question": "02月22日发布了多少post？",
+      "answer": "要查询02月22日发布的post数量，应该查询post表中scraping_time字段包含'02月22日'的记录数量。"
+    },
+    {
+      "question": "2025年02月19日有多少post？",
+      "answer": "要查询2025年02月19日的post数量，应该查询post表中scraping_time字段包含'2025年02月19日'或'02月19日'的记录数量。"
+    },
+    {
+      "question": "02月19日发布了多少post？",
+      "answer": "要查询02月19日发布的post数量，应该查询post表中scraping_time字段包含'02月19日'的记录数量。"
+    },
+    {
+      "question": "2025年02月23日有多少post？",
+      "answer": "要查询2025年02月23日的post数量，应该查询post表中list_time_1字段包含'2025年02月23日'或'02月23日'的记录数量。"
+    },
+    {
+      "question": "02月23日发布了多少post？",
+      "answer": "要查询02月23日发布的post数量，应该查询post表中list_time_1字段包含'02月23日'的记录数量。"
+    },
+    {
+      "question": "2025年02月22日有多少post？",
+      "answer": "要查询2025年02月22日的post数量，应该查询post表中list_time_1字段包含'2025年02月22日'或'02月22日'的记录数量。"
+    },
+    {
+      "question": "02月22日发布了多少post？",
+      "answer": "要查询02月22日发布的post数量，应该查询post表中list_time_1字段包含'02月22日'的记录数量。"
+    },
+    {
+      "question": "2025年03月06日有多少post？",
+      "answer": "要查询2025年03月06日的post数量，应该查询post表中list_time_1字段包含'2025年03月06日'或'03月06日'的记录数量。"
+    },
+    {
+      "question": "03月06日发布了多少post？",
+      "answer": "要查询03月06日发布的post数量，应该查询post表中list_time_1字段包含'03月06日'的记录数量。"
+    },
+    {
+      "question": "2025年02月11日有多少post？",
+      "answer": "要查询2025年02月11日的post数量，应该查询post表中list_time_1字段包含'2025年02月11日'或'02月11日'的记录数量。"
+    },
+    {
+      "question": "02月11日发布了多少post？",
+      "answer": "要查询02月11日发布的post数量，应该查询post表中list_time_1字段包含'02月11日'的记录数量。"
+    },
+    {
+      "question": "2025年02月21日有多少post？",
+      "answer": "要查询2025年02月21日的post数量，应该查询post表中list_time_1字段包含'2025年02月21日'或'02月21日'的记录数量。"
+    },
+    {
+      "question": "02月21日发布了多少post？",
+      "answer": "要查询02月21日发布的post数量，应该查询post表中list_time_1字段包含'02月21日'的记录数量。"
+    },
+    {
+      "question": "2025年02月09日有多少list？",
+      "answer": "要查询2025年02月09日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月09日'或'02月09日'的记录数量。"
+    },
+    {
+      "question": "02月09日发布了多少list？",
+      "answer": "要查询02月09日发布的list数量，应该查询list表中scraping_time_r字段包含'02月09日'的记录数量。"
+    },
+    {
+      "question": "2025年02月27日有多少list？",
+      "answer": "要查询2025年02月27日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月27日'或'02月27日'的记录数量。"
+    },
+    {
+      "question": "02月27日发布了多少list？",
+      "answer": "要查询02月27日发布的list数量，应该查询list表中scraping_time_r字段包含'02月27日'的记录数量。"
+    },
+    {
+      "question": "2025年02月19日有多少list？",
+      "answer": "要查询2025年02月19日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月19日'或'02月19日'的记录数量。"
+    },
+    {
+      "question": "02月19日发布了多少list？",
+      "answer": "要查询02月19日发布的list数量，应该查询list表中scraping_time_r字段包含'02月19日'的记录数量。"
+    },
+    {
+      "question": "2025年03月07日有多少list？",
+      "answer": "要查询2025年03月07日的list数量，应该查询list表中scraping_time_r字段包含'2025年03月07日'或'03月07日'的记录数量。"
+    },
+    {
+      "question": "03月07日发布了多少list？",
+      "answer": "要查询03月07日发布的list数量，应该查询list表中scraping_time_r字段包含'03月07日'的记录数量。"
+    },
+    {
+      "question": "2025年02月26日有多少list？",
+      "answer": "要查询2025年02月26日的list数量，应该查询list表中scraping_time_r字段包含'2025年02月26日'或'02月26日'的记录数量。"
+    },
+    {
+      "question": "02月26日发布了多少list？",
+      "answer": "要查询02月26日发布的list数量，应该查询list表中scraping_time_r字段包含'02月26日'的记录数量。"
+    },
+    {
+      "question": "2025年02月25日有多少list？",
+      "answer": "要查询2025年02月25日的list数量，应该查询list表中list_time_r字段包含'2025年02月25日'或'02月25日'的记录数量。"
+    },
+    {
+      "question": "02月25日发布了多少list？",
+      "answer": "要查询02月25日发布的list数量，应该查询list表中list_time_r字段包含'02月25日'的记录数量。"
+    },
+    {
+      "question": "2025年02月27日有多少list？",
+      "answer": "要查询2025年02月27日的list数量，应该查询list表中list_time_r字段包含'2025年02月27日'或'02月27日'的记录数量。"
+    },
+    {
+      "question": "02月27日发布了多少list？",
+      "answer": "要查询02月27日发布的list数量，应该查询list表中list_time_r字段包含'02月27日'的记录数量。"
+    },
+    {
+      "question": "2025年03月09日有多少list？",
+      "answer": "要查询2025年03月09日的list数量，应该查询list表中list_time_r字段包含'2025年03月09日'或'03月09日'的记录数量。"
+    },
+    {
+      "question": "03月09日发布了多少list？",
+      "answer": "要查询03月09日发布的list数量，应该查询list表中list_time_r字段包含'03月09日'的记录数量。"
+    },
+    {
+      "question": "2025年02月13日有多少list？",
+      "answer": "要查询2025年02月13日的list数量，应该查询list表中list_time_r字段包含'2025年02月13日'或'02月13日'的记录数量。"
+    },
+    {
+      "question": "02月13日发布了多少list？",
+      "answer": "要查询02月13日发布的list数量，应该查询list表中list_time_r字段包含'02月13日'的记录数量。"
+    },
+    {
+      "question": "2025年02月22日有多少list？",
+      "answer": "要查询2025年02月22日的list数量，应该查询list表中list_time_r字段包含'2025年02月22日'或'02月22日'的记录数量。"
+    },
+    {
+      "question": "02月22日发布了多少list？",
+      "answer": "要查询02月22日发布的list数量，应该查询list表中list_time_r字段包含'02月22日'的记录数量。"
+    },
+    {
+      "question": "2025年02月12日有多少list？",
+      "answer": "要查询2025年02月12日的list数量，应该查询list表中update_reason字段包含'2025年02月12日'或'02月12日'的记录数量。"
+    },
+    {
+      "question": "02月12日发布了多少list？",
+      "answer": "要查询02月12日发布的list数量，应该查询list表中update_reason字段包含'02月12日'的记录数量。"
+    },
+    {
+      "question": "2025年03月09日有多少list？",
+      "answer": "要查询2025年03月09日的list数量，应该查询list表中update_reason字段包含'2025年03月09日'或'03月09日'的记录数量。"
+    },
+    {
+      "question": "03月09日发布了多少list？",
+      "answer": "要查询03月09日发布的list数量，应该查询list表中update_reason字段包含'03月09日'的记录数量。"
+    },
+    {
+      "question": "2025年02月24日有多少list？",
+      "answer": "要查询2025年02月24日的list数量，应该查询list表中update_reason字段包含'2025年02月24日'或'02月24日'的记录数量。"
+    },
+    {
+      "question": "02月24日发布了多少list？",
+      "answer": "要查询02月24日发布的list数量，应该查询list表中update_reason字段包含'02月24日'的记录数量。"
+    },
+    {
+      "question": "2025年02月28日有多少list？",
+      "answer": "要查询2025年02月28日的list数量，应该查询list表中update_reason字段包含'2025年02月28日'或'02月28日'的记录数量。"
+    },
+    {
+      "question": "02月28日发布了多少list？",
+      "answer": "要查询02月28日发布的list数量，应该查询list表中update_reason字段包含'02月28日'的记录数量。"
+    },
+    {
+      "question": "2025年03月01日有多少list？",
+      "answer": "要查询2025年03月01日的list数量，应该查询list表中update_reason字段包含'2025年03月01日'或'03月01日'的记录数量。"
+    },
+    {
+      "question": "03月01日发布了多少list？",
+      "answer": "要查询03月01日发布的list数量，应该查询list表中update_reason字段包含'03月01日'的记录数量。"
+    },
+    {
+      "question": "2025年02月28日有多少list？",
+      "answer": "要查询2025年02月28日的list数量，应该查询list表中scraping_time字段包含'2025年02月28日'或'02月28日'的记录数量。"
+    },
+    {
+      "question": "02月28日发布了多少list？",
+      "answer": "要查询02月28日发布的list数量，应该查询list表中scraping_time字段包含'02月28日'的记录数量。"
+    },
+    {
+      "question": "2025年02月17日有多少list？",
+      "answer": "要查询2025年02月17日的list数量，应该查询list表中scraping_time字段包含'2025年02月17日'或'02月17日'的记录数量。"
+    },
+    {
+      "question": "02月17日发布了多少list？",
+      "answer": "要查询02月17日发布的list数量，应该查询list表中scraping_time字段包含'02月17日'的记录数量。"
+    },
+    {
+      "question": "2025年02月18日有多少list？",
+      "answer": "要查询2025年02月18日的list数量，应该查询list表中scraping_time字段包含'2025年02月18日'或'02月18日'的记录数量。"
+    },
+    {
+      "question": "02月18日发布了多少list？",
+      "answer": "要查询02月18日发布的list数量，应该查询list表中scraping_time字段包含'02月18日'的记录数量。"
+    },
+    {
+      "question": "2025年02月21日有多少list？",
+      "answer": "要查询2025年02月21日的list数量，应该查询list表中scraping_time字段包含'2025年02月21日'或'02月21日'的记录数量。"
+    },
+    {
+      "question": "02月21日发布了多少list？",
+      "answer": "要查询02月21日发布的list数量，应该查询list表中scraping_time字段包含'02月21日'的记录数量。"
+    },
+    {
+      "question": "2025年03月02日有多少list？",
+      "answer": "要查询2025年03月02日的list数量，应该查询list表中scraping_time字段包含'2025年03月02日'或'03月02日'的记录数量。"
+    },
+    {
+      "question": "03月02日发布了多少list？",
+      "answer": "要查询03月02日发布的list数量，应该查询list表中scraping_time字段包含'03月02日'的记录数量。"
+    },
+    {
+      "question": "2025年02月18日有多少list？",
+      "answer": "要查询2025年02月18日的list数量，应该查询list表中list_time字段包含'2025年02月18日'或'02月18日'的记录数量。"
+    },
+    {
+      "question": "02月18日发布了多少list？",
+      "answer": "要查询02月18日发布的list数量，应该查询list表中list_time字段包含'02月18日'的记录数量。"
+    },
+    {
+      "question": "2025年03月03日有多少list？",
+      "answer": "要查询2025年03月03日的list数量，应该查询list表中list_time字段包含'2025年03月03日'或'03月03日'的记录数量。"
+    },
+    {
+      "question": "03月03日发布了多少list？",
+      "answer": "要查询03月03日发布的list数量，应该查询list表中list_time字段包含'03月03日'的记录数量。"
+    },
+    {
+      "question": "2025年02月19日有多少list？",
+      "answer": "要查询2025年02月19日的list数量，应该查询list表中list_time字段包含'2025年02月19日'或'02月19日'的记录数量。"
+    },
+    {
+      "question": "02月19日发布了多少list？",
+      "answer": "要查询02月19日发布的list数量，应该查询list表中list_time字段包含'02月19日'的记录数量。"
+    },
+    {
+      "question": "2025年02月22日有多少list？",
+      "answer": "要查询2025年02月22日的list数量，应该查询list表中list_time字段包含'2025年02月22日'或'02月22日'的记录数量。"
+    },
+    {
+      "question": "02月22日发布了多少list？",
+      "answer": "要查询02月22日发布的list数量，应该查询list表中list_time字段包含'02月22日'的记录数量。"
+    },
+    {
+      "question": "2025年02月26日有多少list？",
+      "answer": "要查询2025年02月26日的list数量，应该查询list表中list_time字段包含'2025年02月26日'或'02月26日'的记录数量。"
+    },
+    {
+      "question": "02月26日发布了多少list？",
+      "answer": "要查询02月26日发布的list数量，应该查询list表中list_time字段包含'02月26日'的记录数量。"
+    },
+    {
+      "question": "2025年02月23日有多少action？",
+      "answer": "要查询2025年02月23日的action数量，应该查询action表中action_time字段包含'2025年02月23日'或'02月23日'的记录数量。"
+    },
+    {
+      "question": "02月23日发布了多少action？",
+      "answer": "要查询02月23日发布的action数量，应该查询action表中action_time字段包含'02月23日'的记录数量。"
+    },
+    {
+      "question": "2025年02月13日有多少action？",
+      "answer": "要查询2025年02月13日的action数量，应该查询action表中action_time字段包含'2025年02月13日'或'02月13日'的记录数量。"
+    },
+    {
+      "question": "02月13日发布了多少action？",
+      "answer": "要查询02月13日发布的action数量，应该查询action表中action_time字段包含'02月13日'的记录数量。"
+    },
+    {
+      "question": "2025年03月02日有多少action？",
+      "answer": "要查询2025年03月02日的action数量，应该查询action表中action_time字段包含'2025年03月02日'或'03月02日'的记录数量。"
+    },
+    {
+      "question": "03月02日发布了多少action？",
+      "answer": "要查询03月02日发布的action数量，应该查询action表中action_time字段包含'03月02日'的记录数量。"
+    },
+    {
+      "question": "2025年02月22日有多少action？",
+      "answer": "要查询2025年02月22日的action数量，应该查询action表中action_time字段包含'2025年02月22日'或'02月22日'的记录数量。"
+    },
+    {
+      "question": "02月22日发布了多少action？",
+      "answer": "要查询02月22日发布的action数量，应该查询action表中action_time字段包含'02月22日'的记录数量。"
+    },
+    {
+      "question": "2025年02月25日有多少action？",
+      "answer": "要查询2025年02月25日的action数量，应该查询action表中action_time字段包含'2025年02月25日'或'02月25日'的记录数量。"
+    },
+    {
+      "question": "02月25日发布了多少action？",
+      "answer": "要查询02月25日发布的action数量，应该查询action表中action_time字段包含'02月25日'的记录数量。"
+    },
+    {
+      "question": "2025年02月09日有多少poststatistics？",
+      "answer": "要查询2025年02月09日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月09日'或'02月09日'的记录数量。"
+    },
+    {
+      "question": "02月09日发布了多少poststatistics？",
+      "answer": "要查询02月09日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'02月09日'的记录数量。"
+    },
+    {
+      "question": "2025年02月11日有多少poststatistics？",
+      "answer": "要查询2025年02月11日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月11日'或'02月11日'的记录数量。"
+    },
+    {
+      "question": "02月11日发布了多少poststatistics？",
+      "answer": "要查询02月11日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'02月11日'的记录数量。"
+    },
+    {
+      "question": "2025年02月12日有多少poststatistics？",
+      "answer": "要查询2025年02月12日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月12日'或'02月12日'的记录数量。"
+    },
+    {
+      "question": "02月12日发布了多少poststatistics？",
+      "answer": "要查询02月12日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'02月12日'的记录数量。"
+    },
+    {
+      "question": "2025年02月25日有多少poststatistics？",
+      "answer": "要查询2025年02月25日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年02月25日'或'02月25日'的记录数量。"
+    },
+    {
+      "question": "02月25日发布了多少poststatistics？",
+      "answer": "要查询02月25日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'02月25日'的记录数量。"
+    },
+    {
+      "question": "2025年03月06日有多少poststatistics？",
+      "answer": "要查询2025年03月06日的poststatistics数量，应该查询poststatistics表中datetime字段包含'2025年03月06日'或'03月06日'的记录数量。"
+    },
+    {
+      "question": "03月06日发布了多少poststatistics？",
+      "answer": "要查询03月06日发布的poststatistics数量，应该查询poststatistics表中datetime字段包含'03月06日'的记录数量。"
+    },
+    {
+      "question": "2025年03月05日有多少updatestatistics？",
+      "answer": "要查询2025年03月05日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年03月05日'或'03月05日'的记录数量。"
+    },
+    {
+      "question": "03月05日发布了多少updatestatistics？",
+      "answer": "要查询03月05日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'03月05日'的记录数量。"
+    },
+    {
+      "question": "2025年02月11日有多少updatestatistics？",
+      "answer": "要查询2025年02月11日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年02月11日'或'02月11日'的记录数量。"
+    },
+    {
+      "question": "02月11日发布了多少updatestatistics？",
+      "answer": "要查询02月11日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'02月11日'的记录数量。"
+    },
+    {
+      "question": "2025年03月07日有多少updatestatistics？",
+      "answer": "要查询2025年03月07日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年03月07日'或'03月07日'的记录数量。"
+    },
+    {
+      "question": "03月07日发布了多少updatestatistics？",
+      "answer": "要查询03月07日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'03月07日'的记录数量。"
+    },
+    {
+      "question": "2025年02月25日有多少updatestatistics？",
+      "answer": "要查询2025年02月25日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年02月25日'或'02月25日'的记录数量。"
+    },
+    {
+      "question": "02月25日发布了多少updatestatistics？",
+      "answer": "要查询02月25日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'02月25日'的记录数量。"
+    },
+    {
+      "question": "2025年02月21日有多少updatestatistics？",
+      "answer": "要查询2025年02月21日的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'2025年02月21日'或'02月21日'的记录数量。"
+    },
+    {
+      "question": "02月21日发布了多少updatestatistics？",
+      "answer": "要查询02月21日发布的updatestatistics数量，应该查询updatestatistics表中datetime字段包含'02月21日'的记录数量。"
+    },
+    {
+      "question": "2025年02月19日有多少updatestatistics？",
+      "answer": "要查询2025年02月19日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年02月19日'或'02月19日'的记录数量。"
+    },
+    {
+      "question": "02月19日发布了多少updatestatistics？",
+      "answer": "要查询02月19日发布的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'02月19日'的记录数量。"
+    },
+    {
+      "question": "2025年02月28日有多少updatestatistics？",
+      "answer": "要查询2025年02月28日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年02月28日'或'02月28日'的记录数量。"
+    },
+    {
+      "question": "02月28日发布了多少updatestatistics？",
+      "answer": "要查询02月28日发布的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'02月28日'的记录数量。"
+    },
+    {
+      "question": "2025年02月13日有多少updatestatistics？",
+      "answer": "要查询2025年02月13日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年02月13日'或'02月13日'的记录数量。"
+    },
+    {
+      "question": "02月13日发布了多少updatestatistics？",
+      "answer": "要查询02月13日发布的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'02月13日'的记录数量。"
+    },
+    {
+      "question": "2025年03月08日有多少updatestatistics？",
+      "answer": "要查询2025年03月08日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年03月08日'或'03月08日'的记录数量。"
+    },
+    {
+      "question": "03月08日发布了多少updatestatistics？",
+      "answer": "要查询03月08日发布的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'03月08日'的记录数量。"
+    },
+    {
+      "question": "2025年02月14日有多少updatestatistics？",
+      "answer": "要查询2025年02月14日的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'2025年02月14日'或'02月14日'的记录数量。"
+    },
+    {
+      "question": "02月14日发布了多少updatestatistics？",
+      "answer": "要查询02月14日发布的updatestatistics数量，应该查询updatestatistics表中update_reason字段包含'02月14日'的记录数量。"
+    },
+    {
+      "question": "2025年02月17日有多少viewstatistics？",
+      "answer": "要查询2025年02月17日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月17日'或'02月17日'的记录数量。"
+    },
+    {
+      "question": "02月17日发布了多少viewstatistics？",
+      "answer": "要查询02月17日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'02月17日'的记录数量。"
+    },
+    {
+      "question": "2025年02月10日有多少viewstatistics？",
+      "answer": "要查询2025年02月10日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月10日'或'02月10日'的记录数量。"
+    },
+    {
+      "question": "02月10日发布了多少viewstatistics？",
+      "answer": "要查询02月10日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'02月10日'的记录数量。"
+    },
+    {
+      "question": "2025年03月07日有多少viewstatistics？",
+      "answer": "要查询2025年03月07日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年03月07日'或'03月07日'的记录数量。"
+    },
+    {
+      "question": "03月07日发布了多少viewstatistics？",
+      "answer": "要查询03月07日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'03月07日'的记录数量。"
+    },
+    {
+      "question": "2025年02月14日有多少viewstatistics？",
+      "answer": "要查询2025年02月14日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年02月14日'或'02月14日'的记录数量。"
+    },
+    {
+      "question": "02月14日发布了多少viewstatistics？",
+      "answer": "要查询02月14日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'02月14日'的记录数量。"
+    },
+    {
+      "question": "2025年03月06日有多少viewstatistics？",
+      "answer": "要查询2025年03月06日的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'2025年03月06日'或'03月06日'的记录数量。"
+    },
+    {
+      "question": "03月06日发布了多少viewstatistics？",
+      "answer": "要查询03月06日发布的viewstatistics数量，应该查询viewstatistics表中datetime字段包含'03月06日'的记录数量。"
+    },
+    {
+      "question": "2025年02月26日有多少wordcloud_cache？",
+      "answer": "要查询2025年02月26日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年02月26日'或'02月26日'的记录数量。"
+    },
+    {
+      "question": "02月26日发布了多少wordcloud_cache？",
+      "answer": "要查询02月26日发布的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'02月26日'的记录数量。"
+    },
+    {
+      "question": "2025年02月28日有多少wordcloud_cache？",
+      "answer": "要查询2025年02月28日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年02月28日'或'02月28日'的记录数量。"
+    },
+    {
+      "question": "02月28日发布了多少wordcloud_cache？",
+      "answer": "要查询02月28日发布的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'02月28日'的记录数量。"
+    },
+    {
+      "question": "2025年03月09日有多少wordcloud_cache？",
+      "answer": "要查询2025年03月09日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年03月09日'或'03月09日'的记录数量。"
+    },
+    {
+      "question": "03月09日发布了多少wordcloud_cache？",
+      "answer": "要查询03月09日发布的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'03月09日'的记录数量。"
+    },
+    {
+      "question": "2025年02月25日有多少wordcloud_cache？",
+      "answer": "要查询2025年02月25日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年02月25日'或'02月25日'的记录数量。"
+    },
+    {
+      "question": "02月25日发布了多少wordcloud_cache？",
+      "answer": "要查询02月25日发布的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'02月25日'的记录数量。"
+    },
+    {
+      "question": "2025年03月01日有多少wordcloud_cache？",
+      "answer": "要查询2025年03月01日的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'2025年03月01日'或'03月01日'的记录数量。"
+    },
+    {
+      "question": "03月01日发布了多少wordcloud_cache？",
+      "answer": "要查询03月01日发布的wordcloud_cache数量，应该查询wordcloud_cache表中created_date字段包含'03月01日'的记录数量。"
+    },
+    {
+      "question": "2025年02月11日有多少wordcloud_cache？",
+      "answer": "要查询2025年02月11日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月11日'或'02月11日'的记录数量。"
+    },
+    {
+      "question": "02月11日发布了多少wordcloud_cache？",
+      "answer": "要查询02月11日发布的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'02月11日'的记录数量。"
+    },
+    {
+      "question": "2025年02月25日有多少wordcloud_cache？",
+      "answer": "要查询2025年02月25日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月25日'或'02月25日'的记录数量。"
+    },
+    {
+      "question": "02月25日发布了多少wordcloud_cache？",
+      "answer": "要查询02月25日发布的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'02月25日'的记录数量。"
+    },
+    {
+      "question": "2025年02月22日有多少wordcloud_cache？",
+      "answer": "要查询2025年02月22日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年02月22日'或'02月22日'的记录数量。"
+    },
+    {
+      "question": "02月22日发布了多少wordcloud_cache？",
+      "answer": "要查询02月22日发布的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'02月22日'的记录数量。"
+    },
+    {
+      "question": "2025年03月01日有多少wordcloud_cache？",
+      "answer": "要查询2025年03月01日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年03月01日'或'03月01日'的记录数量。"
+    },
+    {
+      "question": "03月01日发布了多少wordcloud_cache？",
+      "answer": "要查询03月01日发布的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'03月01日'的记录数量。"
+    },
+    {
+      "question": "2025年03月02日有多少wordcloud_cache？",
+      "answer": "要查询2025年03月02日的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'2025年03月02日'或'03月02日'的记录数量。"
+    },
+    {
+      "question": "03月02日发布了多少wordcloud_cache？",
+      "answer": "要查询03月02日发布的wordcloud_cache数量，应该查询wordcloud_cache表中expire_date字段包含'03月02日'的记录数量。"
+    },
+    {
+      "question": "2月28日有几个发帖？",
+      "answer": "根据数据库记录，2月28日有18个发帖。"
+    },
+    {
+      "question": "2月28号有多少发帖？",
+      "answer": "根据数据库记录，2月28日有18个发帖。"
+    },
+    {
+      "question": "posts表存储了什么数据？",
+      "answer": "posts表存储了论坛帖子的基本信息，包括帖子URL、标题、作者、发布时间等。"
+    },
+    {
+      "question": "thread_history表的作用是什么？",
+      "answer": "thread_history表存储了帖子的更新历史记录，包括阅读量、回复数量、最后回复时间等信息，用于跟踪帖子的活跃度变化。"
+    },
+    {
+      "question": "如何查询最热门的帖子？",
+      "answer": "可以通过查询thread_history表中reply_count（回复数量）或read_count（阅读量）较高的记录来找到最热门的帖子。"
+    }
+  ]
+}

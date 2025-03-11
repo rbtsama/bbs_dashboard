@@ -181,4 +181,32 @@ export const deleteThreadFollow = async (threadId) => {
     console.error('取消关注失败:', error);
     throw error;
   }
+};
+
+// 导入车辆信息
+export const importCarInfo = async () => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/import-car-info`);
+    return response.data;
+  } catch (error) {
+    console.error('导入车辆信息失败:', error);
+    throw error;
+  }
+};
+
+// 获取车辆列表
+export const fetchCarList = async (page = 1, pageSize = 20, search = '') => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/car-info`, {
+      params: { 
+        page, 
+        pageSize,
+        search
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error('获取车辆列表失败:', error);
+    throw error;
+  }
 }; 
