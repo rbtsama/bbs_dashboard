@@ -1,0 +1,205 @@
+{
+  "test_time": "2025-03-20 01:24:16",
+  "total_tests": 30,
+  "passed_tests": 7,
+  "failed_tests": 3,
+  "warnings": 20,
+  "test_results": [
+    {
+      "test_name": "表存在性测试",
+      "status": "FAIL",
+      "message": "缺少以下表：post_action, post_statistic, update_statistic, view_statistic, thread_follow, author_history, car_detail, thread_history",
+      "details": null
+    },
+    {
+      "test_name": "字段完整性测试 - author_ranking",
+      "status": "FAIL",
+      "message": "表 author_ranking 缺少以下字段：url, title, created_at, updated_at, days_old",
+      "details": null
+    },
+    {
+      "test_name": "字段完整性测试 - post_ranking",
+      "status": "FAIL",
+      "message": "表 post_ranking 缺少以下字段：created_at, updated_at, days_old, read_count",
+      "details": null
+    },
+    {
+      "test_name": "数据一致性测试 - car_detail",
+      "status": "WARNING",
+      "message": "car_detail表不存在，跳过相关一致性检查",
+      "details": null
+    },
+    {
+      "test_name": "数据一致性测试 - author",
+      "status": "WARNING",
+      "message": "发现 59 个作者在post_ranking中存在但在author_ranking中不存在",
+      "details": {
+        "inconsistent_authors": [
+          "9496683279",
+          "帮主",
+          "DFGG",
+          "3635苹果用户_664d2a361b1ee",
+          "harveylzd"
+        ]
+      }
+    },
+    {
+      "test_name": "数值有效性测试 - post_ranking.days_old",
+      "status": "WARNING",
+      "message": "无法测试字段 post_ranking.days_old，可能不存在",
+      "details": null
+    },
+    {
+      "test_name": "数值有效性测试 - post_ranking.last_active",
+      "status": "PASS",
+      "message": "post_ranking.last_active 的所有值都有效",
+      "details": null
+    },
+    {
+      "test_name": "数值有效性测试 - author_ranking.days_old",
+      "status": "WARNING",
+      "message": "无法测试字段 author_ranking.days_old，可能不存在",
+      "details": null
+    },
+    {
+      "test_name": "数值有效性测试 - author_ranking.last_active",
+      "status": "PASS",
+      "message": "author_ranking.last_active 的所有值都有效",
+      "details": null
+    },
+    {
+      "test_name": "数值有效性测试 - post_ranking.read_count",
+      "status": "WARNING",
+      "message": "无法测试字段 post_ranking.read_count，可能不存在",
+      "details": null
+    },
+    {
+      "test_name": "数值有效性测试 - post_ranking.reply_count",
+      "status": "PASS",
+      "message": "post_ranking.reply_count 的所有值都有效",
+      "details": null
+    },
+    {
+      "test_name": "时间有效性测试 - post_history.action_time",
+      "status": "PASS",
+      "message": "post_history.action_time 的所有时间都有效",
+      "details": null
+    },
+    {
+      "test_name": "时间有效性测试 - author_history.action_time",
+      "status": "WARNING",
+      "message": "无法测试字段 author_history.action_time，可能不存在",
+      "details": null
+    },
+    {
+      "test_name": "时间有效性测试 - post_ranking.created_at",
+      "status": "WARNING",
+      "message": "无法测试字段 post_ranking.created_at，可能不存在",
+      "details": null
+    },
+    {
+      "test_name": "时间有效性测试 - post_ranking.updated_at",
+      "status": "WARNING",
+      "message": "无法测试字段 post_ranking.updated_at，可能不存在",
+      "details": null
+    },
+    {
+      "test_name": "数据完整性测试 - post_ranking.url",
+      "status": "PASS",
+      "message": "post_ranking.url 没有空值",
+      "details": null
+    },
+    {
+      "test_name": "数据完整性测试 - post_ranking.author",
+      "status": "PASS",
+      "message": "post_ranking.author 没有空值",
+      "details": null
+    },
+    {
+      "test_name": "数据完整性测试 - author_ranking.author",
+      "status": "PASS",
+      "message": "author_ranking.author 没有空值",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - posts",
+      "status": "WARNING",
+      "message": "表 posts 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - list",
+      "status": "WARNING",
+      "message": "表 list 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - detail",
+      "status": "WARNING",
+      "message": "表 detail 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - car_info",
+      "status": "WARNING",
+      "message": "表 car_info 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - post_history",
+      "status": "WARNING",
+      "message": "表 post_history 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - import",
+      "status": "WARNING",
+      "message": "表 import 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - author_ranking",
+      "status": "WARNING",
+      "message": "表 author_ranking 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - post_ranking",
+      "status": "WARNING",
+      "message": "表 post_ranking 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - wordcloud_cache",
+      "status": "WARNING",
+      "message": "表 wordcloud_cache 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - sqlite_sequence",
+      "status": "WARNING",
+      "message": "表 sqlite_sequence 没有索引",
+      "details": null
+    },
+    {
+      "test_name": "索引测试 - user_data",
+      "status": "WARNING",
+      "message": "表 user_data 缺少以下字段的索引：url, title, author, author_link, action_time, created_at, updated_at",
+      "details": {
+        "existing_indexes": [
+          "sqlite_autoindex_user_data_1"
+        ]
+      }
+    },
+    {
+      "test_name": "数据趋势测试 - 发帖量",
+      "status": "WARNING",
+      "message": "无法测试发帖量趋势，可能表或字段不存在",
+      "details": null
+    }
+  ],
+  "summary": {
+    "pass_rate": "23.33%",
+    "total_issues": 23
+  }
+}

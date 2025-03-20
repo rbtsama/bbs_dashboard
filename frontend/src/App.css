@@ -1,0 +1,309 @@
+/* 添加全局过渡效果 */
+.ant-btn, .ant-input, .ant-select, .ant-table-row, .ant-card {
+  transition: all 0.3s;
+}
+
+/* 固定菜单样式已在App.js中使用styled-components重写 */
+/* 删除旧的菜单相关样式 */
+
+/* 优化卡片效果 - 更简洁的设计 */
+.ant-card {
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.ant-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+/* 表格视觉优化 - 更清晰的设计 */
+.ant-table {
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.ant-table-thead > tr > th {
+  background: #fafafa !important;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.85);
+  transition: all 0.3s;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ant-table-thead > tr > th:hover {
+  background: #f0f0f0 !important;
+}
+
+/* 优化表格间距 */
+.ant-table-tbody > tr > td {
+  padding: 12px 16px;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+/* 表格行交替颜色 */
+.table-row-light {
+  background-color: #ffffff;
+}
+
+.table-row-dark {
+  background-color: #fafafa;
+}
+
+/* 表格行悬停效果优化 */
+.ant-table-tbody > tr:hover > td {
+  background-color: rgba(24, 144, 255, 0.05) !important;
+}
+
+/* 表格筛选和排序图标样式 */
+.ant-table-column-sorter {
+  color: rgba(0, 0, 0, 0.45);
+  transition: all 0.3s;
+}
+
+.ant-table-column-sorter:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.ant-table-filter-trigger {
+  color: rgba(0, 0, 0, 0.45);
+  transition: all 0.3s;
+}
+
+.ant-table-filter-trigger:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* 分页样式 - 更简洁 */
+.ant-pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.ant-pagination-item {
+  transition: all 0.3s;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  background: white;
+}
+
+.ant-pagination-item:hover {
+  border-color: #1677ff;
+  color: #1677ff;
+}
+
+.ant-pagination-item-active {
+  border-color: #1677ff;
+  background: #1677ff;
+}
+
+.ant-pagination-item-active a {
+  color: white !important;
+}
+
+.ant-pagination-options {
+  margin-left: 16px;
+}
+
+.ant-select-selector {
+  transition: all 0.3s;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: #1677ff;
+}
+
+/* 按钮视觉升级 - 更简洁 */
+.ant-btn {
+  transition: all 0.3s;
+  border-radius: 4px;
+  font-weight: 500;
+  height: 32px;
+  padding: 0 15px;
+}
+
+.ant-btn-primary {
+  background: #1677ff;
+  border: none;
+  box-shadow: 0 2px 4px rgba(24, 144, 255, 0.2);
+}
+
+.ant-btn-primary:hover {
+  background: #4096ff;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(24, 144, 255, 0.2);
+}
+
+.ant-btn-default:hover {
+  border-color: #1677ff;
+  color: #1677ff;
+}
+
+/* 输入框强化 */
+.ant-input, .ant-select-selector {
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.ant-input:hover, .ant-select-selector:hover {
+  border-color: #4096ff;
+}
+
+.ant-input:focus, .ant-input-focused, 
+.ant-select-focused .ant-select-selector {
+  border-color: #1677ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.15) !important;
+}
+
+/* 标签样式优化 */
+.ant-tag {
+  border-radius: 2px;
+  font-weight: 500;
+  padding: 1px 8px;
+  margin-right: 8px;
+  border: none;
+}
+
+/* 优化卡片样式 */
+.data-trend-card {
+  border-radius: 6px;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.data-trend-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.dashboard-header {
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #111827;
+  font-size: 24px;
+}
+
+.dashboard-header .ant-statistic {
+  margin-right: 32px;
+}
+
+/* 页面内容区域样式 */
+.page-content {
+  background: white;
+  padding: 24px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-top: 16px;
+}
+
+/* 优化分割线 */
+.ant-divider {
+  margin: 24px 0;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 列表项样式 */
+.ant-list-item {
+  transition: all 0.3s;
+  padding: 12px 16px;
+  border-radius: 4px;
+}
+
+.ant-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* 页脚样式 */
+.ant-layout-footer {
+  padding: 20px 50px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  background: white;
+}
+
+/* 搜索框增强效果 */
+.ant-input-affix-wrapper {
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.ant-input-affix-wrapper:hover {
+  border-color: #4096ff;
+}
+
+.ant-input-affix-wrapper-focused {
+  border-color: #1677ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.15) !important;
+}
+
+/* 选中行样式 */
+.ant-table-row-selected > td {
+  background-color: rgba(24, 144, 255, 0.05) !important;
+}
+
+/* 统计数字样式 */
+.ant-statistic-content-value {
+  font-weight: 600;
+  font-size: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 滚动条样式优化 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 字体大小和行高优化 */
+body {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+h1 { font-size: 24px; font-weight: 600; }
+h2 { font-size: 20px; font-weight: 600; }
+h3 { font-size: 18px; font-weight: 600; }
+h4 { font-size: 16px; font-weight: 500; }
+h5 { font-size: 14px; font-weight: 500; }
+
+.ant-table {
+  font-size: 14px;
+}
+
+.ant-form-item-label > label {
+  font-size: 14px;
+}
+
+.ant-card-head-title {
+  font-size: 16px;
+  font-weight: 600;
+} 

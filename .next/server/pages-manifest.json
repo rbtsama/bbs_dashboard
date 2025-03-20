@@ -1,0 +1,7 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/admin/db-update": "pages/admin/db-update.js",
+  "/api/db-update-manual": "pages/api/db-update-manual.js"
+}
